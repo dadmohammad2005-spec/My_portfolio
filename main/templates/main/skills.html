@@ -1,0 +1,225 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}My Skills | Dad Mohammad - Full Stack Developer{% endblock %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="hero-badge d-inline-flex mb-3">
+                <span class="badge-dot"></span>
+                <span>My Expertise</span>
+            </div>
+            <h1 class="display-4 fw-bold text-white mb-3">Technical <span class="text-primary">Skills</span></h1>
+            <p class="lead text-muted">Technologies and tools I work with daily</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="skill-card p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="skill-icon me-3">
+                            <i class="fas fa-laptop-code fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-white mb-0">Frontend Development</h3>
+                    </div>
+                    {% for skill in frontend_skills %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">{{ skill.name }}</span>
+                            <span class="text-primary">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">HTML5 & CSS3</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-primary" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Bootstrap 5</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-primary" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">JavaScript</span>
+                            <span class="text-primary">75%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-primary" style="width: 75%"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="skill-card p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="skill-icon me-3">
+                            <i class="fas fa-server fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-white mb-0">Backend Development</h3>
+                    </div>
+                    {% for skill in backend_skills %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">{{ skill.name }}</span>
+                            <span class="text-primary">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Python</span>
+                            <span class="text-primary">92%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-success" style="width: 92%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Django</span>
+                            <span class="text-primary">88%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-success" style="width: 88%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Django REST Framework</span>
+                            <span class="text-primary">80%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-success" style="width: 80%"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="skill-card p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="skill-icon me-3">
+                            <i class="fas fa-database fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-white mb-0">Database</h3>
+                    </div>
+                    {% for skill in database_skills %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">{{ skill.name }}</span>
+                            <span class="text-primary">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">PostgreSQL</span>
+                            <span class="text-primary">82%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-info" style="width: 82%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">SQLite</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-info" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">MySQL</span>
+                            <span class="text-primary">75%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-info" style="width: 75%"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="skill-card p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="skill-icon me-3">
+                            <i class="fas fa-tools fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-white mb-0">Tools & DevOps</h3>
+                    </div>
+                    {% for skill in tools_skills %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">{{ skill.name }}</span>
+                            <span class="text-primary">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Git & GitHub</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-warning" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">VS Code</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-warning" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-white">Docker</span>
+                            <span class="text-primary">65%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar bg-warning" style="width: 65%"></div></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tech Stack Tags -->
+        <div class="text-center mt-5 pt-4">
+            <h3 class="text-white mb-4">Tech Stack</h3>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                {% for skill in skills %}
+                <span class="tech-tag">
+                    <i class="fas fa-check-circle me-1"></i>{{ skill.name }}
+                </span>
+                {% empty %}
+                <span class="tech-tag"><i class="fab fa-python me-1"></i>Python</span>
+                <span class="tech-tag"><i class="fab fa-django me-1"></i>Django</span>
+                <span class="tech-tag"><i class="fab fa-html5 me-1"></i>HTML5</span>
+                <span class="tech-tag"><i class="fab fa-css3-alt me-1"></i>CSS3</span>
+                <span class="tech-tag"><i class="fab fa-js me-1"></i>JavaScript</span>
+                <span class="tech-tag"><i class="fab fa-bootstrap me-1"></i>Bootstrap</span>
+                <span class="tech-tag"><i class="fab fa-git-alt me-1"></i>Git</span>
+                <span class="tech-tag"><i class="fas fa-database me-1"></i>PostgreSQL</span>
+                <span class="tech-tag"><i class="fab fa-docker me-1"></i>Docker</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="/contact/" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket me-2"></i>Let's Work Together
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

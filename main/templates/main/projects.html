@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}My Projects | Dad Mohammad - Portfolio{% endblock %}
+
+{% block content %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="hero-badge d-inline-flex mb-3">
+                <span class="badge-dot"></span>
+                <span>My Portfolio</span>
+            </div>
+            <h1 class="display-4 fw-bold text-white mb-3">Featured <span class="text-primary">Projects</span></h1>
+            <p class="lead text-muted">Here are some of my recent works and side projects</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card">
+                    {% if project.image %}
+                    <div class="position-relative overflow-hidden" style="height: 220px;">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    {% else %}
+                    <div class="project-image-placeholder d-flex align-items-center justify-content-center" style="height: 220px; background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                        <i class="fas fa-code fa-4x text-primary"></i>
+                    </div>
+                    {% endif %}
+                    <div class="project-content p-4">
+                        <div class="project-tech mb-2">
+                            {% for tech in project.technologies.split|slice:":2" %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <h4 class="project-title text-white mb-2">{{ project.title }}</h4>
+                        <p class="project-desc text-muted">{{ project.description|truncatewords:20 }}</p>
+                        <div class="d-flex gap-2 mt-3">
+                            {% if project.github_link %}
+                            <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light btn-sm">
+                                <i class="fab fa-github me-1"></i>Code
+                            </a>
+                            {% endif %}
+                            {% if project.live_link %}
+                            <a href="{{ project.live_link }}" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <div class="alert alert-info" style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
+                    <i class="fas fa-info-circle me-2"></i>
+                    No projects yet. Add them from the admin panel.
+                </div>
+                <a href="/admin" class="btn btn-primary mt-3">
+                    <i class="fas fa-cog me-2"></i>Go to Admin Panel
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
