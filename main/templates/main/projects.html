@@ -12,7 +12,7 @@
                 <span>My Portfolio</span>
             </div>
             <h1 class="display-4 fw-bold text-white mb-3">Featured <span class="text-primary">Projects</span></h1>
-            <p class="lead text-muted">Here are some of my recent works and side projects</p>
+            <p class="lead text-white">Here are some of my recent works and side projects</p>
         </div>
         
         <div class="row g-4">
@@ -35,7 +35,7 @@
                             {% endfor %}
                         </div>
                         <h4 class="project-title text-white mb-2">{{ project.title }}</h4>
-                        <p class="project-desc text-muted">{{ project.description|truncatewords:20 }}</p>
+                        <p class="project-desc text-white">{{ project.description|truncatewords:20 }}</p>
                         <div class="d-flex gap-2 mt-3">
                             {% if project.github_link %}
                             <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light btn-sm">

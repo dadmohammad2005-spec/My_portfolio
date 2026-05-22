@@ -12,6 +12,9 @@ class About(models.Model):
     github = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
     cv_file = models.FileField(upload_to='cv/', blank=True, null=True)
+
+    subject = models.CharField(max_length=200, blank=True, null=True)
+
     
     def __str__(self):
         return self.name

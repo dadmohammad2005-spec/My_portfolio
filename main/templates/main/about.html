@@ -28,34 +28,39 @@
                 <h1 class="display-4 fw-bold text-white mb-3">
                     About <span class="text-primary">Me</span>
                 </h1>
-                <h3 class="text-primary mb-4">{{ about.title|default:"Full Stack Django Developer" }}</h3>
-                <p class="lead text-muted mb-4">
-                    {{ about.bio|default:"I'm a passionate Full Stack Developer from Pakistan specializing in Django and Python. I build clean, fast, and scalable web applications." }}
-                </p>
+
+                <h2 class="lead text-white">
+                            {{ about.bio|default:"Passionate Python Django Developer skilled in HTML, CSS, Bootstrap, JavaScript, and Database Management, focused on building modern, responsive, and user-friendly web applications.." }}
+                </h2>
+                
+                <h3 class="text-white">I am a passionate Full Stack Web Developer with expertise in 
+                        building modern, responsive web applications. I specialize in 
+                        Python, Django, and React, transforming ideas into powerful 
+                        digital experiences.</h3>
                 
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="info-item mb-3">
                             <i class="fas fa-user text-primary me-2"></i>
                             <strong class="text-white">Name:</strong>
-                            <span class="text-muted">{{ about.name|default:"Dad Mohammad" }}</span>
+                            <span class="text-white">{{ about.name|default:"Dad Mohammad" }}</span>
                         </div>
                         <div class="info-item mb-3">
                             <i class="fas fa-envelope text-primary me-2"></i>
                             <strong class="text-white">Email:</strong>
-                            <span class="text-muted">{{ about.email|default:"dadmohammad2005@gmail.com" }}</span>
+                            <span class="text-white">{{ about.email|default:"dadmohammad2005@gmail.com" }}</span>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info-item mb-3">
                             <i class="fas fa-map-marker-alt text-primary me-2"></i>
                             <strong class="text-white">Location:</strong>
-                            <span class="text-muted">{{ about.location|default:"Quetta" }}</span>
+                            <span class="text-white">{{ about.location|default:"Quetta" }}</span>
                         </div>
                         <div class="info-item mb-3">
                             <i class="fas fa-phone text-primary me-2"></i>
                             <strong class="text-white">Phone:</strong>
-                            <span class="text-muted">{{ about.phone|default:"+92 3108778900" }}</span>
+                            <span class="text-white">{{ about.phone|default:"+92 3108778900" }}</span>
                         </div>
                     </div>
                 </div>
