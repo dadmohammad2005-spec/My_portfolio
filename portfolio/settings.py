@@ -129,7 +129,11 @@ SECRET_KEY = 'django-insecure-g))bgc#mui0q)214$vdo8+rc+2jl5nn_8=&eaz52n#^^f8iq33
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '.vercel.app',]
+ALLOWED_HOSTS = ['*',  
+
+    'localhost',
+    '127.0.0.1',
+    '.vercel.app',]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -146,6 +150,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ← yeh second line pe hona chahiye
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
