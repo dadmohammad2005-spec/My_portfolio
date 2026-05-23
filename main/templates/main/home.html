@@ -4,23 +4,26 @@
 {% block title %}Home | Dad Mohammad - Full Stack Developer{% endblock %}
 
 {% block content %}
+
 <!-- Hero Section -->
 <section class="hero-section d-flex align-items-center">
     <div class="container">
         <div class="row align-items-center min-vh-100">
+
+            <!-- LEFT: Text -->
             <div class="col-lg-7">
                 <div class="hero-badge mb-3">
                     <span class="badge-dot"></span>
                     <span>Available for Work</span>
                 </div>
                 <h1 class="display-4 fw-bold text-white mb-3">
-                    Hi, I'm <span class="text-primary">{{ about.name|default:"Dad Mohammad" }}</span>
+                    Hi, I'm <span class="gradient-text">{{ about.name|default:"Dad Mohammad" }}</span>
                 </h1>
-                <h2 class="text-white ">{{ about.title|default:"Full Stack Django Developer" }}</h2>
-                <p class="lead text-white">
+                <h2 class="text-white mb-3">{{ about.title|default:"Full Stack Django Developer" }}</h2>
+                <p class="lead hero-lead">
                     {{ about.bio|default:"I build professional, scalable web applications with Django. Clean code, modern design, and reliable performance." }}
                 </p>
-                <div class="d-flex gap-3 flex-wrap">
+                <div class="d-flex gap-3 flex-wrap mb-4">
                     <a href="/contact/" class="btn btn-primary btn-lg">
                         <i class="fas fa-envelope me-2"></i>Hire Me
                     </a>
@@ -33,61 +36,122 @@
                     </a>
                     {% endif %}
                 </div>
-                
-                <div class="hero-social mt-4">
+                <div class="hero-social">
                     {% if about.github %}
                     <a href="{{ about.github }}" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                     {% endif %}
                     {% if about.linkedin %}
                     <a href="{{ about.linkedin }}" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     {% endif %}
-                    <!-- Use regular twitter icon if X doesn't work -->
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                <div class="profile-wrapper mx-auto">
-                    <div class="profile-ring"></div>
-                    <div class="profile-ring-2"></div>
-                    {% if about.profile_image %}
-                    <img src="{{ about.profile_image.url }}" alt="{{ about.name }}" class="profile-img">
-                    {% else %}
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user fa-6x text-primary"></i>
+
+            <!-- RIGHT: Orbit Circle -->
+            <div class="col-lg-5 text-center mt-5 mt-lg-0 orbit-col">
+                <div class="orbit-container">
+
+                    <!-- Rings -->
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-1"></div>
+
+                    <!-- Glow -->
+                    <div class="glow-pulse"></div>
+
+                    <!-- Profile Photo -->
+                    <div class="profile-img-circle">
+                        <img src="{% static 'images/babupic.jpg' %}" alt="Dad Mohammad">
                     </div>
-                    {% endif %}
+
+                    <!-- Rotating Icons -->
+                    <div class="orbit-track">
+
+                        <!-- HTML5 -->
+                        <div class="tech-icon icon-1">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 0l2.4 27L16 30l9.6-3L28 0z" fill="#E44D26"/>
+                                <path d="M16 27.4l7.8-2.2 2-22.2H16z" fill="#F16529"/>
+                                <path d="M16 13.5h-4.1l-.3-3.5H16V6.5H8l.1 1.3.8 8.7H16zM16 20.9l-.1.1-3.3-.9-.2-2.4H9l.4 4.7 6.6 1.8h.1z" fill="#EBEBEB"/>
+                                <path d="M16 13.5v3.5h3.8l-.4 4.1-3.4.9v3.4l6.6-1.8.1-.5.7-8.1.1-1.5zm0-7v3.5h7.5l.1-.6.2-2.9z" fill="#fff"/>
+                            </svg>
+                        </div>
+
+                        <!-- CSS3 -->
+                        <div class="tech-icon icon-2">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 0l2.4 27L16 30l9.6-3L28 0z" fill="#1572B6"/>
+                                <path d="M16 27.4l7.8-2.2 2-22.2H16z" fill="#33A9DC"/>
+                                <path d="M16 13.5h-4l-.3-3.5H16V6.5H8l.1 1.3.8 8.7H16zM16 20.9l-.1.1-3.3-.9-.2-2.4H9l.4 4.7 6.6 1.8h.1z" fill="#EBEBEB"/>
+                                <path d="M16 13.5v3.5h3.7l-.3 4.1-3.4.9v3.4l6.6-1.8.1-.5.7-8.1.1-1.5zm0-7v3.5h7.4l.2-2.9.1-.6z" fill="#fff"/>
+                            </svg>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="tech-icon icon-3">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" fill="#F7DF1E" rx="3"/>
+                                <path d="M9.7 24.7l2.2-1.3c.4.7.8 1.3 1.7 1.3.9 0 1.4-.4 1.4-1.7V14h2.7v9c0 2.8-1.6 4.1-4 4.1-2.1 0-3.3-1.1-3.9-2.4zM19.5 24.4l2.2-1.3c.6 1 1.3 1.7 2.7 1.7 1.1 0 1.8-.6 1.8-1.3 0-.9-.7-1.2-1.9-1.8l-.7-.3c-1.9-.8-3.1-1.8-3.1-3.9 0-1.9 1.5-3.4 3.7-3.4 1.6 0 2.8.6 3.6 2l-2 1.4c-.4-.8-1-1.1-1.6-1.1-.7 0-1.2.5-1.2 1.1 0 .7.4 1 1.5 1.5l.7.3c2.2 1 3.4 2 3.4 4.1 0 2.3-1.8 3.6-4.2 3.6-2.4 0-3.9-1.1-4.6-2.6z" fill="#323330"/>
+                            </svg>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="tech-icon icon-4">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.9 2c-4.4 0-4.1 1.9-4.1 1.9v2h4.2v.6H9.7S7 6.2 7 10.7s2.4 4.3 2.4 4.3h1.4v-2.1s-.1-2.4 2.3-2.4h4s2.2.1 2.2-2.1V4.1S19.7 2 15.9 2zm-2.3 1.3c.4 0 .8.3.8.8s-.3.8-.8.8-.8-.3-.8-.8.4-.8.8-.8z" fill="#3776AB"/>
+                                <path d="M16.1 30c4.4 0 4.1-1.9 4.1-1.9v-2h-4.2v-.6h6.3s2.7.3 2.7-4.2-2.4-4.3-2.4-4.3h-1.4v2.1s.1 2.4-2.3 2.4h-4s-2.2-.1-2.2 2.1v3.4S12.3 30 16.1 30zm2.3-1.3c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8z" fill="#FFD43B"/>
+                            </svg>
+                        </div>
+
+                        <!-- Django -->
+                        <div class="tech-icon icon-5">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" fill="#092E20" rx="3"/>
+                                <path d="M17.5 5h3.2v15.4c-1.6.3-2.8.4-4.1.4-3.9 0-5.9-1.8-5.9-5.2 0-3.3 2.2-5.4 5.5-5.4.5 0 .9 0 1.3.1V5zm0 8.2c-.4-.1-.7-.1-1-.1-1.6 0-2.5 1-2.5 2.7 0 1.7.9 2.6 2.5 2.6.3 0 .6 0 1-.1v-5.1zM11 10.3h3.2v11.2c0 2.8-.2 4.1-.8 5.3-.6 1.1-1.4 1.8-3 2.5l-3-.9c1.6-.7 2.4-1.4 2.8-2.4.5-1 .6-2.2.6-5.5V10.3h.2z" fill="#44B78B"/>
+                            </svg>
+                        </div>
+
+                        <!-- Git -->
+                        <div class="tech-icon icon-6">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M29.5 14.4L17.6 2.5a1.8 1.8 0 00-2.5 0l-2.5 2.5 3.1 3.1a2.1 2.1 0 012.7 2.7l3 3a2.1 2.1 0 012.7 2.7 2.1 2.1 0 11-3.4.6l-2.8-2.8v7.4a2.1 2.1 0 11-1.7-.1V13.9a2.1 2.1 0 01-1.1-2.7L11.8 8 2.5 17.3a1.8 1.8 0 000 2.5l11.9 11.9a1.8 1.8 0 002.5 0l12.6-12.6a1.8 1.8 0 000-2.7z" fill="#F05032"/>
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+            <!-- END ORBIT -->
+
         </div>
     </div>
 </section>
 
-<!-- Stats Section - Fixed -->
+<!-- Stats Section -->
 <section class="stats-section">
     <div class="container">
         <div class="row text-center g-4">
             <div class="col-md-3 col-6">
                 <div class="stat-card">
-                    <div class="stat-number" id="stat1">0</div>
+                    <div class="stat-number" data-target="20">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-card">
-                    <div class="stat-number" id="stat2">0</div>
+                    <div class="stat-number" data-target="3">0</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-card">
-                    <div class="stat-number" id="stat3">0</div>
+                    <div class="stat-number" data-target="15">0</div>
                     <div class="stat-label">Happy Clients</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-card">
-                    <div class="stat-number" id="stat4">0</div>
+                    <div class="stat-number" data-target="10">0</div>
                     <div class="stat-label">Technologies</div>
                 </div>
             </div>
@@ -99,20 +163,20 @@
 <section class="projects-section py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">Featured <span class="text-primary">Projects</span></h2>
+            <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
             <p class="text-muted">Check out some of my recent work</p>
         </div>
-        
+
         <div class="row g-4">
             {% for project in projects %}
             <div class="col-md-6 col-lg-4">
-                <div class="project-card">
+                <div class="project-card h-100">
                     {% if project.image %}
-                    <div style="height: 200px; overflow: hidden;">
-                        <img src="{{ project.image.url }}" alt="{{ project.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="project-thumb">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
                     </div>
                     {% else %}
-                    <div style="height: 200px; background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+                    <div class="project-thumb project-thumb-placeholder">
                         <i class="fas fa-code fa-3x text-primary"></i>
                     </div>
                     {% endif %}
@@ -120,7 +184,7 @@
                         <h5 class="text-white mb-2">{{ project.title }}</h5>
                         <p class="text-muted small">{{ project.description|truncatewords:15 }}</p>
                         <div class="project-tech mb-3">
-                            {% for tech in project.technologies.split|slice:":2" %}
+                            {% for tech in project.technologies.split|slice:":3" %}
                             <span class="tech-tag">{{ tech }}</span>
                             {% endfor %}
                         </div>
@@ -145,7 +209,7 @@
             </div>
             {% endfor %}
         </div>
-        
+
         <div class="text-center mt-5">
             <a href="/projects/" class="btn btn-outline-primary btn-lg">
                 View All Projects <i class="fas fa-arrow-right ms-2"></i>
@@ -153,4 +217,42 @@
         </div>
     </div>
 </section>
+
+<!-- Counter Animation Script -->
+<script>
+(function(){
+    function animateCounters(){
+        document.querySelectorAll('.stat-number[data-target]').forEach(function(el){
+            var target = parseInt(el.getAttribute('data-target'));
+            var duration = 1800;
+            var step = target / (duration / 16);
+            var current = 0;
+            var timer = setInterval(function(){
+                current += step;
+                if(current >= target){
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(current) + '+';
+            }, 16);
+        });
+    }
+
+    var statsSection = document.querySelector('.stats-section');
+    if(statsSection && 'IntersectionObserver' in window){
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    animateCounters();
+                    obs.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        obs.observe(statsSection);
+    } else {
+        animateCounters();
+    }
+})();
+</script>
+
 {% endblock %}

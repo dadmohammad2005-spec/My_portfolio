@@ -4,68 +4,271 @@
 {% block title %}About Me | Dad Mohammad - Full Stack Developer{% endblock %}
 
 {% block content %}
+
+<style>
+/* ===== ABOUT ORBIT CIRCLE ===== */
+.about-orbit-container {
+    position: relative;
+    width: 460px;
+    height: 460px;
+    margin: 0 auto;
+}
+
+.about-profile-img {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 290px; height: 290px;
+    margin-top: -145px; margin-left: -145px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 4px solid #7c3aed;
+    box-shadow: 0 0 0 8px rgba(124,58,237,0.15), 0 20px 60px rgba(124,58,237,0.3);
+    z-index: 10;
+    display: block;
+}
+
+.about-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px dashed;
+    top: 50%; left: 50%;
+}
+.about-ring-1 {
+    width: 350px; height: 350px;
+    border-color: rgba(124,58,237,0.4);
+    margin-top: -175px; margin-left: -175px;
+    animation: aRingCW 14s linear infinite;
+}
+.about-ring-2 {
+    width: 450px; height: 450px;
+    border-color: rgba(56,189,248,0.22);
+    margin-top: -225px; margin-left: -225px;
+    animation: aRingCCW 22s linear infinite;
+}
+@keyframes aRingCW  { from{transform:rotate(0deg);}   to{transform:rotate(360deg);} }
+@keyframes aRingCCW { from{transform:rotate(0deg);}   to{transform:rotate(-360deg);} }
+
+.about-glow {
+    position: absolute;
+    width: 290px; height: 290px;
+    border-radius: 50%;
+    border: 2px solid rgba(124,58,237,0.55);
+    z-index: 5;
+    top: 50%; left: 50%;
+    margin-top: -145px; margin-left: -145px;
+    animation: aboutGlow 2.5s ease-in-out infinite;
+}
+@keyframes aboutGlow {
+    0%,100%{ transform:scale(1);    opacity:0.6; }
+    50%    { transform:scale(1.08); opacity:0.12; }
+}
+
+.about-orbit-track {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    margin-top: -200px; margin-left: -200px;
+    animation: aOrbitCW 11s linear infinite;
+    z-index: 20;
+}
+@keyframes aOrbitCW { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+.about-tech-icon {
+    position: absolute;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(15,12,26,0.92);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    overflow: hidden;
+    animation: aOrbitCCW 11s linear infinite;
+}
+.about-tech-icon svg { width: 34px; height: 34px; display: block; }
+@keyframes aOrbitCCW {
+    from{ transform:translate(-50%,-50%) rotate(0deg); }
+    to  { transform:translate(-50%,-50%) rotate(-360deg); }
+}
+
+.a-icon-1 { top: -29px; left: 171px; }
+.a-icon-2 { top:  71px; left: 323px; }
+.a-icon-3 { top: 246px; left: 323px; }
+.a-icon-4 { top: 371px; left: 171px; }
+.a-icon-5 { top: 246px; left: -29px; }
+.a-icon-6 { top:  71px; left: -29px; }
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(124,58,237,0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(124,58,237,0.15);
+    transition: all 0.3s ease;
+}
+.info-item:hover {
+    background: rgba(124,58,237,0.18);
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .about-orbit-container { width: 300px; height: 300px; margin-bottom: 40px; }
+    .about-profile-img { width: 185px; height: 185px; margin-top: -92px; margin-left: -92px; }
+    .about-glow { width: 185px; height: 185px; margin-top: -92px; margin-left: -92px; }
+    .about-ring-1 { width: 230px; height: 230px; margin-top: -115px; margin-left: -115px; }
+    .about-ring-2 { width: 295px; height: 295px; margin-top: -147px; margin-left: -147px; }
+    .about-orbit-track { width: 268px; height: 268px; margin-top: -134px; margin-left: -134px; }
+    .about-tech-icon { width: 42px; height: 42px; }
+    .about-tech-icon svg { width: 24px; height: 24px; }
+    .a-icon-1 { top: -21px; left: 113px; }
+    .a-icon-2 { top:  46px; left: 226px; }
+    .a-icon-3 { top: 163px; left: 226px; }
+    .a-icon-4 { top: 247px; left: 113px; }
+    .a-icon-5 { top: 163px; left: -21px; }
+    .a-icon-6 { top:  46px; left: -21px; }
+}
+</style>
+
 <section class="py-5 mt-5">
     <div class="container">
         <div class="row align-items-center min-vh-100">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="profile-wrapper mx-auto" style="width: 400px; height: 400px;">
-                    <div class="profile-ring"></div>
-                    <div class="profile-ring-2"></div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 d-flex justify-content-center">
+                <div class="about-orbit-container">
+
+                    <div class="about-ring about-ring-2"></div>
+                    <div class="about-ring about-ring-1"></div>
+                    <div class="about-glow"></div>
+
                     {% if about.profile_image %}
-                    <img src="{{ about.profile_image.url }}" alt="{{ about.name }}" class="profile-img">
+                        <img src="{{ about.profile_image.url }}" alt="{{ about.name }}" class="about-profile-img">
                     {% else %}
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user fa-6x text-primary"></i>
-                    </div>
+                        <img src="{% static 'images/babupic.jpg' %}" alt="Dad Mohammad" class="about-profile-img">
                     {% endif %}
+
+                    <div class="about-orbit-track">
+
+                        <!-- HTML5 -->
+                        <div class="about-tech-icon a-icon-1">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 0l2.4 27L16 30l9.6-3L28 0z" fill="#E44D26"/>
+                                <path d="M16 27.4l7.8-2.2 2-22.2H16z" fill="#F16529"/>
+                                <path d="M16 13.5h-4.1l-.3-3.5H16V6.5H8l.1 1.3.8 8.7H16zM16 20.9l-.1.1-3.3-.9-.2-2.4H9l.4 4.7 6.6 1.8h.1z" fill="#EBEBEB"/>
+                                <path d="M16 13.5v3.5h3.8l-.4 4.1-3.4.9v3.4l6.6-1.8.1-.5.7-8.1.1-1.5zm0-7v3.5h7.5l.1-.6.2-2.9z" fill="#fff"/>
+                            </svg>
+                        </div>
+
+                        <!-- CSS3 -->
+                        <div class="about-tech-icon a-icon-2">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 0l2.4 27L16 30l9.6-3L28 0z" fill="#1572B6"/>
+                                <path d="M16 27.4l7.8-2.2 2-22.2H16z" fill="#33A9DC"/>
+                                <path d="M16 13.5h-4l-.3-3.5H16V6.5H8l.1 1.3.8 8.7H16zM16 20.9l-.1.1-3.3-.9-.2-2.4H9l.4 4.7 6.6 1.8h.1z" fill="#EBEBEB"/>
+                                <path d="M16 13.5v3.5h3.7l-.3 4.1-3.4.9v3.4l6.6-1.8.1-.5.7-8.1.1-1.5zm0-7v3.5h7.4l.2-2.9.1-.6z" fill="#fff"/>
+                            </svg>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="about-tech-icon a-icon-3">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" fill="#F7DF1E" rx="3"/>
+                                <path d="M9.7 24.7l2.2-1.3c.4.7.8 1.3 1.7 1.3.9 0 1.4-.4 1.4-1.7V14h2.7v9c0 2.8-1.6 4.1-4 4.1-2.1 0-3.3-1.1-3.9-2.4zM19.5 24.4l2.2-1.3c.6 1 1.3 1.7 2.7 1.7 1.1 0 1.8-.6 1.8-1.3 0-.9-.7-1.2-1.9-1.8l-.7-.3c-1.9-.8-3.1-1.8-3.1-3.9 0-1.9 1.5-3.4 3.7-3.4 1.6 0 2.8.6 3.6 2l-2 1.4c-.4-.8-1-1.1-1.6-1.1-.7 0-1.2.5-1.2 1.1 0 .7.4 1 1.5 1.5l.7.3c2.2 1 3.4 2 3.4 4.1 0 2.3-1.8 3.6-4.2 3.6-2.4 0-3.9-1.1-4.6-2.6z" fill="#323330"/>
+                            </svg>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="about-tech-icon a-icon-4">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.9 2c-4.4 0-4.1 1.9-4.1 1.9v2h4.2v.6H9.7S7 6.2 7 10.7s2.4 4.3 2.4 4.3h1.4v-2.1s-.1-2.4 2.3-2.4h4s2.2.1 2.2-2.1V4.1S19.7 2 15.9 2zm-2.3 1.3c.4 0 .8.3.8.8s-.3.8-.8.8-.8-.3-.8-.8.4-.8.8-.8z" fill="#3776AB"/>
+                                <path d="M16.1 30c4.4 0 4.1-1.9 4.1-1.9v-2h-4.2v-.6h6.3s2.7.3 2.7-4.2-2.4-4.3-2.4-4.3h-1.4v2.1s.1 2.4-2.3 2.4h-4s-2.2-.1-2.2 2.1v3.4S12.3 30 16.1 30zm2.3-1.3c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8z" fill="#FFD43B"/>
+                            </svg>
+                        </div>
+
+                        <!-- Django -->
+                        <div class="about-tech-icon a-icon-5">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="32" fill="#092E20" rx="3"/>
+                                <path d="M17.5 5h3.2v15.4c-1.6.3-2.8.4-4.1.4-3.9 0-5.9-1.8-5.9-5.2 0-3.3 2.2-5.4 5.5-5.4.5 0 .9 0 1.3.1V5zm0 8.2c-.4-.1-.7-.1-1-.1-1.6 0-2.5 1-2.5 2.7 0 1.7.9 2.6 2.5 2.6.3 0 .6 0 1-.1v-5.1zM11 10.3h3.2v11.2c0 2.8-.2 4.1-.8 5.3-.6 1.1-1.4 1.8-3 2.5l-3-.9c1.6-.7 2.4-1.4 2.8-2.4.5-1 .6-2.2.6-5.5V10.3h.2z" fill="#44B78B"/>
+                            </svg>
+                        </div>
+
+                        <!-- Git -->
+                        <div class="about-tech-icon a-icon-6">
+                            <svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M29.5 14.4L17.6 2.5a1.8 1.8 0 00-2.5 0l-2.5 2.5 3.1 3.1a2.1 2.1 0 012.7 2.7l3 3a2.1 2.1 0 012.7 2.7 2.1 2.1 0 11-3.4.6l-2.8-2.8v7.4a2.1 2.1 0 11-1.7-.1V13.9a2.1 2.1 0 01-1.1-2.7L11.8 8 2.5 17.3a1.8 1.8 0 000 2.5l11.9 11.9a1.8 1.8 0 002.5 0l12.6-12.6a1.8 1.8 0 000-2.7z" fill="#F05032"/>
+                            </svg>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
+            <!-- Info Column -->
             <div class="col-lg-6">
                 <div class="hero-badge mb-3">
                     <span class="badge-dot"></span>
                     <span>Who I Am</span>
                 </div>
+
                 <h1 class="display-4 fw-bold text-white mb-3">
                     About <span class="text-primary">Me</span>
                 </h1>
 
-                <h2 class="lead text-white">
-                            {{ about.bio|default:"Passionate Python Django Developer skilled in HTML, CSS, Bootstrap, JavaScript, and Database Management, focused on building modern, responsive, and user-friendly web applications.." }}
-                </h2>
-                
-                <h3 class="text-white">I am a passionate Full Stack Web Developer with expertise in 
-                        building modern, responsive web applications. I specialize in 
-                        Python, Django, and React, transforming ideas into powerful 
-                        digital experiences.</h3>
-                
-                <div class="row mb-4">
+                <p class="lead text-white mb-3">
+                    {{ about.bio|default:"Passionate Python Django Developer skilled in HTML, CSS, Bootstrap, JavaScript, and Database Management, focused on building modern, responsive, and user-friendly web applications." }}
+                </p>
+
+                <p class="mb-4" style="color:#b0b0b0; line-height:1.8;">
+                    I am a passionate Full Stack Web Developer with expertise in building modern,
+                    responsive web applications. I specialize in Python, Django, and JavaScript,
+                    transforming ideas into powerful digital experiences.
+                </p>
+
+                <div class="row mb-4 g-3">
                     <div class="col-md-6">
-                        <div class="info-item mb-3">
-                            <i class="fas fa-user text-primary me-2"></i>
-                            <strong class="text-white">Name:</strong>
-                            <span class="text-white">{{ about.name|default:"Dad Mohammad" }}</span>
-                        </div>
-                        <div class="info-item mb-3">
-                            <i class="fas fa-envelope text-primary me-2"></i>
-                            <strong class="text-white">Email:</strong>
-                            <span class="text-white">{{ about.email|default:"dadmohammad2005@gmail.com" }}</span>
+                        <div class="info-item">
+                            <i class="fas fa-user text-primary fa-lg"></i>
+                            <div>
+                                <small style="color:#a78bfa;">Name</small>
+                                <div class="text-white fw-semibold">{{ about.name|default:"Dad Mohammad" }}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="info-item mb-3">
-                            <i class="fas fa-map-marker-alt text-primary me-2"></i>
-                            <strong class="text-white">Location:</strong>
-                            <span class="text-white">{{ about.location|default:"Quetta" }}</span>
+                        <div class="info-item">
+                            <i class="fas fa-envelope text-primary fa-lg"></i>
+                            <div>
+                                <small style="color:#a78bfa;">Email</small>
+                                <div class="text-white fw-semibold" style="font-size:0.82rem;">{{ about.email|default:"dadmohammad2005@gmail.com" }}</div>
+                            </div>
                         </div>
-                        <div class="info-item mb-3">
-                            <i class="fas fa-phone text-primary me-2"></i>
-                            <strong class="text-white">Phone:</strong>
-                            <span class="text-white">{{ about.phone|default:"+92 3108778900" }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt text-primary fa-lg"></i>
+                            <div>
+                                <small style="color:#a78bfa;">Location</small>
+                                <div class="text-white fw-semibold">{{ about.location|default:"Quetta, Pakistan" }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-item">
+                            <i class="fas fa-phone text-primary fa-lg"></i>
+                            <div>
+                                <small style="color:#a78bfa;">Phone</small>
+                                <div class="text-white fw-semibold">{{ about.phone|default:"+92 3108778900" }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="d-flex gap-3">
+
+                <div class="d-flex gap-3 flex-wrap mb-4">
                     <a href="/contact/" class="btn btn-primary btn-lg">
                         <i class="fas fa-comment me-2"></i>Get In Touch
                     </a>
@@ -75,8 +278,8 @@
                     </a>
                     {% endif %}
                 </div>
-                
-                <div class="hero-social mt-4">
+
+                <div class="hero-social">
                     {% if about.github %}
                     <a href="{{ about.github }}" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                     {% endif %}
@@ -87,7 +290,9 @@
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
 {% endblock %}
