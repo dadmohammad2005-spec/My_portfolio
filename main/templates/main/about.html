@@ -148,7 +148,7 @@
                     {% if about.profile_image %}
                         <img src="{{ about.profile_image.url }}" alt="{{ about.name }}" class="about-profile-img">
                     {% else %}
-                        <img src="{% static 'images/babupic.jpg' %}" alt="Dad Mohammad" class="about-profile-img">
+                        <img src="{% static 'babupic.jpg' %}" alt="Dad Mohammad" class="about-profile-img">
                     {% endif %}
 
                     <div class="about-orbit-track">
@@ -262,7 +262,7 @@
                             <i class="fas fa-phone text-primary fa-lg"></i>
                             <div>
                                 <small style="color:#a78bfa;">Phone</small>
-                                <div class="text-white fw-semibold">{{ about.phone|default:"+92 3108778900" }}</div>
+                                <div class="text-white fw-semibold">{{ about.phone|default:"+923108778900" }}</div>
                             </div>
                         </div>
                     </div>
@@ -273,7 +273,7 @@
                         <i class="fas fa-comment me-2"></i>Get In Touch
                     </a>
                     {% if about.cv_file %}
-                    <a href="{{ about.cv_file.url }}" class="btn btn-success btn-lg" download>
+                    <a href="{% static 'images/Dad_Mohammad_CV (2)_page-0001.jpg' %}" class="btn btn-success btn-lg" download>
                         <i class="fas fa-download me-2"></i>Download CV
                     </a>
                     {% endif %}
