@@ -58,22 +58,3 @@ def contact(request):
         'about': About.objects.first(),
     }
     return render(request, 'main/contact.html', context)
-
-
-
-# def contact(request):
-#     if request.method == 'POST':
-#         first_name = request.POST.get('first_name', '').strip()
-#         last_name  = request.POST.get('last_name', '').strip()
-#         email      = request.POST.get('email', '').strip()
-#         subject    = request.POST.get('subject', '').strip()
-#         message    = request.POST.get('message', '').strip()
-
-#         if not all([first_name, last_name, email, subject, message]):
-#             messages.error(request, 'Please fill in all required fields.')
-#         else:
-#             # ✅ Save to DB or send email here
-#             messages.success(request, f'Thanks {first_name}! Your message has been sent successfully.')
-#             return redirect('contact')
-
-#     return render(request, 'main/contact.html')
