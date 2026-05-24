@@ -151,6 +151,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # ← yeh second line pe hona chahiye
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ sirf yahan
 
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
