@@ -1,11 +1,9 @@
+{% load static %}
 <header class="site-header">
   <div class="container nav-container">
     <!-- Brand Logo -->
-    <a href="{% url 'core:home' %}" class="nav-logo" aria-label="Home">
-      <div class="nav-logo-mark">
-        <span>{{ site_settings.name|slice:":1"|default:"D" }}</span>
-      </div>
-      <span>{{ site_settings.name|default:"Dad Mohammad" }}<span class="nav-logo-dot">.</span></span>
+    <a href="{% url 'core:home' %}" class="nav-logo" aria-label="{{ site_settings.name|default:'Dad Mohammad' }} — Home">
+      <img src="{% static 'img/logo.png' %}" alt="{{ site_settings.name|default:'Dad Mohammad' }} — Software Engineer Logo" class="nav-logo-img">
     </a>
 
     <!-- Desktop Navigation Menu -->
