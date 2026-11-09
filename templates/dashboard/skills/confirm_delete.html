@@ -1,0 +1,28 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Delete Skill: {{ skill.name }}{% endblock %}
+{% block breadcrumb %}<a href="{% url 'dashboard:skills_list' %}">Skills</a> / <span>Delete</span>{% endblock %}
+
+{% block content %}
+<div class="dash-card" style="max-width: 600px; margin: 2rem auto;">
+  <div class="dash-card-header" style="border-bottom-color: rgba(239, 68, 68, 0.3);">
+    <h2 class="dash-card-title" style="color: #ef4444;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      Confirm Skill Deletion
+    </h2>
+  </div>
+  <div class="dash-card-body">
+    <p style="color: var(--text-primary); font-size: 1rem; line-height: 1.6;">
+      Are you sure you want to delete the skill <strong>"{{ skill.name }}"</strong>?
+    </p>
+
+    <form method="post" style="margin-top: 1.75rem; display: flex; justify-content: flex-end; gap: 1rem;">
+      {% csrf_token %}
+      <a href="{% url 'dashboard:skills_list' %}" class="btn btn-outline">Cancel</a>
+      <button type="submit" class="btn btn-primary" style="background-color: #ef4444; border-color: #ef4444; color: #ffffff;">
+        Yes, Delete Skill
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

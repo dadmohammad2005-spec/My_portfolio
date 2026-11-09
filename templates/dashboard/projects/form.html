@@ -1,0 +1,136 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block breadcrumb %}<a href="{% url 'dashboard:projects_list' %}">Projects</a> / <span>{{ title }}</span>{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">{{ title }}</h1>
+    <p class="dash-page-subtitle">Configure project metadata, external repositories, live demos, and case study details.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:projects_list' %}" class="btn btn-outline btn-sm">&larr; Back to Projects</a>
+  </div>
+</div>
+
+<div class="dash-card">
+  <div class="dash-card-body">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="dash-alert dash-alert-danger">
+          Please review the errors below before submitting.
+        </div>
+      {% endif %}
+
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          General Information
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group dash-form-full">
+            <label class="form-label">Project Title *</label>
+            {{ form.title }}
+            {% if form.title.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.title.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            {{ form.category }}
+            {% if form.category.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.category.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Development Status</label>
+            {{ form.status }}
+            {% if form.status.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.status.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Card Tagline *</label>
+            {{ form.tagline }}
+            <div class="dash-form-help">Concise 1-2 sentence hook displayed on portfolio grid cards.</div>
+            {% if form.tagline.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.tagline.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Featured Image / Banner</label>
+            {% if project and project.featured_image %}
+              <div style="margin-bottom: 0.5rem;">
+                <img src="{{ project.featured_image.url }}" style="max-height: 80px; border-radius: 4px;" alt="Current thumbnail">
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Current: {{ project.featured_image.name }}</div>
+              </div>
+            {% endif %}
+            {{ form.featured_image }}
+            {% if form.featured_image.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.featured_image.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Tech Stack & Case Study
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group dash-form-full">
+            <label class="form-label">Technologies (comma-separated) *</label>
+            {{ form.technologies }}
+            <div class="dash-form-help">e.g. Python, Django, PostgreSQL, Docker, AWS, React</div>
+            {% if form.technologies.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.technologies.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Full Description & Architecture Breakdown *</label>
+            {{ form.description }}
+            <div class="dash-form-help">Detailed description of architecture, challenges solved, database design, and key features.</div>
+            {% if form.description.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.description.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          Links & Presentation
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group">
+            <label class="form-label">GitHub Repository URL</label>
+            {{ form.github_url }}
+            {% if form.github_url.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.github_url.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Live Demo URL</label>
+            {{ form.live_demo_url }}
+            {% if form.live_demo_url.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.live_demo_url.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Display Order Sequence</label>
+            {{ form.order }}
+            <div class="dash-form-help">Lower numbers appear first (0, 1, 2...).</div>
+            {% if form.order.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.order.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1.75rem;">
+            {{ form.is_featured }}
+            <label class="form-label" style="margin: 0; cursor: pointer;" for="id_is_featured">
+              Pin to Homepage Featured Section
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-actions">
+        <a href="{% url 'dashboard:projects_list' %}" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save Project</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

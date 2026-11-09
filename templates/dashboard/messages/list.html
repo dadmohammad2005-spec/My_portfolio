@@ -1,0 +1,97 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Inbound Contact Inquiries{% endblock %}
+{% block breadcrumb %}Messages{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Client & Recruiter Messages</h1>
+    <p class="dash-page-subtitle">Review incoming inquiries sent through the anti-spam contact form.</p>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="dash-filter-bar">
+  <form method="get" action="{% url 'dashboard:messages_list' %}" class="dash-search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="text" name="q" value="{{ query }}" placeholder="Search sender, email, subject...">
+    {% if status_filter %}<input type="hidden" name="status" value="{{ status_filter }}">{% endif %}
+  </form>
+
+  <div class="dash-filter-pills">
+    <a href="{% url 'dashboard:messages_list' %}{% if query %}?q={{ query }}{% endif %}" class="dash-filter-pill {% if not status_filter %}active{% endif %}">All</a>
+    <a href="{% url 'dashboard:messages_list' %}?status=unread{% if query %}&q={{ query }}{% endif %}" class="dash-filter-pill {% if status_filter == 'unread' %}active{% endif %}">
+      Unread {% if unread_count %}({{ unread_count }}){% endif %}
+    </a>
+    <a href="{% url 'dashboard:messages_list' %}?status=read{% if query %}&q={{ query }}{% endif %}" class="dash-filter-pill {% if status_filter == 'read' %}active{% endif %}">Read</a>
+  </div>
+</div>
+
+<!-- Messages Table Card -->
+<div class="dash-card">
+  <div class="dash-table-responsive">
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Sender Details</th>
+          <th>Subject & Preview</th>
+          <th>Date Sent</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for msg in inbox_messages %}
+          <tr {% if not msg.is_read %}style="background-color: var(--accent-teal-dim);"{% endif %}>
+            <td>
+              {% if msg.is_read %}
+                <span class="dash-badge dash-badge-gray">Read</span>
+              {% else %}
+                <span class="dash-badge dash-badge-teal">● New</span>
+              {% endif %}
+            </td>
+            <td>
+              <div style="font-weight: 700; color: var(--text-primary);">{{ msg.name }}</div>
+              <div style="font-size: 0.75rem; color: var(--accent-cyan);">{{ msg.email }}</div>
+            </td>
+            <td>
+              <div style="font-weight: 600; color: var(--text-primary);">{{ msg.subject }}</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">{{ msg.message|truncatechars:70 }}</div>
+            </td>
+            <td style="font-size: 0.8rem; color: var(--text-muted); white-space: nowrap;">
+              {{ msg.created_at|date:"M d, Y &middot; H:i" }}
+            </td>
+            <td style="text-align: right;">
+              <div class="dash-btn-group" style="justify-content: flex-end;">
+                <a href="{% url 'dashboard:message_detail' msg.pk %}" class="dash-btn-icon" title="Read Full Message">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </a>
+                <form method="post" action="{% url 'dashboard:message_toggle_read' msg.pk %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="dash-btn-icon" title="Toggle Read Status">
+                    {% if msg.is_read %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    {% else %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    {% endif %}
+                  </button>
+                </form>
+                <a href="{% url 'dashboard:message_delete' msg.pk %}" class="dash-btn-icon danger" title="Delete Message">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+              No messages found.
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

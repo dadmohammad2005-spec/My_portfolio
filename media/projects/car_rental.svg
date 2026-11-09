@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1a"/>
+      <stop offset="100%" stop-color="#0c162c"/>
+    </linearGradient>
+    <linearGradient id="cr-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="cr-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14223d" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0e172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#cr-bg)"/>
+  
+  <!-- Subtle Grid -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="405" x2="1200" y2="405"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="900" y1="0" x2="900" y2="675"/>
+  </g>
+
+  <circle cx="950" cy="180" r="220" fill="#38bdf8" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="200" cy="500" r="200" fill="#818cf8" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Application Window Frame -->
+  <g transform="translate(80, 45)">
+    <rect width="1040" height="585" rx="16" fill="#0b1323" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/>
+    
+    <!-- Top Browser Bar -->
+    <rect width="1040" height="48" rx="16" fill="#0f1a30"/>
+    <rect y="32" width="1040" height="16" fill="#0f1a30"/>
+    <circle cx="26" cy="24" r="6" fill="#ef4444"/>
+    <circle cx="46" cy="24" r="6" fill="#f59e0b"/>
+    <circle cx="66" cy="24" r="6" fill="#10b981"/>
+    
+    <rect x="340" y="10" width="360" height="28" rx="14" fill="#070c18" stroke="rgba(255,255,255,0.06)"/>
+    <text x="520" y="28" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="middle">carrental.pro // fleet-booking-portal</text>
+
+    <!-- Top Navigation Header -->
+    <g transform="translate(40, 70)">
+      <rect width="40" height="40" rx="10" fill="url(#cr-accent)"/>
+      <path d="M12 28 C12 25, 14 24, 18 24 L22 24 C26 24, 28 25, 28 28 L28 32 C28 33, 27 34, 26 34 L25 34 C24 34, 24 33, 24 32 L16 32 C16 33, 16 34, 15 34 L14 34 C13 34, 12 33, 12 32 Z" fill="#090e1a" transform="translate(5, 3)"/>
+      <text x="54" y="22" fill="#ffffff" font-family="sans-serif" font-weight="800" font-size="16">AutoRent Hub</text>
+      <text x="54" y="38" fill="#38bdf8" font-family="sans-serif" font-size="11">Django Fleet &amp; Customer Reservation Platform</text>
+      
+      <!-- User Switcher Badge -->
+      <g transform="translate(760, 5)">
+        <rect width="200" height="34" rx="17" fill="#14213d" stroke="rgba(56,189,248,0.3)"/>
+        <circle cx="20" cy="17" r="10" fill="#38bdf8"/>
+        <text x="20" y="21" fill="#090e1a" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle">👤</text>
+        <text x="40" y="22" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="600">Role: Fleet Owner</text>
+      </g>
+    </g>
+
+    <!-- Fleet Statistics -->
+    <g transform="translate(40, 140)">
+      <!-- Metric 1 -->
+      <rect width="225" height="90" rx="12" fill="url(#cr-card)" stroke="rgba(56,189,248,0.2)"/>
+      <text x="20" y="28" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">ACTIVE FLEET SIZE</text>
+      <text x="20" y="60" fill="#38bdf8" font-family="sans-serif" font-size="26" font-weight="800">42 Vehicles</text>
+      <text x="20" y="78" fill="#10b981" font-family="sans-serif" font-size="11">38 Currently Rented</text>
+
+      <!-- Metric 2 -->
+      <rect x="245" width="225" height="90" rx="12" fill="url(#cr-card)" stroke="rgba(16,185,129,0.2)"/>
+      <text x="265" y="28" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">CONFIRMED BOOKINGS</text>
+      <text x="265" y="60" fill="#10b981" font-family="sans-serif" font-size="26" font-weight="800">128 Rides</text>
+      <text x="265" y="78" fill="#94a3b8" font-family="sans-serif" font-size="11">Real-time Date Range</text>
+
+      <!-- Metric 3 -->
+      <rect x="490" width="225" height="90" rx="12" fill="url(#cr-card)" stroke="rgba(129,140,248,0.2)"/>
+      <text x="510" y="28" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">TOTAL RENTAL REVENUE</text>
+      <text x="510" y="60" fill="#818cf8" font-family="sans-serif" font-size="26" font-weight="800">$19,450</text>
+      <text x="510" y="78" fill="#38bdf8" font-family="sans-serif" font-size="11">Auto Price Calculator</text>
+
+      <!-- Metric 4 -->
+      <rect x="735" width="225" height="90" rx="12" fill="url(#cr-card)" stroke="rgba(245,158,11,0.2)"/>
+      <text x="755" y="28" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">USER PROFILE SIGNALS</text>
+      <text x="755" y="60" fill="#f59e0b" font-family="sans-serif" font-size="26" font-weight="800">Owner &bull; Renter</text>
+      <text x="755" y="78" fill="#94a3b8" font-family="sans-serif" font-size="11">Django Post-Save Signals</text>
+    </g>
+
+    <!-- Vehicle Inventory Cards -->
+    <g transform="translate(40, 250)">
+      <text x="0" y="20" fill="#f8fafc" font-family="sans-serif" font-size="15" font-weight="700">Fleet Inventory &amp; Live Availability</text>
+      
+      <!-- Car Card 1 -->
+      <g transform="translate(0, 35)">
+        <rect width="305" height="175" rx="12" fill="#0f192e" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="305" height="70" rx="12" fill="#152340"/>
+        <rect y="50" width="305" height="20" fill="#152340"/>
+        <!-- Badge -->
+        <rect x="15" y="15" width="85" height="22" rx="4" fill="rgba(16,185,129,0.2)"/>
+        <text x="57" y="30" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">AVAILABLE</text>
+        <text x="290" y="30" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="800" text-anchor="end">$85 / day</text>
+        
+        <text x="18" y="102" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">Tesla Model 3</text>
+        <text x="18" y="122" fill="#94a3b8" font-family="sans-serif" font-size="11">Year: 2024 &bull; Electric &bull; Autopilot</text>
+        <rect x="18" y="136" width="269" height="28" rx="6" fill="#38bdf8"/>
+        <text x="152" y="154" fill="#090e1a" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">Book Vehicle Now</text>
+      </g>
+
+      <!-- Car Card 2 -->
+      <g transform="translate(325, 35)">
+        <rect width="305" height="175" rx="12" fill="#0f192e" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="305" height="70" rx="12" fill="#152340"/>
+        <rect y="50" width="305" height="20" fill="#152340"/>
+        <!-- Badge -->
+        <rect x="15" y="15" width="85" height="22" rx="4" fill="rgba(56,189,248,0.2)"/>
+        <text x="57" y="30" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">RESERVED</text>
+        <text x="290" y="30" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="800" text-anchor="end">$120 / day</text>
+        
+        <text x="18" y="102" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">BMW 5 Series Sedan</text>
+        <text x="18" y="122" fill="#94a3b8" font-family="sans-serif" font-size="11">Year: 2023 &bull; Luxury &bull; Automatic</text>
+        <rect x="18" y="136" width="269" height="28" rx="6" fill="#1e293b"/>
+        <text x="152" y="154" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Active Booking</text>
+      </g>
+
+      <!-- Car Card 3 -->
+      <g transform="translate(650, 35)">
+        <rect width="310" height="175" rx="12" fill="#0f192e" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="310" height="70" rx="12" fill="#152340"/>
+        <rect y="50" width="310" height="20" fill="#152340"/>
+        <!-- Badge -->
+        <rect x="15" y="15" width="85" height="22" rx="4" fill="rgba(16,185,129,0.2)"/>
+        <text x="57" y="30" fill="#10b981" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">AVAILABLE</text>
+        <text x="295" y="30" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="800" text-anchor="end">$65 / day</text>
+        
+        <text x="18" y="102" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">Toyota RAV4 Hybrid</text>
+        <text x="18" y="122" fill="#94a3b8" font-family="sans-serif" font-size="11">Year: 2023 &bull; AWD &bull; Fuel Efficient</text>
+        <rect x="18" y="136" width="274" height="28" rx="6" fill="#38bdf8"/>
+        <text x="155" y="154" fill="#090e1a" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">Book Vehicle Now</text>
+      </g>
+    </g>
+
+    <!-- Architecture Strip -->
+    <g transform="translate(40, 480)">
+      <rect width="960" height="45" rx="10" fill="#0d1527" stroke="rgba(255,255,255,0.06)"/>
+      <text x="20" y="27" fill="#38bdf8" font-family="sans-serif" font-weight="700" font-size="12">Key Engineering Stack:</text>
+      <text x="180" y="27" fill="#94a3b8" font-family="sans-serif" font-size="12">Python Django &bull; Django Authentication &amp; User Profiles &bull; Signals (post_save) &bull; Dynamic Date-Difference Pricing Engine &bull; Bootstrap 5</text>
+    </g>
+  </g>
+</svg>

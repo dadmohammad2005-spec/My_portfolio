@@ -1,0 +1,686 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ site_settings.name|default:"Dad Mohammad" }} — Software Engineering Student &amp; Python/Django Developer{% endblock %}
+{% block meta_title %}{{ site_settings.name|default:"Dad Mohammad" }} | Software Engineering &amp; AI Systems{% endblock %}
+{% block meta_description %}Portfolio of Dad Mohammad — 6th Semester Software Engineering student at IUB, Python &amp; Django developer, exploring AI Engineering, Computer Vision, and RAG systems.{% endblock %}
+
+{% block content %}
+<!-- ==========================================================================
+     1. HERO SECTION (EDITORIAL & AUTHENTIC 2026 LAYOUT)
+     ========================================================================== -->
+<section class="hero-section bg-grid-ambient">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left Column: Copy & Actions -->
+      <div>
+        <!-- Availability Indicator -->
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>{{ site_settings.hero_badge_text|default:"Available for International Internships & Junior Roles" }}</span>
+        </div>
+
+        <h1 class="hero-title" style="margin-bottom: 0.75rem;">
+          Hi, I'm <span class="title-gradient">{{ site_settings.name|default:"Dad Mohammad" }}</span>
+        </h1>
+
+        <!-- Precise Headline requested by user -->
+        <p class="hero-headline" style="font-size: clamp(1.15rem, 2.5vw, 1.45rem); font-weight: 700; color: var(--text-primary); line-height: 1.4; margin-bottom: 1.25rem;">
+          Software Engineering Student | Python &amp; Django Developer | Exploring AI Engineering
+        </p>
+
+        <!-- Exact supporting text requested by user -->
+        <p class="hero-bio" style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
+          I build practical web applications and explore AI-powered solutions to real-world problems. I am continuously improving my software engineering skills through hands-on projects, learning, and experimentation.
+        </p>
+
+        <!-- Primary CTA Buttons -->
+        <div class="hero-cta-group" style="margin-bottom: 1.75rem;">
+          <!-- 1. Explore My Projects -->
+          <a href="#featured-projects" class="btn btn-primary btn-lg">
+            <span>Explore My Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+
+          <!-- 2. Download My CV -->
+          <a href="{% url 'core:download_resume' %}" class="btn btn-outline btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download My CV</span>
+          </a>
+
+          <!-- 3. Contact Me -->
+          <a href="{% url 'contact:index' %}" class="btn btn-outline btn-lg">
+            <span>Contact Me</span>
+          </a>
+        </div>
+
+        <!-- Secondary Links: GitHub, LinkedIn, Email -->
+        <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.25rem; font-size: 0.95rem;">
+          <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Connect:</span>
+          
+          <a href="{{ site_settings.github_url|default:'https://github.com/dadmohammad2005-spec' }}" target="_blank" rel="noopener noreferrer" style="color: var(--text-primary); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none;" class="hover-underline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub
+          </a>
+
+          <a href="{{ site_settings.linkedin_url|default:'https://linkedin.com' }}" target="_blank" rel="noopener noreferrer" style="color: var(--text-primary); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none;" class="hover-underline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
+          </a>
+
+          <a href="mailto:{{ site_settings.email|default:'dadmohammad2005@gmail.com' }}" style="color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none;" class="hover-underline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            {{ site_settings.email|default:"dadmohammad2005@gmail.com" }}
+          </a>
+        </div>
+
+        <!-- Authentic Academic & Engineering Metrics (Zero Hallucination) -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">6th Sem</span>
+            <span class="stat-label">BS Software Engineering (IUB)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3.02</span>
+            <span class="stat-label">CGPA (Academic Standing)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">9</span>
+            <span class="stat-label">Verified Certifications</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Verified AI &amp; Web Projects</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Stationary Central Profile Photo with Orbiting Tech Badges -->
+      <div class="hero-orbit-stage" aria-label="Dad Mohammad - Interactive Technology Orbit">
+        <!-- Ambient Orbit Boundary Ring -->
+        <div class="orbit-boundary-track"></div>
+        <div class="orbit-boundary-track inner"></div>
+
+        <!-- Central Avatar: FIXED (Stationary Image, Never Rotates) -->
+        <div class="hero-avatar-orbit-center">
+          <div class="avatar-spinning-border"></div>
+          <div class="avatar-image-inner">
+            {% if site_settings.profile_photo %}
+              <img src="{{ site_settings.profile_photo.url }}" alt="{{ site_settings.name }}" class="hero-avatar-circle">
+            {% else %}
+              <div class="hero-avatar-circle-placeholder">
+                <span style="font-size: 2.4rem; font-weight: 800; color: var(--accent-teal);">DM</span>
+                <span style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Software Engineering</span>
+              </div>
+            {% endif %}
+          </div>
+          <!-- Floating Status Badge -->
+          <div class="hero-orbit-badge">
+            <span class="pulse-dot"></span>
+            <span>Python &bull; Django &bull; AI Engineering</span>
+          </div>
+        </div>
+
+        <!-- Orbiting Satellites Ring: Boundary Rotates with Technology Logos -->
+        <!-- Modern Dynamic Sibling Styling compliant -->
+        <div class="orbit-satellite-container" aria-label="Rotating Core Tech Logos">
+          <!-- 1. Python -->
+          <div class="orbit-satellite-item" style="--index: 1;" data-tech="Python 3">
+            <div class="orbit-icon-badge" title="Python 3">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <path fill="url(#orb-py-a)" d="M63.7 3.5c-15.8 0-25.2 6.9-25.2 20.3v15h25.7v3.8H21.5C8 42.6 1.1 52.3 1.1 67.9c0 15.8 9.5 25.1 23.3 25.1h7.8v-11.2c0-8.9 7.6-16.7 16.7-16.7h25.7c7.4 0 13.4-6.2 13.4-13.6V23.8c0-13.4-9.6-20.3-24.3-20.3zm-13.8 8.1c2.6 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8-4.8-2.2-4.8-4.8 2.1-4.8 4.8-4.8z"/>
+                <path fill="url(#orb-py-b)" d="M102.7 34.9h-7.8v11.2c0 8.9-7.6 16.7-16.7 16.7H52.5c-7.4 0-13.4 6.2-13.4 13.6v27.7c0 13.4 9.6 20.3 24.3 20.3 15.8 0 25.2-6.9 25.2-20.3v-15H62.9v-3.8h42.7c13.5 0 20.4-9.7 20.4-25.3 0-15.8-9.5-25.1-23.3-25.1zm-24.5 76.5c-2.6 0-4.8-2.2-4.8-4.8s2.2-4.8 4.8-4.8 4.8 2.2 4.8 4.8-2.2 4.8-4.8 4.8z"/>
+                <defs>
+                  <linearGradient id="orb-py-a" x1="16.9" y1="14.3" x2="80.6" y2="78">
+                    <stop offset="0%" stop-color="#387EB8"/>
+                    <stop offset="100%" stop-color="#366994"/>
+                  </linearGradient>
+                  <linearGradient id="orb-py-b" x1="47.4" y1="49.8" x2="111.1" y2="113.6">
+                    <stop offset="0%" stop-color="#FFE052"/>
+                    <stop offset="100%" stop-color="#FFC331"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 2. Django -->
+          <div class="orbit-satellite-item" style="--index: 2;" data-tech="Django">
+            <div class="orbit-icon-badge" title="Django">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <rect width="128" height="128" rx="20" fill="#092E20"/>
+                <path fill="#ffffff" d="M57.6 19.2h15.2v53.4c-6.8.8-12.8 1.2-18 1.2-19.6 0-30.8-9-30.8-24.8 0-16.2 12-25.6 28.2-25.6 2.2 0 3.8.2 5.4.6v-4.8zm0 37.8c-1.4-.4-3-.6-4.6-.6-8.8 0-14.6 4.6-14.6 13.8 0 9 5.2 13.4 13.4 13.4 1.8 0 3.8-.2 5.8-.6V57zm34.2-18h15.2v35.8c0 14.8-1.8 23.4-6.8 28.8-4.8 5.2-12.8 7.8-23.6 7.8-3.6 0-7.8-.4-10.4-1l2.4-12.2c2.2.6 4.8.8 7.6.8 9.2 0 15.6-4.2 15.6-17.6V39zm0-19.8h15.2v12.2H91.8V19.2z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 3. HTML5 -->
+          <div class="orbit-satellite-item" style="--index: 3;" data-tech="HTML5">
+            <div class="orbit-icon-badge" title="HTML5">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <path fill="#E34F26" d="M19.2 112.5L9.6 5.3h108.8l-9.6 107.2-44.8 12.4-44.8-12.4z"/>
+                <path fill="#EF652A" d="M64 114.6l36.5-10.1 7.9-88.7H64v98.8z"/>
+                <path fill="#EBEBEB" d="M64 47.9H47.1l-1.2-13.4H64V21.1H31.1l3.5 39.8H64V47.9zm0 33.6l-.2.1-15.5-4.2-1-11.2H33.8l1.9 22.1 28.3 7.8V81.5z"/>
+                <path fill="#FFFFFF" d="M64 47.9h16.9l-1.6 17.9H64v13.4h15.1l-1.4 15.9-13.7 3.7V114l28.3-7.8.2-2.3 3.3-36.8.6-6.2.3-3.6H64V47.9zm0-26.8v13.4h32.9l.4-4.5.8-8.9H64z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 4. CSS3 -->
+          <div class="orbit-satellite-item" style="--index: 4;" data-tech="CSS3">
+            <div class="orbit-icon-badge" title="CSS3">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <path fill="#1572B6" d="M19.2 112.5L9.6 5.3h108.8l-9.6 107.2-44.8 12.4-44.8-12.4z"/>
+                <path fill="#33A9DC" d="M64 114.6l36.5-10.1 7.9-88.7H64v98.8z"/>
+                <path fill="#EBEBEB" d="M64 47.9H47.1l-1.2-13.4H64V21.1H31.1l3.5 39.8H64V47.9zm0 33.6l-.2.1-15.5-4.2-1-11.2H33.8l1.9 22.1 28.3 7.8V81.5z"/>
+                <path fill="#FFFFFF" d="M80.9 47.9H64v-13.4h18.1l.8-8.9.4-4.5H64v-0.1h32.9l-.6 6.2-3.3 36.8H64V50.6h15.7l-1.2 14.1-14.5 3.9v13.4l28.3-7.8 1.9-21.2 1.3-15.1H80.9z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 5. JavaScript -->
+          <div class="orbit-satellite-item" style="--index: 5;" data-tech="JavaScript">
+            <div class="orbit-icon-badge" title="JavaScript">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <rect width="128" height="128" rx="16" fill="#F7DF1E"/>
+                <path fill="#000000" d="M37.6 100.8c3.2 5.4 7.6 9.4 15.2 9.4 7.8 0 12.8-3.8 12.8-12.6V45.2H50.8v52.2c0 3.6-1.8 5.4-4.8 5.4-3.4 0-5.2-2.4-6.8-5.6l-1.6 3.6zm54.4-48c-8.6 0-14.4 4.4-17.6 10.4l11.4 6.6c2-3.6 4.6-5.8 8.4-5.8 4.2 0 7 2.2 7 5.4v.4c-3.6-.6-7.8-1-12.2-1-11.8 0-19.4 5.6-19.4 15.8 0 9.8 7.4 15.8 17.6 15.8 6.4 0 11.2-2.6 14.2-7.2h.4v5.8h13.2V67.8c0-9.8-7.8-15-23-15zm9.8 26.6c0 5-4.2 8.4-9.6 8.4-3.8 0-6.4-1.8-6.4-5 0-3.6 3.2-5.4 8.2-5.4 2.8 0 5.6.4 7.8 1.2v.8z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 6. PostgreSQL -->
+          <div class="orbit-satellite-item" style="--index: 6;" data-tech="PostgreSQL">
+            <div class="orbit-icon-badge" title="PostgreSQL">
+              <svg viewBox="0 0 128 128" width="28" height="28">
+                <rect width="128" height="128" rx="16" fill="#336791"/>
+                <path fill="#ffffff" d="M64 20c-22.1 0-40 17.9-40 40 0 14.8 8 27.7 19.8 34.6 2.4-3.6 5.6-6.8 9.6-9.2-2.8-4-4.4-8.8-4.4-14.1 0-13.3 10.7-24 24-24s24 10.7 24 24c0 5.3-1.6 10.1-4.4 14.1 4 2.4 7.2 5.6 9.6 9.2C104 87.7 112 74.8 112 60c0-22.1-17.9-40-40-40z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 7. Docker -->
+          <div class="orbit-satellite-item" style="--index: 7;" data-tech="Docker">
+            <div class="orbit-icon-badge" title="Docker">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#38bdf8" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                <line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 8. Redis -->
+          <div class="orbit-satellite-item" style="--index: 8;" data-tech="Redis">
+            <div class="orbit-icon-badge" title="Redis">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     2. DUAL GATEWAY CARDS: CAREER OPPORTUNITIES & GRADUATE SCHOLARSHIPS
+     ========================================================================== -->
+<section style="padding: 2.5rem 0 4.5rem; background: var(--bg-surface-subtle); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="about-hero-grid">
+      <!-- Card 1: Careers Gateway -->
+      <div class="card spotlight-card" style="padding: 2.25rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--accent-teal);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="tag-badge" style="color: var(--accent-teal);">Recruiters &amp; Engineering Teams</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">Remote &amp; Relocatable</span>
+          </div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Career Opportunities &amp; ATS CV
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Scannable summary of target software engineering roles, technical proficiencies, work authorization preferences, verified job portals across Germany, UK, and Netherlands, and one-page ATS CV download.
+          </p>
+        </div>
+        <div>
+          <a href="{% url 'core:careers' %}" class="btn btn-primary">
+            <span>Explore Career Profile</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Scholarships Gateway -->
+      <div class="card spotlight-card" style="padding: 2.25rem; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid var(--accent-cyan);">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="tag-badge" style="color: var(--accent-cyan);">Admissions &amp; Academic Committees</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">MS 2026–2027</span>
+          </div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Graduate Studies &amp; MS Scholarships
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Dedicated profile for prospective Master's applications in Computer Science and AI: academic transcript highlights (CGPA 3.02), research interests, SOP draft framework, and verified scholarship tracker.
+          </p>
+        </div>
+        <div>
+          <a href="{% url 'core:scholarships' %}" class="btn btn-outline">
+            <span>View Academic &amp; Scholarship Profile</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     3. FEATURED PROJECTS SHOWCASE (WITH STATUS LABELS & FILTERS)
+     ========================================================================== -->
+<section id="featured-projects" style="padding: 5.5rem 0; scroll-margin-top: 4rem;">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span class="section-tag">Hands-on Engineering</span>
+        <h2 class="section-title">Verified Technical Projects</h2>
+        <p class="section-subtitle" style="margin-bottom: 0;">
+          Real systems engineered with Python, Django, Computer Vision, and full-stack architectures.
+        </p>
+      </div>
+      <a href="{% url 'projects:list' %}" class="btn btn-outline">
+        View Project Repository &rarr;
+      </a>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2.5rem;" role="tablist" aria-label="Project Category Filters">
+      <button type="button" class="btn btn-sm btn-primary project-filter-btn" data-filter="all">All Projects</button>
+      <button type="button" class="btn btn-sm btn-outline project-filter-btn" data-filter="ai-projects">AI Projects</button>
+      <button type="button" class="btn btn-sm btn-outline project-filter-btn" data-filter="backend">Backend</button>
+      <button type="button" class="btn btn-sm btn-outline project-filter-btn" data-filter="full-stack">Full-Stack</button>
+      <button type="button" class="btn btn-sm btn-outline project-filter-btn" data-filter="academic-projects">Academic Projects</button>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="cards-grid">
+      {% for project in featured_projects %}
+        <article class="card project-card spotlight-card" data-category="{{ project.category.slug|default:'all' }}">
+          <div class="card-img-wrap">
+            <a href="{{ project.get_absolute_url }}" class="card-img-link" aria-label="View case study for {{ project.title }}">
+              {% if project.featured_image %}
+                <img src="{{ project.featured_image.url }}" alt="{{ project.title }}" class="card-img" loading="lazy">
+              {% else %}
+                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #0e172a, #16223e); color: var(--accent-teal); padding: 1.5rem; text-align: center;">
+                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.75rem;">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                  <span style="font-weight: 700; font-size: 0.95rem; color: #fff;">{{ project.title }}</span>
+                  <span style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Case Study Available</span>
+                </div>
+              {% endif %}
+              <div class="card-img-hover-badge">
+                <span>View Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
+            </h3>
+            <p class="card-text" style="line-height: 1.6; margin-bottom: 1.25rem;">
+              {{ project.tagline }}
+            </p>
+
+            <div class="card-tags" style="margin-bottom: 1.5rem;">
+              {% for tech in project.get_tech_list %}
+                <span class="tag-badge">{{ tech }}</span>
+              {% endfor %}
+            </div>
+
+            <div class="card-footer">
+              <a href="{{ project.get_absolute_url }}" style="font-weight: 700; color: var(--accent-teal); font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <span>Technical Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <div class="card-links">
+                {% if project.github_url %}
+                  <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer" class="icon-btn" title="View Source on GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                  </a>
+                {% endif %}
+                {% if project.live_demo_url %}
+                  <a href="{{ project.live_demo_url }}" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Live Application Demo">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% empty %}
+        <p style="color: var(--text-secondary);">No projects found in this selection.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     4. TECHNICAL SKILLS: CATEGORIZED & TIERED (NO PERCENTAGE BARS)
+     ========================================================================== -->
+<section style="padding: 5.5rem 0; background: var(--bg-surface-subtle); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <div class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 3.5rem;">
+      <span class="section-tag">Competency Taxonomy</span>
+      <h2 class="section-title">Technical Skills &amp; Proficiency Tiers</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">
+        Organized by domain with honest competence tiers: <strong>Proficient</strong>, <strong>Working Knowledge</strong>, and <strong>Currently Learning</strong>. No arbitrary percentage bars.
+      </p>
+    </div>
+
+    <!-- Tier Legend Pill Bar -->
+    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; font-size: 0.9rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-teal);"></span>
+        <strong style="color: var(--text-primary);">Proficient:</strong>
+        <span style="color: var(--text-muted);">Practical project &amp; coursework experience</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-cyan);"></span>
+        <strong style="color: var(--text-primary);">Working Knowledge:</strong>
+        <span style="color: var(--text-muted);">Comfortable with docs &amp; tooling</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></span>
+        <strong style="color: var(--text-primary);">Currently Learning:</strong>
+        <span style="color: var(--text-muted);">Active study &amp; certified fundamentals</span>
+      </div>
+    </div>
+
+    <!-- 5 Clean Category Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem;">
+      <!-- 1. Programming Languages -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Programming Languages</h3>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Python</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">HTML5 &amp; Semantic Markup</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">CSS3 &amp; Modern Layouts</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">JavaScript (ES6+)</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">C++ (OOP &amp; Data Structures)</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Backend Architecture -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(56,189,248,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Backend &amp; APIs</h3>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Django Framework</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Django REST Framework (DRF)</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Authentication &amp; Permissions (JWT)</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Server-Side Business Logic</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Databases -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Databases &amp; ORM</h3>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">PostgreSQL &amp; SQLite</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Relational Schema Normalization</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">MySQL &amp; Query Optimization</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Redis Caching Architecture</strong>
+            <span class="tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); font-size: 0.75rem;">Currently Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Tools & Workflow -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(56,189,248,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Tools &amp; Workflow</h3>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Git &amp; GitHub Version Control</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">VS Code &amp; Python Toolchain</strong>
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.75rem;">Proficient</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Postman &amp; API Contract Testing</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Linux Terminal &amp; Bash Scripts</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. AI, Computer Vision & Agents -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+              <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+              <circle cx="9" cy="14" r="1"></circle>
+              <circle cx="15" cy="14" r="1"></circle>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">AI &amp; Intelligent Systems</h3>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">YOLOv8 &amp; OpenCV Vision</strong>
+            <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.75rem;">Working Knowledge</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Amazon Bedrock &amp; GenAI</strong>
+            <span class="tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); font-size: 0.75rem;">Currently Learning</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Azure AI Foundry &amp; Agents</strong>
+            <span class="tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); font-size: 0.75rem;">Currently Learning</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Retrieval-Augmented Gen (RAG)</strong>
+            <span class="tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); font-size: 0.75rem;">Currently Learning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     5. VERIFIED PROFESSIONAL EXPERIENCE & CAMPUS LEADERSHIP
+     ========================================================================== -->
+<section style="padding: 5rem 0; background: var(--bg-surface-subtle); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+  <div class="container container-narrow">
+    <div style="margin-bottom: 3.5rem; text-align: center;">
+      <span class="section-tag">Professional Milestones</span>
+      <h2 class="section-title">Experience &amp; Leadership</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">
+        Hands-on technical contributions and university leadership roles.
+      </p>
+    </div>
+
+    <div class="timeline">
+      {% for exp in experiences %}
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">
+            {{ exp.start_date|date:"M Y" }} &mdash; {% if exp.is_current %}Present{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
+          </div>
+          <h3 class="timeline-role">{{ exp.role }}</h3>
+          <div class="timeline-company">{{ exp.company }} &bull; {{ exp.location }}</div>
+          <p class="timeline-desc">{{ exp.description }}</p>
+          {% if exp.technologies %}
+            <div style="margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+              {% for tech in exp.get_tech_list %}
+                <span class="tag-badge" style="font-size: 0.75rem;">{{ tech }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     7. HIGH-IMPACT COLLABORATION BANNER
+     ========================================================================== -->
+<section style="padding: 5.5rem 0;">
+  <div class="container">
+    <div style="background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-elevated)); border: 1px solid var(--border-color-hover); border-radius: var(--radius-lg); padding: 4rem 2.5rem; text-align: center; position: relative; overflow: hidden; box-shadow: var(--card-shadow);" class="spotlight-card">
+      <div style="position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; background: rgba(0,245,212,0.1); border-radius: 50%; filter: blur(40px);"></div>
+      <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: rgba(56,189,248,0.1); border-radius: 50%; filter: blur(40px);"></div>
+
+      <span class="section-tag" style="margin-bottom: 1rem;">Let's Connect</span>
+      <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; margin-bottom: 1.25rem;">
+        Open to Opportunities &amp; Technical Collaborations
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.7;">
+        Whether you represent an international hiring team, a remote engineering department, or a graduate admissions committee, I welcome technical inquiries and discussions.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="{% url 'contact:index' %}" class="btn btn-primary btn-lg">
+          Start a Conversation &rarr;
+        </a>
+        <a href="{% url 'core:careers' %}" class="btn btn-outline btn-lg">
+          View Career Opportunities
+        </a>
+        <button type="button" class="btn btn-outline btn-lg" data-copy="{{ site_settings.email|default:'dadmohammad2005@gmail.com' }}" data-copy-label="Email" title="Click to copy email address">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Copy Email Address</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog &amp; Insights — {{ site_settings.name|default:"Dad Mohammad" }}{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 4rem 1.5rem;">
+  <!-- Header -->
+  <div style="margin-bottom: 3.5rem;">
+    <span class="section-tag">Engineering Blog</span>
+    <h1 class="section-title">Articles &amp; Architecture Insights</h1>
+    <p class="section-subtitle">
+      Reflections, tutorials, and deep dives on backend engineering, distributed systems, and clean code.
+    </p>
+
+    <!-- Filters & Search Toolbar -->
+    <div class="filter-bar">
+      <a href="{% url 'blog:list' %}"
+         class="filter-btn {% if not current_category %}active{% endif %}">
+        All Articles
+      </a>
+      {% for cat in categories %}
+        <a href="{% url 'blog:list' %}?category={{ cat }}"
+           class="filter-btn {% if current_category == cat %}active{% endif %}">
+          {{ cat }}
+        </a>
+      {% endfor %}
+
+      <form method="get" action="{% url 'blog:list' %}" class="search-box-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text"
+               name="q"
+               class="search-input"
+               placeholder="Search articles..."
+               value="{{ search_query }}">
+      </form>
+    </div>
+  </div>
+
+  <!-- Articles Grid -->
+  <div class="cards-grid">
+    {% for post in posts %}
+      <article class="card">
+        <div class="card-body">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="tag-badge" style="color: var(--accent-teal); border-color: var(--border-color-hover);">{{ post.category }}</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">{{ post.read_time }} min read</span>
+          </div>
+
+          <h2 class="card-title" style="font-size: 1.35rem;">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+          </h2>
+
+          <p class="card-text">{{ post.excerpt }}</p>
+
+          {% if post.get_tag_list %}
+            <div class="card-tags" style="margin-bottom: 1rem;">
+              {% for tag in post.get_tag_list %}
+                <span class="tag-badge" style="font-size: 0.75rem;">#{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="card-footer">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">{{ post.published_date|date:"F d, Y" }}</span>
+            <a href="{{ post.get_absolute_url }}" style="font-weight: 700; color: var(--accent-teal); font-size: 0.9rem;">
+              Read Full Article &rarr;
+            </a>
+          </div>
+        </div>
+      </article>
+    {% empty %}
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
+        <p style="font-size: 1.25rem; font-weight: 600;">No articles found.</p>
+        <a href="{% url 'blog:list' %}" class="btn btn-outline btn-sm" style="margin-top: 1rem;">View All Articles</a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if is_paginated %}
+    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 4rem;">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="btn btn-outline btn-sm">&larr; Previous</a>
+      {% endif %}
+      <span style="display: flex; align-items: center; padding: 0 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="btn btn-outline btn-sm">Next &rarr;</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nf-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c18"/>
+      <stop offset="100%" stop-color="#11162b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#nf-bg)"/>
+  <g transform="translate(80, 50)">
+    <rect width="1040" height="575" rx="16" fill="#0d1322" stroke="rgba(168,85,247,0.25)" stroke-width="1.5"/>
+    <rect width="1040" height="48" rx="16" fill="#12182c"/>
+    <rect y="32" width="1040" height="16" fill="#12182c"/>
+    <circle cx="26" cy="24" r="6" fill="#ef4444"/>
+    <circle cx="46" cy="24" r="6" fill="#f59e0b"/>
+    <circle cx="66" cy="24" r="6" fill="#10b981"/>
+    <text x="520" y="30" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="13" text-anchor="middle">NexusFlow // Distributed Celery &amp; Redis Pipeline Inspector</text>
+
+    <g transform="translate(40, 75)">
+      <rect width="225" height="85" rx="10" fill="#141d33"/>
+      <text x="16" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">WORKER NODES</text>
+      <text x="16" y="58" fill="#ffffff" font-family="sans-serif" font-size="24" font-weight="800">16 Online</text>
+      <text x="16" y="75" fill="#10b981" font-family="sans-serif" font-size="11">100% healthy</text>
+
+      <rect x="245" width="225" height="85" rx="10" fill="#141d33"/>
+      <text x="261" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">QUEUED TASKS</text>
+      <text x="261" y="58" fill="#38bdf8" font-family="sans-serif" font-size="24" font-weight="800">2,841</text>
+      <text x="261" y="75" fill="#94a3b8" font-family="sans-serif" font-size="11">0 delayed</text>
+
+      <rect x="490" width="225" height="85" rx="10" fill="#141d33"/>
+      <text x="506" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">PROCESSED TODAY</text>
+      <text x="506" y="58" fill="#a855f7" font-family="sans-serif" font-size="24" font-weight="800">4.89 Million</text>
+      <text x="506" y="75" fill="#10b981" font-family="sans-serif" font-size="11">99.98% success</text>
+
+      <rect x="735" width="225" height="85" rx="10" fill="#141d33"/>
+      <text x="751" y="26" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">DEAD-LETTER QUEUE</text>
+      <text x="751" y="58" fill="#f43f5e" font-family="sans-serif" font-size="24" font-weight="800">14 Tasks</text>
+      <text x="751" y="75" fill="#f59e0b" font-family="sans-serif" font-size="11">Replay available</text>
+    </g>
+
+    <g transform="translate(40, 185)">
+      <rect width="960" height="310" rx="12" fill="#101729" stroke="rgba(255,255,255,0.06)"/>
+      <text x="24" y="32" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">Active Distributed Pipeline Topology (DAG)</text>
+
+      <g transform="translate(60, 80)">
+        <rect width="170" height="85" rx="8" fill="#17233d" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="16" y="28" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="700">STAGE 1 &bull; INGEST</text>
+        <text x="16" y="50" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="600">WebhookPayload</text>
+        <text x="16" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">1,240 msg/sec</text>
+      </g>
+
+      <line x1="230" y1="122" x2="290" y2="122" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4"/>
+
+      <g transform="translate(290, 80)">
+        <rect width="170" height="85" rx="8" fill="#17233d" stroke="#a855f7" stroke-width="1.5"/>
+        <text x="16" y="28" fill="#c084fc" font-family="sans-serif" font-size="11" font-weight="700">STAGE 2 &bull; PARSE</text>
+        <text x="16" y="50" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="600">ValidateSchema</text>
+        <text x="16" y="70" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">0.8ms latency</text>
+      </g>
+
+      <line x1="460" y1="122" x2="520" y2="122" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4"/>
+
+      <g transform="translate(520, 80)">
+        <rect width="170" height="85" rx="8" fill="#17233d" stroke="#00f5d4" stroke-width="1.5"/>
+        <text x="16" y="28" fill="#00f5d4" font-family="sans-serif" font-size="11" font-weight="700">STAGE 3 &bull; PERSIST</text>
+        <text x="16" y="50" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="600">PostgresBulkWrite</text>
+        <text x="16" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">5,000 batch size</text>
+      </g>
+
+      <line x1="690" y1="122" x2="750" y2="122" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4"/>
+
+      <g transform="translate(750, 80)">
+        <rect width="160" height="85" rx="8" fill="#17233d" stroke="#10b981" stroke-width="1.5"/>
+        <text x="16" y="28" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="700">STAGE 4 &bull; EMIT</text>
+        <text x="16" y="50" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="600">BroadcastEvent</text>
+        <text x="16" y="70" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">Channels WS</text>
+      </g>
+
+      <g transform="translate(60, 190)">
+        <rect width="850" height="95" rx="6" fill="#080c14" stroke="rgba(255,255,255,0.05)"/>
+        <text x="16" y="24" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">[CELERY WORKER #04] Received task: apps.analytics.tasks.process_event_batch[8b31a] eta=[-0.01s]</text>
+        <text x="16" y="46" fill="#00f5d4" font-family="'JetBrains Mono', monospace" font-size="11">[CELERY WORKER #04] Task succeeded in 0.041s: {"processed": 500, "errors": 0, "commit": true}</text>
+        <text x="16" y="68" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">[REDIS HEARTBEAT] Cluster memory usage: 412MB / 4096MB &bull; 0 keys expired with contention</text>
+      </g>
+    </g>
+
+    <g transform="translate(40, 510)">
+      <rect width="960" height="40" rx="6" fill="#0c1322"/>
+      <text x="20" y="25" fill="#94a3b8" font-family="sans-serif" font-size="12">Engine:</text>
+      <text x="80" y="25" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="12">Django 5.1 &bull; Celery 5.4 &bull; Redis 7 Cluster &bull; WebSockets &bull; Gunicorn &bull; WhiteNoise</text>
+    </g>
+  </g>
+</svg>

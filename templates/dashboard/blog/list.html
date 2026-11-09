@@ -1,0 +1,96 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Manage Blog Articles{% endblock %}
+{% block breadcrumb %}Blog{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Blog Articles & Technical Writing</h1>
+    <p class="dash-page-subtitle">Publish engineering tutorials, system design notes, and manage article drafts.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:blog_create' %}" class="btn btn-primary btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Write New Article
+    </a>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="dash-filter-bar">
+  <form method="get" action="{% url 'dashboard:blog_list' %}" class="dash-search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="text" name="q" value="{{ query }}" placeholder="Search articles, tags...">
+    {% if status %}<input type="hidden" name="status" value="{{ status }}">{% endif %}
+  </form>
+
+  <div class="dash-filter-pills">
+    <a href="{% url 'dashboard:blog_list' %}{% if query %}?q={{ query }}{% endif %}" class="dash-filter-pill {% if not status %}active{% endif %}">All</a>
+    <a href="{% url 'dashboard:blog_list' %}?status=published{% if query %}&q={{ query }}{% endif %}" class="dash-filter-pill {% if status == 'published' %}active{% endif %}">Published</a>
+    <a href="{% url 'dashboard:blog_list' %}?status=draft{% if query %}&q={{ query }}{% endif %}" class="dash-filter-pill {% if status == 'draft' %}active{% endif %}">Drafts</a>
+  </div>
+</div>
+
+<!-- Blog Table Card -->
+<div class="dash-card">
+  <div class="dash-table-responsive">
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Category</th>
+          <th>Read Time</th>
+          <th>Published Date</th>
+          <th>Status</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+          <tr>
+            <td>
+              <div style="font-weight: 700; color: var(--text-primary);">{{ post.title }}</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">{{ post.excerpt|truncatechars:50 }}</div>
+            </td>
+            <td><span class="dash-badge dash-badge-blue">{{ post.category }}</span></td>
+            <td style="font-size: 0.825rem;">{{ post.read_time }} min</td>
+            <td style="font-size: 0.8rem; color: var(--text-muted);">{{ post.published_date|date:"M d, Y" }}</td>
+            <td>
+              <form method="post" action="{% url 'dashboard:blog_toggle_publish' post.pk %}">
+                {% csrf_token %}
+                <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                  {% if post.is_published %}
+                    <span class="dash-badge dash-badge-teal" style="cursor: pointer;">● Published</span>
+                  {% else %}
+                    <span class="dash-badge dash-badge-amber" style="cursor: pointer;">○ Draft</span>
+                  {% endif %}
+                </button>
+              </form>
+            </td>
+            <td style="text-align: right;">
+              <div class="dash-btn-group" style="justify-content: flex-end;">
+                <a href="{% url 'dashboard:blog_edit' post.pk %}" class="dash-btn-icon" title="Edit Article">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </a>
+                <a href="{% url 'blog:detail' post.slug %}" target="_blank" class="dash-btn-icon" title="View Public Post">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="{% url 'dashboard:blog_delete' post.pk %}" class="dash-btn-icon danger" title="Delete Post">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+              No articles found matching your filters.
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

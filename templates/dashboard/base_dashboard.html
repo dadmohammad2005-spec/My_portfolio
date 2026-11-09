@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Admin Dashboard{% endblock %} | {{ site_settings.name|default:"Portfolio Admin" }}</title>
+  
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Core Design Tokens & Dashboard Styles -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <div class="dash-wrapper">
+    <!-- Mobile Overlay -->
+    <div id="dash-sidebar-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 95; display: none;"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="dash-sidebar" class="dash-sidebar">
+      <div class="dash-brand">
+        <a href="{% url 'dashboard:home' %}" class="dash-brand-link">
+          <div class="dash-brand-badge">
+            <span>{{ site_settings.name|slice:":1"|default:"D" }}</span>
+          </div>
+          <div>
+            <div>{{ site_settings.name|default:"Portfolio" }}</div>
+            <div style="font-size: 0.7rem; color: var(--accent-teal); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Admin Portal</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="dash-sidebar-nav">
+        <div class="dash-nav-header">Core Management</div>
+        
+        <a href="{% url 'dashboard:home' %}" class="dash-nav-link {% if active_menu == 'overview' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Overview</span>
+          </span>
+        </a>
+
+        <a href="{% url 'dashboard:projects_list' %}" class="dash-nav-link {% if active_menu == 'projects' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span>Projects</span>
+          </span>
+        </a>
+
+        <a href="{% url 'dashboard:blog_list' %}" class="dash-nav-link {% if active_menu == 'blog' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>Blog Articles</span>
+          </span>
+        </a>
+
+        <a href="{% url 'dashboard:skills_list' %}" class="dash-nav-link {% if active_menu == 'skills' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Skills & Tech</span>
+          </span>
+        </a>
+
+        <a href="{% url 'dashboard:experience_list' %}" class="dash-nav-link {% if active_menu == 'experience' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <span>Timeline & Career</span>
+          </span>
+        </a>
+
+        <div class="dash-nav-header">Communication & System</div>
+
+        <a href="{% url 'dashboard:messages_list' %}" class="dash-nav-link {% if active_menu == 'messages' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Inbound Messages</span>
+          </span>
+          {% if unread_count %}<span class="dash-badge-count">{{ unread_count }}</span>{% endif %}
+        </a>
+
+        <a href="{% url 'dashboard:site_settings_edit' %}" class="dash-nav-link {% if active_menu == 'settings' %}active{% endif %}">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span>Site Settings</span>
+          </span>
+        </a>
+
+        <div class="dash-nav-header">External Portals</div>
+
+        <a href="{% url 'core:home' %}" target="_blank" class="dash-nav-link">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Live Portfolio</span>
+          </span>
+        </a>
+
+        <a href="{% url 'admin:index' %}" target="_blank" class="dash-nav-link">
+          <span class="dash-nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Django Admin</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-info">
+          <div class="dash-user-avatar">{{ request.user.username|slice:":1"|upper }}</div>
+          <div>
+            <div class="dash-user-name">{{ request.user.username }}</div>
+            <div class="dash-user-role">{% if request.user.is_superuser %}Superuser{% else %}Staff{% endif %}</div>
+          </div>
+        </div>
+        <a href="{% url 'dashboard:logout' %}" class="dash-btn-icon danger" title="Sign Out" aria-label="Sign Out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="dash-main">
+      <!-- Topbar Header -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button id="dash-mobile-toggle" class="dash-mobile-btn" aria-label="Toggle Navigation">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="dash-breadcrumbs">
+            <a href="{% url 'dashboard:home' %}">Admin</a>
+            <span>/</span>
+            <span>{% block breadcrumb %}Dashboard{% endblock %}</span>
+          </div>
+        </div>
+
+        <div class="dash-topbar-right">
+          <!-- Theme Toggle -->
+          <button id="dash-theme-toggle" class="dash-btn-icon theme-toggle-btn" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+            <!-- Sun icon in dark mode -->
+            <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <!-- Moon icon in light mode -->
+            <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+
+          <a href="{% url 'core:home' %}" target="_blank" class="btn btn-outline btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            View Site
+          </a>
+        </div>
+      </header>
+
+      <!-- Content Container -->
+      <div class="dash-content">
+        <!-- Django Flash Messages -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="dash-alert dash-alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+              <span>{{ message }}</span>
+              <button onclick="this.parentElement.remove()" style="background:none;border:none;color:inherit;cursor:pointer;font-size:1.1rem;line-height:1;">&times;</button>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Career Opportunities — {{ site_settings.name|default:"Dad Mohammad" }}{% endblock %}
+{% block meta_title %}Career Opportunities | International Internships & Junior Developer Roles{% endblock %}
+{% block meta_description %}Explore career interests, ATS-friendly CV, verified international job platforms, and contact Dad Mohammad for software engineering roles.{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 4rem 1.5rem;">
+  <!-- Header & Recruiter Availability Banner -->
+  <header style="margin-bottom: 3.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+      <div>
+        <span class="section-tag">Career Trajectory</span>
+        <h1 class="section-title" style="margin-bottom: 0.75rem;">Career Opportunities</h1>
+        <p class="section-subtitle" style="margin-bottom: 0;">
+          Open to international internships, remote software engineering positions, and junior developer opportunities worldwide.
+        </p>
+      </div>
+
+      <!-- Quick Availability Status Pill -->
+      <div style="display: inline-flex; align-items: center; gap: 0.65rem; background: var(--bg-surface); border: 1px solid var(--border-color-hover); padding: 0.75rem 1.25rem; border-radius: 9999px; box-shadow: var(--card-shadow);">
+        <span class="pulse-dot"></span>
+        <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">
+          Actively Available: Internships &amp; Junior Roles
+        </span>
+      </div>
+    </div>
+
+    <!-- Quick ATS CV Action Bar -->
+    <div style="background: linear-gradient(135deg, rgba(0,245,212,0.06), rgba(56,189,248,0.06)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+      <div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);">
+          ATS-Formatted Curriculum Vitae (1-Page Recruiter Edition)
+        </h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+          Optimized for automated applicant tracking systems, verified against my academic transcript and project repositories.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="{% url 'core:resume' %}" class="btn btn-outline btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          Preview Online CV
+        </a>
+        <a href="{% url 'core:download_resume' %}" class="btn btn-primary btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download PDF CV
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       60-SECOND RECRUITER SCAN DASHBOARD
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">
+        Fast Scan for Technical Recruiters &amp; Hiring Managers
+      </h2>
+      <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        &le; 60 seconds scan time
+      </span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      <!-- Card 1: Candidate Overview -->
+      <div class="card spotlight-card" style="padding: 1.75rem;">
+        <span class="tag-badge" style="margin-bottom: 0.75rem; width: fit-content; color: var(--accent-teal);">Core Profile</span>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Dad Mohammad</h3>
+        <ul style="padding-left: 1.25rem; margin: 0; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;">
+          <li><strong>Education:</strong> BS Software Engineering (6th Semester), The Islamia University of Bahawalpur (IUB).</li>
+          <li><strong>Academic Standing:</strong> CGPA 3.02 / 4.00.</li>
+          <li><strong>Expected Graduation:</strong> 2027.</li>
+          <li><strong>Location:</strong> Quetta / Bahawalpur, Pakistan (Open to Remote &amp; Global Relocation).</li>
+        </ul>
+      </div>
+
+      <!-- Card 2: Target Roles -->
+      <div class="card spotlight-card" style="padding: 1.75rem;">
+        <span class="tag-badge" style="margin-bottom: 0.75rem; width: fit-content; color: var(--accent-cyan);">Target Opportunities</span>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Roles of Interest</h3>
+        <ul style="padding-left: 1.25rem; margin: 0; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;">
+          <li><strong>Junior Backend Developer:</strong> Python, Django, DRF, PostgreSQL, Redis, RESTful API architecture.</li>
+          <li><strong>Full-Stack Web Developer:</strong> Django, HTML5, CSS3, JavaScript (ES6+), Bootstrap, clean UI.</li>
+          <li><strong>AI Engineering Intern:</strong> Computer Vision (YOLOv8, OpenCV), Enterprise RAG, Multi-Agent Systems.</li>
+          <li><strong>Software Engineering Intern:</strong> Scalable systems, code reviews, unit testing.</li>
+        </ul>
+      </div>
+
+      <!-- Card 3: Work Preferences -->
+      <div class="card spotlight-card" style="padding: 1.75rem;">
+        <span class="tag-badge" style="margin-bottom: 0.75rem; width: fit-content; color: var(--accent-teal);">Work Flexibility</span>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">Work Arrangements</h3>
+        <ul style="padding-left: 1.25rem; margin: 0; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;">
+          <li><strong>Remote Work:</strong> Full-time or part-time worldwide with reliable high-speed broadband and home office.</li>
+          <li><strong>Timezone Overlap:</strong> Flexible scheduling to accommodate European (CET/GMT) and US business hours.</li>
+          <li><strong>International Relocation:</strong> Fully open to international positions offering valid visa sponsorship.</li>
+          <li><strong>Notice Period:</strong> Available immediately for remote internships and junior roles.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHAT I CAN BUILD & WHAT I AM LEARNING
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Engineering Capability Matrix</span>
+      <h2 class="section-title">What I Can Build &amp; What I Am Learning</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Clear, honest categorization of my immediate engineering capabilities versus active learning areas.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="about-hero-grid">
+      <!-- Column 1: What I Can Deliver Today -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--card-shadow);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0;">What I Can Build Right Now</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Proficient &amp; production-ready skills</span>
+          </div>
+        </div>
+
+        <ul style="display: flex; flex-direction: column; gap: 1rem; padding-left: 1.25rem; margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+          <li>
+            <strong style="color: var(--text-primary);">Production Django Backends:</strong>
+            Designing modular Django applications, ORM query optimization, preventing N+1 queries, and executing clean migrations.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">RESTful Web APIs:</strong>
+            Building comprehensive endpoints with Django REST Framework, serializers, pagination, filtering, and standard HTTP error contracts.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Secure Authentication &amp; RBAC:</strong>
+            Implementing session authentication, JWT token exchange, and custom permission classes for multi-tenant isolation.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Relational Data Schemas:</strong>
+            Creating normalized relational models in PostgreSQL, SQLite, and MySQL with foreign keys, indexes, and constraints.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Responsive Editorial Interfaces:</strong>
+            Handcrafting accessible, semantic HTML5, modern CSS3 layout systems (Flexbox, Grid), and lightweight vanilla JavaScript.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 2: What I Am Actively Learning & Advancing -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--card-shadow);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: rgba(56,189,248,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 0;">What I Am Actively Learning</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Current research, prototypes &amp; certifications</span>
+          </div>
+        </div>
+
+        <ul style="display: flex; flex-direction: column; gap: 1rem; padding-left: 1.25rem; margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+          <li>
+            <strong style="color: var(--text-primary);">Computer Vision Model Deployment:</strong>
+            Refining YOLOv8 detection inference speed, model quantization, and video stream pipelines with OpenCV.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Enterprise RAG Pipelines:</strong>
+            Integrating vector embeddings with Amazon Bedrock and LangChain for contextual document intelligence.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Multi-Agent Workflows:</strong>
+            Studying Azure AI Foundry agent orchestration patterns, tool calling, and autonomous evaluation routines.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Containerization &amp; DevOps:</strong>
+            Containerizing multi-service Django + PostgreSQL + Redis applications with Docker and automated GitHub Actions.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Distributed Caching Architecture:</strong>
+            Implementing Redis cache-aside strategies, queue decoupling, and background task scheduling.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VERIFIED INTERNATIONAL JOB & INTERNSHIP RESOURCES
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">International Opportunities Hub</span>
+      <h2 class="section-title">Verified Job &amp; Internship Platforms</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Official employment directories and STEM internship portals across target countries for international applicants.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem;">
+      <!-- Germany -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 1.6rem;">🇩🇪</span>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Germany (Deutschland)</h3>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Werkstudent &amp; Internship Portals</span>
+          </div>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+          Germany offers vibrant tech ecosystems (Berlin, Munich, Hamburg) with official English-speaking junior and working-student positions.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="https://www.stepstone.de/en" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>StepStone.de (English Engineering Jobs)</span> &rarr;
+          </a>
+          <a href="https://www.arbeitsagentur.de/jobsuche/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Bundesagentur für Arbeit (Official Jobbörse)</span> &rarr;
+          </a>
+          <a href="https://www.linkedin.com/jobs/jobs-in-germany/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>LinkedIn Germany Software Developer Jobs</span> &rarr;
+          </a>
+          <a href="https://www.daad.de/en/study-and-research-in-germany/first-steps-germany/side-jobs/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>DAAD Working &amp; Student Job Guide</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- United Kingdom -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 1.6rem;">🇬🇧</span>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">United Kingdom</h3>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">STEM Graduate &amp; Internship Directory</span>
+          </div>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+          Targeting UK technology companies, summer internships, and university placement programs.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="https://www.gradcracker.com/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Gradcracker (Careers for STEM Students)</span> &rarr;
+          </a>
+          <a href="https://www.prospects.ac.uk/graduate-jobs" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Prospects.ac.uk (UK Graduate Jobs)</span> &rarr;
+          </a>
+          <a href="https://otta.com/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Otta (Curated Tech Careers)</span> &rarr;
+          </a>
+          <a href="https://www.linkedin.com/jobs/jobs-in-united-kingdom/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>LinkedIn UK Developer Roles</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Netherlands & Europe -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 1.6rem;">🇳🇱</span>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Netherlands &amp; Europe</h3>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">High-Tech Startup &amp; Enterprise Portals</span>
+          </div>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+          Amsterdam and Eindhoven boast thriving tech ecosystems with high English proficiency and international recruitment.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="https://jobs.techleap.nl/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Techleap.nl (Dutch Startup Ecosystem Jobs)</span> &rarr;
+          </a>
+          <a href="https://magnet.me/en-NL" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Magnet.me (Student &amp; Graduate Matching)</span> &rarr;
+          </a>
+          <a href="https://nl.indeed.com/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Indeed Netherlands (Junior Software Engineer)</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Global Remote -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 1.6rem;">🌐</span>
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Global Remote Portals</h3>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Distributed Engineering Roles</span>
+          </div>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+          Verified remote job boards connecting software developers to worldwide companies and distributed teams.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="https://wellfound.com/jobs" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Wellfound (formerly AngelList Talent)</span> &rarr;
+          </a>
+          <a href="https://remoteok.com/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>RemoteOK (Global Remote Engineering)</span> &rarr;
+          </a>
+          <a href="https://weworkremotely.com/" target="_blank" rel="noopener noreferrer" class="link-external" style="font-size: 0.9rem; font-weight: 600; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>We Work Remotely (Programming Category)</span> &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERNATIONAL WORK AUTHORIZATION & VISA DISCLAIMER
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="background: var(--bg-surface-subtle); border-left: 4px solid var(--accent-cyan); border-radius: var(--radius-md); padding: 1.75rem 2rem;">
+      <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Important Notice Regarding Employment Eligibility &amp; International Visas
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+        The display of specific countries, regional portals, or internship listings on this portfolio reflects my geographic interest and research into international career opportunities. <strong>It does not guarantee employment, visa issuance, or legal work authorization.</strong> Any on-site international internship or employment offer is strictly subject to the respective company's hiring requirements and relevant national immigration laws (such as German Schengen/Student Trainee visas, UK Skilled Worker/Tier 5 Government Authorized Exchange, or Dutch work permits). I am fully prepared to undergo technical interviews, skills assessments, and formal visa application procedures where sponsorship is supported.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DIRECT CONTACT FORM FOR RECRUITERS
+       ========================================================================== -->
+  <section style="margin-bottom: 2rem;">
+    <div style="max-width: 720px; margin: 0 auto; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem 2.5rem; box-shadow: var(--card-shadow);" class="spotlight-card">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-tag">Direct Inquiries</span>
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem;">Connect with Dad Mohammad</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+          Whether you have an internship opening, a junior developer role, or a technical inquiry, feel free to reach out directly.
+        </p>
+      </div>
+
+      <form action="{% url 'contact:index' %}" method="post" class="contact-form">
+        {% csrf_token %}
+        {{ contact_form.website_hp }}
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+          <div>
+            <label for="{{ contact_form.name.id_for_label }}" class="form-label">Full Name *</label>
+            {{ contact_form.name }}
+          </div>
+          <div>
+            <label for="{{ contact_form.email.id_for_label }}" class="form-label">Email Address *</label>
+            {{ contact_form.email }}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label for="{{ contact_form.subject.id_for_label }}" class="form-label">Role or Inquiry Subject *</label>
+          {{ contact_form.subject }}
+        </div>
+
+        <div style="margin-bottom: 1.75rem;">
+          <label for="{{ contact_form.message.id_for_label }}" class="form-label">Message Details *</label>
+          {{ contact_form.message }}
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span>Send Direct Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+
+          <a href="mailto:{{ site_settings.email|default:'dadmohammad2005@gmail.com' }}" style="font-size: 0.9rem; color: var(--accent-teal); font-weight: 600;">
+            Or email me directly: {{ site_settings.email|default:"dadmohammad2005@gmail.com" }}
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+{% endblock %}

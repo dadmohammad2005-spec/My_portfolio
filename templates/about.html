@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About — {{ site_settings.name|default:"Dad Mohammad" }}{% endblock %}
+{% block meta_title %}About Dad Mohammad | Software Engineering Student &amp; Developer{% endblock %}
+{% block meta_description %}Background, university education at IUB, technical competencies, and verified certifications of Dad Mohammad.{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 4rem 1.5rem;">
+  <!-- Header -->
+  <div style="margin-bottom: 3.5rem;">
+    <span class="section-tag">About Me</span>
+    <h1 class="section-title">Software Engineering Student &amp; Developer</h1>
+    <p class="section-subtitle">
+      6th-semester undergraduate at The Islamia University of Bahawalpur (IUB), Pakistan &bull; Python &amp; Django developer &bull; Exploring AI Engineering.
+    </p>
+  </div>
+
+  <!-- Bio & Quick Facts Grid -->
+  <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; align-items: start; margin-bottom: 5rem;" class="about-hero-grid">
+    <div>
+      <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-primary);">
+        Who I Am &amp; My Journey
+      </h2>
+      <div style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); white-space: pre-line;">
+        {{ site_settings.detailed_bio }}
+      </div>
+
+      <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="{% url 'contact:index' %}" class="btn btn-primary">
+          <span>Get in Touch &rarr;</span>
+        </a>
+        <a href="{% url 'core:careers' %}" class="btn btn-outline">
+          <span>Career Opportunities</span>
+        </a>
+        <a href="{% url 'core:download_resume' %}" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download CV (PDF)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Profile Photo & Quick Facts Box -->
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      {% if site_settings.profile_photo %}
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--border-color-hover); box-shadow: var(--card-shadow); max-width: 320px; margin: 0 auto;">
+          <img src="{{ site_settings.profile_photo.url }}" alt="{{ site_settings.name }}" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center top;">
+        </div>
+      {% endif %}
+
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--card-shadow);">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+          Verified Academic &amp; Personal Facts
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.95rem;">
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Institution</span>
+            <strong style="color: var(--text-primary);">The Islamia University of Bahawalpur (IUB)</strong>
+          </div>
+
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Academic Standing</span>
+            <strong style="color: var(--accent-teal);">CGPA: 3.02 / 4.00</strong>
+          </div>
+
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Degree &amp; Semester</span>
+            <strong style="color: var(--text-primary);">BS Software Engineering (6th Semester, Graduating 2027)</strong>
+          </div>
+
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Location</span>
+            <strong style="color: var(--text-primary);">Quetta &bull; Bahawalpur, Pakistan</strong>
+          </div>
+
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Email</span>
+            <a href="mailto:{{ site_settings.email }}" style="color: var(--accent-teal); font-weight: 600;">{{ site_settings.email }}</a>
+          </div>
+
+          <div>
+            <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block;">Core Tech Focus</span>
+            <strong style="color: var(--text-primary);">Python, Django, PostgreSQL, YOLOv8, GenAI</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TECHNICAL COMPETENCIES (ORGANIZED TAXONOMY - NO PERCENTAGE BARS)
+       ========================================================================== -->
+  <section id="skills" style="margin-bottom: 5rem; scroll-margin-top: 5rem;">
+    <div style="margin-bottom: 2.5rem;">
+      <span class="section-tag">Competency Taxonomy</span>
+      <h2 class="section-title">Technical Skills &amp; Proficiency Tiers</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Categorized by engineering domain without arbitrary percentage bars. Evaluated by hands-on development and coursework.
+      </p>
+    </div>
+
+    <!-- Tier Legend -->
+    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; font-size: 0.9rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-teal);"></span>
+        <strong style="color: var(--text-primary);">Proficient:</strong>
+        <span style="color: var(--text-muted);">Practical project &amp; production experience</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-cyan);"></span>
+        <strong style="color: var(--text-primary);">Working Knowledge:</strong>
+        <span style="color: var(--text-muted);">Hands-on academic &amp; tooling exposure</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></span>
+        <strong style="color: var(--text-primary);">Currently Learning:</strong>
+        <span style="color: var(--text-muted);">Active research &amp; foundational certifications</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+      <!-- 1. Programming Languages -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          Programming Languages
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for skill in skills_by_category.programming %}
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-primary); font-size: 0.95rem;">{{ skill.name }}</span>
+              <span class="tag-badge" style="font-size: 0.75rem; {% if skill.tier == 'proficient' %}color: var(--accent-teal); border-color: rgba(0,245,212,0.3);{% elif skill.tier == 'working' %}color: var(--accent-cyan); border-color: rgba(56,189,248,0.3);{% else %}color: #f59e0b; border-color: rgba(245,158,11,0.3);{% endif %}">
+                {{ skill.get_tier_display }}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- 2. Backend Architecture -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+          Backend Development &amp; APIs
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for skill in skills_by_category.backend %}
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-primary); font-size: 0.95rem;">{{ skill.name }}</span>
+              <span class="tag-badge" style="font-size: 0.75rem; {% if skill.tier == 'proficient' %}color: var(--accent-teal); border-color: rgba(0,245,212,0.3);{% elif skill.tier == 'working' %}color: var(--accent-cyan); border-color: rgba(56,189,248,0.3);{% else %}color: #f59e0b; border-color: rgba(245,158,11,0.3);{% endif %}">
+                {{ skill.get_tier_display }}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- 3. Databases & ORM -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+          Databases &amp; ORM
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for skill in skills_by_category.database %}
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-primary); font-size: 0.95rem;">{{ skill.name }}</span>
+              <span class="tag-badge" style="font-size: 0.75rem; {% if skill.tier == 'proficient' %}color: var(--accent-teal); border-color: rgba(0,245,212,0.3);{% elif skill.tier == 'working' %}color: var(--accent-cyan); border-color: rgba(56,189,248,0.3);{% else %}color: #f59e0b; border-color: rgba(245,158,11,0.3);{% endif %}">
+                {{ skill.get_tier_display }}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- 4. Developer Tools & Workflows -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+          Developer Tools &amp; Workflows
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for skill in skills_by_category.tools %}
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-primary); font-size: 0.95rem;">{{ skill.name }}</span>
+              <span class="tag-badge" style="font-size: 0.75rem; {% if skill.tier == 'proficient' %}color: var(--accent-teal); border-color: rgba(0,245,212,0.3);{% elif skill.tier == 'working' %}color: var(--accent-cyan); border-color: rgba(56,189,248,0.3);{% else %}color: #f59e0b; border-color: rgba(245,158,11,0.3);{% endif %}">
+                {{ skill.get_tier_display }}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- 5. AI & Intelligent Systems -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+            <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+            <circle cx="9" cy="14" r="1"></circle>
+            <circle cx="15" cy="14" r="1"></circle>
+          </svg>
+          AI &amp; Intelligent Systems
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {% for skill in skills_by_category.ai %}
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-primary); font-size: 0.95rem;">{{ skill.name }}</span>
+              <span class="tag-badge" style="font-size: 0.75rem; {% if skill.tier == 'proficient' %}color: var(--accent-teal); border-color: rgba(0,245,212,0.3);{% elif skill.tier == 'working' %}color: var(--accent-cyan); border-color: rgba(56,189,248,0.3);{% else %}color: #f59e0b; border-color: rgba(245,158,11,0.3);{% endif %}">
+                {{ skill.get_tier_display }}
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TIMELINE: EXPERIENCE & EDUCATION
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem;" class="timeline-grid">
+      <!-- Work Experience -->
+      <div>
+        <div style="margin-bottom: 2rem;">
+          <span class="section-tag">Career History</span>
+          <h2 style="font-size: 1.75rem; font-weight: 800;">Experience</h2>
+        </div>
+
+        <div class="timeline">
+          {% for exp in experiences %}
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">
+                {{ exp.start_date|date:"M Y" }} &mdash; {% if exp.is_current %}<span style="color: var(--accent-teal);">Present</span>{% else %}{{ exp.end_date|date:"M Y" }}{% endif %}
+              </div>
+              <h3 class="timeline-role">{{ exp.role }}</h3>
+              <div class="timeline-company">{{ exp.company }} &bull; {{ exp.location }}</div>
+              <div class="timeline-desc" style="white-space: pre-line;">{{ exp.description }}</div>
+              {% if exp.get_tech_list %}
+                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;">
+                  {% for t in exp.get_tech_list %}
+                    <span class="tag-badge" style="font-size: 0.7rem;">{{ t }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% empty %}
+            <p style="color: var(--text-secondary);">No experience recorded yet.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Education & Credentials -->
+      <div>
+        <div style="margin-bottom: 2rem;">
+          <span class="section-tag">Academic Background</span>
+          <h2 style="font-size: 1.75rem; font-weight: 800;">Education &amp; Credentials</h2>
+        </div>
+
+        <div class="timeline">
+          {% for edu in educations %}
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">
+                {{ edu.start_year }} &mdash; {{ edu.end_year|default:"Present" }}
+              </div>
+              <h3 class="timeline-role">{{ edu.degree }}</h3>
+              <div class="timeline-company">{{ edu.field_of_study }} &bull; {{ edu.institution }}</div>
+              {% if edu.grade_or_honors %}
+                <div style="color: var(--accent-teal); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem;">
+                  {{ edu.grade_or_honors }}
+                </div>
+              {% endif %}
+              <div class="timeline-desc" style="white-space: pre-line;">{{ edu.description }}</div>
+            </div>
+          {% empty %}
+            <p style="color: var(--text-secondary);">No education recorded yet.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VERIFIED PROFESSIONAL CERTIFICATIONS
+       ========================================================================== -->
+  <section style="margin-bottom: 4rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Credentials</span>
+      <h2 style="font-size: 1.75rem; font-weight: 800;">Verified Coursera Certifications</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Specialized technical credentials issued by premier institutions and industry leaders via Coursera with verified cryptographic records.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+      {% for cert in certifications %}
+        <div class="card spotlight-card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="tag-badge" style="font-size: 0.75rem; color: var(--accent-teal);">{{ cert.issuer }}</span>
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); white-space: nowrap;">{{ cert.issue_date }}</span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">{{ cert.title }}</h3>
+            {% if cert.description %}
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                {{ cert.description }}
+              </p>
+            {% endif %}
+          </div>
+          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem;">
+            {% if cert.credential_id %}
+              <span style="font-family: var(--font-mono); color: var(--text-muted);">ID: {{ cert.credential_id }}</span>
+            {% endif %}
+            <a href="{{ cert.credential_url|default:'https://coursera.org/verify/' }}{% if cert.credential_id %}{{ cert.credential_id }}{% endif %}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+              <span>Verify</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<style>
+  @media (max-width: 900px) {
+    .about-hero-grid, .timeline-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+    }
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,334 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Dashboard Overview{% endblock %}
+{% block breadcrumb %}Overview{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Executive Control Center</h1>
+    <p class="dash-page-subtitle">Welcome back, {{ request.user.username }}. Here is a real-time status of your portfolio ecosystem.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:project_create' %}" class="btn btn-primary btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Add Project
+    </a>
+    <a href="{% url 'dashboard:blog_create' %}" class="btn btn-outline btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      New Post
+    </a>
+  </div>
+</div>
+
+<!-- Key Performance Metrics -->
+<div class="dash-stats-grid">
+  <!-- Projects KPI -->
+  <div class="dash-stat-card">
+    <div class="dash-stat-icon teal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+    </div>
+    <div>
+      <div class="dash-stat-label">Total Projects</div>
+      <div class="dash-stat-value">{{ stats.total_projects }}</div>
+      <div class="dash-stat-sub">{{ stats.completed_projects }} completed &middot; {{ stats.featured_projects }} featured</div>
+    </div>
+  </div>
+
+  <!-- Blog Posts KPI -->
+  <div class="dash-stat-card">
+    <div class="dash-stat-icon cyan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+    </div>
+    <div>
+      <div class="dash-stat-label">Articles Published</div>
+      <div class="dash-stat-value">{{ stats.published_posts }}</div>
+      <div class="dash-stat-sub">{{ stats.draft_posts }} draft posts &middot; {{ stats.total_posts }} total</div>
+    </div>
+  </div>
+
+  <!-- Contact Messages KPI -->
+  <div class="dash-stat-card">
+    <div class="dash-stat-icon amber">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+    <div>
+      <div class="dash-stat-label">Inbound Messages</div>
+      <div class="dash-stat-value">
+        {{ stats.total_messages }}
+        {% if stats.unread_messages %}
+          <span style="font-size: 0.8rem; background: #ef4444; color: white; padding: 2px 7px; border-radius: 9999px; vertical-align: middle; margin-left: 6px;">{{ stats.unread_messages }} new</span>
+        {% endif %}
+      </div>
+      <div class="dash-stat-sub">{{ stats.unread_messages }} awaiting review</div>
+    </div>
+  </div>
+
+  <!-- Skills KPI -->
+  <div class="dash-stat-card">
+    <div class="dash-stat-icon purple">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+    </div>
+    <div>
+      <div class="dash-stat-label">Skills & Tech</div>
+      <div class="dash-stat-value">{{ stats.total_skills }}</div>
+      <div class="dash-stat-sub">{{ stats.total_experiences }} career milestones</div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Action Strip -->
+<div class="dash-quick-actions">
+  <a href="{% url 'dashboard:project_create' %}" class="dash-action-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    Create Project
+  </a>
+  <a href="{% url 'dashboard:blog_create' %}" class="dash-action-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    Write Blog Post
+  </a>
+  <a href="{% url 'dashboard:skill_create' %}" class="dash-action-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    Add Skill
+  </a>
+  <a href="{% url 'dashboard:site_settings_edit' %}" class="dash-action-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    Update Profile & Settings
+  </a>
+  <a href="{% url 'admin:index' %}" target="_blank" class="dash-action-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    Open Django Admin Portal
+  </a>
+</div>
+
+<!-- Two Column Dashboard Grid -->
+<div class="dash-columns-2">
+  <!-- Left Column -->
+  <div>
+    <!-- Recent Messages Card -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2 class="dash-card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Recent Inquiries
+        </h2>
+        <a href="{% url 'dashboard:messages_list' %}" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: none; font-weight: 600;">View All Messages &rarr;</a>
+      </div>
+
+      <div class="dash-table-responsive">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Sender</th>
+              <th>Subject</th>
+              <th>Date</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for msg in recent_messages %}
+              <tr>
+                <td>
+                  {% if msg.is_read %}
+                    <span class="dash-badge dash-badge-gray">Read</span>
+                  {% else %}
+                    <span class="dash-badge dash-badge-teal">● New</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <div style="font-weight: 600; color: var(--text-primary);">{{ msg.name }}</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">{{ msg.email }}</div>
+                </td>
+                <td>{{ msg.subject|truncatechars:30 }}</td>
+                <td style="font-size: 0.78rem; color: var(--text-muted);">{{ msg.created_at|date:"M d, Y" }}</td>
+                <td style="text-align: right;">
+                  <a href="{% url 'dashboard:message_detail' msg.pk %}" class="dash-btn-icon" title="View Message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                  No contact messages received yet.
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent Projects Card -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2 class="dash-card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          Portfolio Projects
+        </h2>
+        <a href="{% url 'dashboard:projects_list' %}" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: none; font-weight: 600;">Manage Projects &rarr;</a>
+      </div>
+
+      <div class="dash-table-responsive">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Featured</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for project in recent_projects %}
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    {% if project.featured_image %}
+                      <img src="{{ project.featured_image.url }}" class="dash-table-thumb" alt="{{ project.title }}">
+                    {% else %}
+                      <div class="dash-table-thumb" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.7rem;">None</div>
+                    {% endif %}
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary);">{{ project.title }}</div>
+                      <div style="font-size: 0.75rem; color: var(--text-muted);">{{ project.tagline|truncatechars:40 }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="dash-badge dash-badge-blue">{{ project.category.name|default:"General" }}</span></td>
+                <td>
+                  {% if project.status == 'completed' %}
+                    <span class="dash-badge dash-badge-teal">Completed</span>
+                  {% elif project.status == 'in_progress' %}
+                    <span class="dash-badge dash-badge-amber">In Progress</span>
+                  {% else %}
+                    <span class="dash-badge dash-badge-gray">Experimental</span>
+                  {% endif %}
+                </td>
+                <td>
+                  {% if project.is_featured %}
+                    <span style="color: var(--accent-teal); font-weight: 700;">★ Home</span>
+                  {% else %}
+                    <span style="color: var(--text-muted);">-</span>
+                  {% endif %}
+                </td>
+                <td style="text-align: right;">
+                  <div class="dash-btn-group" style="justify-content: flex-end;">
+                    <a href="{% url 'dashboard:project_edit' project.pk %}" class="dash-btn-icon" title="Edit Project">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </a>
+                    <a href="{% url 'projects:detail' project.slug %}" target="_blank" class="dash-btn-icon" title="View Live">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                  No projects added yet. Click "+ Add Project" to showcase your work.
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div>
+    <!-- Recent Blog Articles -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2 class="dash-card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Blog Publications
+        </h2>
+        <a href="{% url 'dashboard:blog_list' %}" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: none; font-weight: 600;">Manage Articles &rarr;</a>
+      </div>
+
+      <div class="dash-table-responsive">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in recent_posts %}
+              <tr>
+                <td>
+                  <div style="font-weight: 600; color: var(--text-primary);">{{ post.title }}</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">{{ post.category }} &middot; {{ post.read_time }} min read</div>
+                </td>
+                <td>
+                  {% if post.is_published %}
+                    <span class="dash-badge dash-badge-teal">Published</span>
+                  {% else %}
+                    <span class="dash-badge dash-badge-amber">Draft</span>
+                  {% endif %}
+                </td>
+                <td style="text-align: right;">
+                  <a href="{% url 'dashboard:blog_edit' post.pk %}" class="dash-btn-icon" title="Edit Article">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                  </a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="3" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                  No articles written yet.
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quick System Diagnostics Card -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h2 class="dash-card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          System Health
+        </h2>
+      </div>
+      <div class="dash-card-body" style="font-size: 0.85rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+          <span style="color: var(--text-muted);">Owner Profile:</span>
+          <span style="font-weight: 600; color: var(--accent-teal);">{{ site_settings.name }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+          <span style="color: var(--text-muted);">Database:</span>
+          <span style="font-weight: 600; color: var(--text-primary);">SQLite (Active)</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+          <span style="color: var(--text-muted);">Framework:</span>
+          <span style="font-weight: 600; color: var(--text-primary);">Django 5.1 & DRF</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+          <span style="color: var(--text-muted);">Static Engine:</span>
+          <span style="font-weight: 600; color: var(--text-primary);">WhiteNoise Brotli</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
+          <span style="color: var(--text-muted);">Availability:</span>
+          <span>
+            {% if site_settings.is_available_for_hire %}
+              <span class="dash-badge dash-badge-teal">Open for Hire</span>
+            {% else %}
+              <span class="dash-badge dash-badge-gray">Not Available</span>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

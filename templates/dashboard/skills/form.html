@@ -1,0 +1,82 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block breadcrumb %}<a href="{% url 'dashboard:skills_list' %}">Skills</a> / <span>{{ title }}</span>{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">{{ title }}</h1>
+    <p class="dash-page-subtitle">Configure technology name, categorization, competence tier, and proficiency rating.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:skills_list' %}" class="btn btn-outline btn-sm">&larr; Back to Skills</a>
+  </div>
+</div>
+
+<div class="dash-card" style="max-width: 700px;">
+  <div class="dash-card-body">
+    <form method="post">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="dash-alert dash-alert-danger">
+          Please review the errors below before submitting.
+        </div>
+      {% endif %}
+
+      <div class="dash-form-grid">
+        <div class="form-group dash-form-full">
+          <label class="form-label">Skill / Technology Name *</label>
+          {{ form.name }}
+          {% if form.name.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.name.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Category Domain *</label>
+          {{ form.category }}
+          {% if form.category.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.category.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Competence Tier *</label>
+          {{ form.tier }}
+          <div class="dash-form-help">Tier classification for recruiters (Proficient, Working Knowledge, Learning).</div>
+          {% if form.tier.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.tier.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Proficiency Ranking (1-100) *</label>
+          {{ form.proficiency }}
+          {% if form.proficiency.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.proficiency.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Icon Identifier (optional)</label>
+          {{ form.icon }}
+          <div class="dash-form-help">Lucide name: e.g. code, server, database, cpu, terminal</div>
+          {% if form.icon.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.icon.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Order Sequence</label>
+          {{ form.order }}
+          {% if form.order.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.order.errors.0 }}</div>{% endif %}
+        </div>
+
+        <div class="form-group" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1.75rem;">
+          {{ form.is_featured }}
+          <label class="form-label" style="margin: 0; cursor: pointer;" for="id_is_featured">
+            Feature prominently in Home Hero badges
+          </label>
+        </div>
+      </div>
+
+      <div class="dash-form-actions">
+        <a href="{% url 'dashboard:skills_list' %}" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save Skill</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

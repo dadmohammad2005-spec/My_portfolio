@@ -1,0 +1,567 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Graduate Studies &amp; Scholarships — {{ site_settings.name|default:"Dad Mohammad" }}{% endblock %}
+{% block meta_title %}Graduate Studies &amp; Scholarships | Dad Mohammad (IUB BSSE){% endblock %}
+{% block meta_description %}Academic portfolio, research interests in AI and software systems, verified Coursera credentials, and international MS scholarship preparation tracker.{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 4rem 1.5rem;">
+  <!-- Header & Academic Trajectory Banner -->
+  <header style="margin-bottom: 3.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+      <div>
+        <span class="section-tag">Academic Trajectory</span>
+        <h1 class="section-title" style="margin-bottom: 0.75rem;">Graduate Studies &amp; Scholarships</h1>
+        <p class="section-subtitle" style="margin-bottom: 0;">
+          Academic portfolio, research interests in applied AI, and preparation for fully funded international Master's programs (2026–2027).
+        </p>
+      </div>
+
+      <!-- Academic Standing Pill -->
+      <div style="display: inline-flex; align-items: center; gap: 0.65rem; background: var(--bg-surface); border: 1px solid var(--border-color-hover); padding: 0.75rem 1.25rem; border-radius: 9999px; box-shadow: var(--card-shadow);">
+        <span class="pulse-dot"></span>
+        <span style="font-weight: 700; font-size: 0.9rem; color: var(--text-primary);">
+          CGPA 3.02 / 4.00 &bull; Academic Standing
+        </span>
+      </div>
+    </div>
+
+    <!-- Quick Academic Actions Bar -->
+    <div style="background: linear-gradient(135deg, rgba(0,245,212,0.06), rgba(56,189,248,0.06)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+      <div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary);">
+          Prospective MS Candidate: Computer Science &amp; Software Systems
+        </h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+          The Islamia University of Bahawalpur (IUB), Pakistan &bull; BS Software Engineering (6th Semester) &bull; Target: 2026/2027 Intakes
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="{% url 'core:download_resume' %}" class="btn btn-primary btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Academic CV
+        </a>
+        <a href="#scholarship-tracker" class="btn btn-outline btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          Scholarship Tracker
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       ACADEMIC FOUNDATION & UNIVERSITY RECORD
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">University Credentials</span>
+      <h2 class="section-title">Academic Background &amp; Degree Profile</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Undergraduate education, verified grade standing, and foundational theoretical curriculum.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem;" class="about-hero-grid">
+      <!-- Main Academic Info Card -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--card-shadow);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">
+              The Islamia University of Bahawalpur (IUB)
+            </h3>
+            <span style="font-size: 0.95rem; color: var(--accent-teal); font-weight: 700;">
+              Bachelor of Science in Software Engineering (BSSE)
+            </span>
+          </div>
+          <span class="tag-badge" style="background: rgba(0,245,212,0.1); color: var(--accent-teal); font-weight: 700; border-color: rgba(0,245,212,0.3);">
+            2023 &mdash; 2027 (6th Semester)
+          </span>
+        </div>
+
+        <div style="background: var(--bg-surface-subtle); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; display: flex; gap: 2rem; flex-wrap: wrap;">
+          <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block;">Current CGPA</span>
+            <strong style="font-size: 1.4rem; color: var(--accent-teal); font-family: var(--font-mono);">3.02 / 4.00</strong>
+          </div>
+          <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block;">Academic Standing</span>
+            <strong style="font-size: 1.1rem; color: var(--text-primary);">Academic Distinction</strong>
+          </div>
+          <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block;">Language of Instruction</span>
+            <strong style="font-size: 1.1rem; color: var(--text-primary);">English (100%)</strong>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Core Academic Curriculum &amp; Foundations:
+        </h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <span class="tag-badge">Data Structures &amp; Algorithms</span>
+          <span class="tag-badge">Object-Oriented Analysis &amp; Design</span>
+          <span class="tag-badge">Database Engineering &amp; SQL</span>
+          <span class="tag-badge">Software Architecture</span>
+          <span class="tag-badge">Operating Systems Concepts</span>
+          <span class="tag-badge">Machine Learning Foundations</span>
+          <span class="tag-badge">Web Application Development</span>
+          <span class="tag-badge">Discrete Mathematics</span>
+        </div>
+
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin: 0;">
+          Through rigorous coursework and hands-on laboratory work, I maintain a strong theoretical foundation in algorithmic efficiency, complexity analysis, relational normalization, and object-oriented paradigms.
+        </p>
+      </div>
+
+      <!-- Campus Leadership & Co-curricular -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--card-shadow);">
+          <span class="section-tag" style="margin-bottom: 0.5rem;">University Leadership</span>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Campus Ambassador</h3>
+          <p style="font-size: 0.88rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.75rem;">
+            Department of Software Engineering, IUB (2024 &mdash; Present)
+          </p>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Serving as an academic peer ambassador, coordinating university programming workshops, orienting junior engineering cohorts, and mentoring students in Python and version control.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--card-shadow);">
+          <span class="section-tag" style="margin-bottom: 0.5rem;">Entrepreneurial Initiative</span>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">PentaxSolution</h3>
+          <p style="font-size: 0.88rem; color: var(--accent-teal); font-weight: 600; margin-bottom: 0.75rem;">
+            Co-Founder &amp; Lead Systems Developer (2025 &mdash; Present)
+          </p>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Leading software consulting and web development initiatives, implementing clean Django architectures, client consultations, and technical feasibility studies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       RESEARCH INTERESTS STATEMENT
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Academic Research Focus</span>
+      <h2 class="section-title">Research Interests &amp; Vision</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Prospective research avenues bridging software engineering, computer vision, and autonomous agent systems.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+      <!-- Research Pillar 1 -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); margin-bottom: 1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">
+          1. Computer Vision for Intelligent Civil Infrastructure
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+          Investigating edge-optimized deep learning models (YOLO variants) for automated detection, segmentation, and spatio-temporal tracking of road distress and urban hazards under adverse illumination and varying weather conditions.
+        </p>
+      </div>
+
+      <!-- Research Pillar 2 -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(56,189,248,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-cyan); margin-bottom: 1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">
+          2. Multi-Agent Systems &amp; RAG Architectures
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+          Exploring the coordination of specialized LLM agents in structured workflows, semantic vector retrieval strategies, and hallucination reduction mechanisms across high-volume technical documentation and enterprise knowledge bases.
+        </p>
+      </div>
+
+      <!-- Research Pillar 3 -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); margin-bottom: 1.25rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+        </div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">
+          3. Scalable &amp; Trustworthy Software Systems
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+          Designing fault-tolerant microservices, resilient API gateways, and reproducible deployment pipelines that guarantee data integrity, sub-second latency, and tenant isolation in cloud environments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VERIFIED COURSERA CREDENTIALS & SPECIALIZATIONS
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Verified Continuing Education</span>
+      <h2 class="section-title">Verified Certifications &amp; Technical Accreditations</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        All 9 certifications completed via Coursera with verified cryptographic credential identifiers.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+      {% for cert in certifications %}
+        <div class="card spotlight-card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span class="tag-badge" style="font-size: 0.75rem; color: var(--accent-teal);">{{ cert.issuer }}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">{{ cert.issue_date }}</span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+              {{ cert.title }}
+            </h3>
+            {% if cert.description %}
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                {{ cert.description }}
+              </p>
+            {% endif %}
+          </div>
+
+          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem;">
+            {% if cert.credential_id %}
+              <span style="color: var(--text-muted); font-family: var(--font-mono);">ID: {{ cert.credential_id }}</span>
+            {% endif %}
+            <a href="{{ cert.credential_url|default:'https://coursera.org/verify/' }}{% if cert.credential_id %}{{ cert.credential_id }}{% endif %}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-teal); font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem;">
+              <span>Verify</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STATEMENT OF PURPOSE (SOP) FRAMEWORK & DRAFT GUIDE
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Graduate Essay Strategy</span>
+      <h2 class="section-title">Statement of Purpose (SOP) Draft Framework</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Curated narrative blueprint outlining motivation, technical preparation, research questions, and institutional alignment.
+      </p>
+    </div>
+
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--card-shadow);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
+        <!-- SOP Section 1 -->
+        <div style="border-left: 3px solid var(--accent-teal); padding-left: 1.25rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-teal); text-transform: uppercase;">Paragraph 1</span>
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0 0.5rem;">Academic Motivation &amp; Catalyst</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Articulate my core drive as a Software Engineering undergraduate at IUB discovering the synergy between high-throughput web architectures and computer vision inference.
+          </p>
+        </div>
+
+        <!-- SOP Section 2 -->
+        <div style="border-left: 3px solid var(--accent-cyan); padding-left: 1.25rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Paragraph 2</span>
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0 0.5rem;">Undergraduate Foundations &amp; Rigor</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Detailing coursework in Algorithms, Operating Systems, Machine Learning Math (Linear Algebra &amp; Probability), maintaining a 3.02 CGPA.
+          </p>
+        </div>
+
+        <!-- SOP Section 3 -->
+        <div style="border-left: 3px solid var(--accent-teal); padding-left: 1.25rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-teal); text-transform: uppercase;">Paragraph 3</span>
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0 0.5rem;">Applied Systems &amp; Projects</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Deep technical breakdown of the Road Hazard Detection pipeline (YOLOv8 + OpenCV), Enterprise RAG system, and multi-tenant portal backend.
+          </p>
+        </div>
+
+        <!-- SOP Section 4 -->
+        <div style="border-left: 3px solid var(--accent-cyan); padding-left: 1.25rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Paragraph 4</span>
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0 0.5rem;">Future Vision &amp; Program Alignment</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Specific rationale for target European / UK university curricula, faculty research labs, and long-term research commitment to scalable intelligent software.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONFIDENTIAL ACADEMIC DOCUMENTS & RECOMMENDATION LETTERS PROTOCOL
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-elevated)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--card-shadow);" class="spotlight-card">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(0,245,212,0.12); display: flex; align-items: center; justify-content: center; color: var(--accent-teal); flex-shrink: 0;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+
+        <div style="flex: 1; min-width: 280px;">
+          <span class="tag-badge" style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Institutional Privacy Protocol</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Confidential Academic Records &amp; Letters of Recommendation
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            In accordance with international academic ethics and institutional privacy standards, official university transcripts, certified degree attestations, and confidential Letters of Recommendation (LORs) from university professors are <strong>not publicly downloadable on this website</strong>. Official copies will be submitted directly via secure university application portals or transmitted upon verified request from academic admissions committees.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <a href="mailto:{{ site_settings.email|default:'dadmohammad2005@gmail.com' }}?subject=Official%20Academic%20Records%20Request%20-%20Dad%20Mohammad" class="btn btn-outline btn-sm">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Request Academic Verification
+            </a>
+            <span style="font-size: 0.88rem; color: var(--text-muted);">
+              Official requests responded to within 24–48 hours.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OFFICIAL VERIFIED MASTER'S SCHOLARSHIPS DIRECTORY
+       ========================================================================== -->
+  <section style="margin-bottom: 4.5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Funded Graduate Pathways</span>
+      <h2 class="section-title">Verified International Master's Scholarships</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Primary target fully funded graduate scholarships with direct official application portals.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+      <!-- Erasmus Mundus -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem;">🇪🇺</span>
+          <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3);">100% Fully Funded</span>
+        </div>
+        <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+          Erasmus Mundus Joint Masters (EMJMD)
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+          Funded by the European Commission. Studies across at least two European countries with full tuition waiver, €1,400 monthly living allowance, health insurance, and international travel allowance.
+        </p>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Official Erasmus Mundus Catalogue</span> &rarr;
+          </a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Annual Deadline: Typically Nov &mdash; Feb</span>
+        </div>
+      </div>
+
+      <!-- DAAD Germany -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem;">🇩🇪</span>
+          <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3);">Fully Funded (Germany)</span>
+        </div>
+        <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+          DAAD Postgraduate Scholarships
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+          German Academic Exchange Service (DAAD) funding Master's programs across German public universities (EPOS, Helmut-Schmidt). Includes €934 monthly stipend, health insurance, and travel allowance.
+        </p>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://www2.daad.de/deutschland/stipendien/datenbank/en/21148-scholarship-database/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Official DAAD Scholarship Database</span> &rarr;
+          </a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Annual Deadline: Typically Aug &mdash; Nov</span>
+        </div>
+      </div>
+
+      <!-- Chevening UK -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem;">🇬🇧</span>
+          <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3);">Fully Funded (UK)</span>
+        </div>
+        <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+          Chevening Scholarships (UK)
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+          Funded by the UK Foreign, Commonwealth and Development Office (FCDO). Fully covers 1-year Master's degree at any UK university, full tuition fees, economy flights, and monthly living stipend.
+        </p>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://www.chevening.org/scholarships/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Official Chevening Scholarship Portal</span> &rarr;
+          </a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Annual Deadline: Early November</span>
+        </div>
+      </div>
+
+      <!-- Swedish Institute -->
+      <div class="card spotlight-card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem;">🇸🇪</span>
+          <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3);">Fully Funded (Sweden)</span>
+        </div>
+        <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
+          Swedish Institute (SISGP)
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+          Scholarships for Global Professionals covering full tuition fees at top Swedish universities, SEK 12,000 monthly living expenses, travel grant, and comprehensive health insurance.
+        </p>
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; font-weight: 700; color: var(--accent-teal); display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Official Swedish Institute Portal</span> &rarr;
+          </a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Annual Deadline: Mid-February</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EDITABLE SCHOLARSHIP APPLICATION TRACKER
+       ========================================================================== -->
+  <section id="scholarship-tracker" style="margin-bottom: 4.5rem; scroll-margin-top: 5rem;">
+    <div style="margin-bottom: 2rem;">
+      <span class="section-tag">Target Program Roadmap</span>
+      <h2 class="section-title">Scholarship Application Tracker</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">
+        Active preparation status, eligibility criteria, and required documentation for target graduate programs.
+      </p>
+    </div>
+
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow-x: auto; box-shadow: var(--card-shadow);">
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; min-width: 720px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); background: var(--bg-surface-subtle); color: var(--text-primary);">
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Program / Scholarship</th>
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Host Region</th>
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Eligibility Criteria</th>
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Required Documents</th>
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Target Cycle</th>
+            <th style="padding: 1.1rem 1.25rem; font-weight: 700;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: Erasmus Mundus SE4GD -->
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.2rem 1.25rem;">
+              <strong style="color: var(--text-primary); display: block;">Erasmus Mundus (SE4GD)</strong>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">Software Engineers for Green Deal</span>
+            </td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Finland, Italy, Netherlands</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">BS in SE/CS &bull; CGPA &ge; 3.0 &bull; IELTS 6.5+</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Transcripts, SOP, 2 LORs, CV, IELTS</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">Jan 2027</td>
+            <td style="padding: 1.2rem 1.25rem;">
+              <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.8rem;">
+                Preparing Documents
+              </span>
+            </td>
+          </tr>
+
+          <!-- Row 2: Erasmus Mundus BDMA -->
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.2rem 1.25rem;">
+              <strong style="color: var(--text-primary); display: block;">Erasmus Mundus (BDMA)</strong>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">Big Data Management &amp; Analytics</span>
+            </td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Belgium, Spain, France</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">BS in CS/SE &bull; Strong Math &amp; DB Foundation</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Degree Attestation, SOP, 2 LORs, CV</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">Jan 2027</td>
+            <td style="padding: 1.2rem 1.25rem;">
+              <span class="tag-badge" style="color: var(--accent-teal); border-color: rgba(0,245,212,0.3); font-size: 0.8rem;">
+                Preparing Documents
+              </span>
+            </td>
+          </tr>
+
+          <!-- Row 3: DAAD EPOS -->
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.2rem 1.25rem;">
+              <strong style="color: var(--text-primary); display: block;">DAAD (EPOS / Masters)</strong>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">Development-Related Postgraduate CS</span>
+            </td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Germany (Public Universities)</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Bachelor in CS/SE &bull; Professional experience</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">DAAD Form, Europass CV, SOP, 2 LORs</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">Oct 2026</td>
+            <td style="padding: 1.2rem 1.25rem;">
+              <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.8rem;">
+                Eligibility Review
+              </span>
+            </td>
+          </tr>
+
+          <!-- Row 4: Chevening -->
+          <tr>
+            <td style="padding: 1.2rem 1.25rem;">
+              <strong style="color: var(--text-primary); display: block;">Chevening Scholarship</strong>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">UK Government Master's Award</span>
+            </td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">United Kingdom</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">Undergraduate degree &bull; Leadership potential</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary);">4 Leadership Essays, University Offers, LORs</td>
+            <td style="padding: 1.2rem 1.25rem; color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">Nov 2026</td>
+            <td style="padding: 1.2rem 1.25rem;">
+              <span class="tag-badge" style="color: var(--accent-cyan); border-color: rgba(56,189,248,0.3); font-size: 0.8rem;">
+                Drafting Essays
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ACADEMIC ADMISSIONS & VISA DISCLAIMER
+       ========================================================================== -->
+  <section style="margin-bottom: 2rem;">
+    <div style="background: var(--bg-surface-subtle); border-left: 4px solid var(--accent-teal); border-radius: var(--radius-md); padding: 1.75rem 2rem;">
+      <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Institutional Disclaimer Regarding Admissions &amp; Visa Outcomes
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+        This graduate profile demonstrates my academic background, independent research activities, and prospective timeline for international Master's degree applications. <strong>Presentation of programs or scholarship schemes on this portfolio does not guarantee university admission, scholarship funding, or student visa approval.</strong> Admission decisions and scholarship selections are conducted autonomously by respective university admissions boards, the European Commission, DAAD, and the British FCDO based on academic merit, standardized language examinations (IELTS/TOEFL), competitive essay evaluations, and interview assessments.
+      </p>
+    </div>
+  </section>
+</div>
+{% endblock %}

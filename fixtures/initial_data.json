@@ -1,0 +1,781 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$GUz0eoZ8iaUNsj2P0drVxY$8Dc0/LWqyalDf7aDrwalLEkxRbhWY8MG/7NlbRKpBXs=",
+    "last_login": "2026-10-23T20:45:35.742Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@portfolio.dev",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-14T15:55:45.823Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$jfOsJPs6GjJ75iVn5GxdX8$m6qYZpLsSn/NZLImOYYxR6DBfxjBmzMuIZ6L3jTKegI=",
+    "last_login": "2026-10-23T20:45:27.651Z",
+    "is_superuser": true,
+    "username": "dadmohammad",
+    "first_name": "",
+    "last_name": "",
+    "email": "dadmohammad.dev@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-23T20:44:40.882Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.sitesettings",
+  "pk": 1,
+  "fields": {
+    "name": "Dad Mohammad",
+    "title": "Software Engineering Student | Python & Django Developer | Exploring AI Engineering",
+    "short_bio": "I build practical web applications and explore AI-powered solutions to real-world problems. I am continuously improving my software engineering skills through hands-on projects, learning, and experimentation.",
+    "detailed_bio": "I am a 6th-semester Software Engineering student at The Islamia University of Bahawalpur (IUB), Pakistan, maintaining an academic CGPA of 3.50/4.00.\n\nMy technical foundation is centered around Python and Django backend development, relational database modeling, and RESTful API architecture. Driven by an eagerness to bridge web systems with intelligent algorithms, I actively explore Computer Vision (YOLOv8, OpenCV), Generative AI, Retrieval-Augmented Generation (RAG), and multi-agent system workflows.\n\nBeyond the classroom, I serve as Co-Founder & Lead Systems Developer at PentaxSolution, where I architect software solutions and technical consultancies. As a passionate peer mentor, I also represent the Department of Software Engineering at IUB as a Campus Ambassador, organizing hands-on programming bootcamps.\n\nMy current trajectory is focused on securing competitive international software engineering internships, remote junior developer roles, and preparing strong applications for fully funded European and international Master's scholarships (Erasmus Mundus, DAAD, and Chevening).",
+    "profile_photo": "profile/dad_mohammad_profile.jpg",
+    "resume_file": "resume/Dad_Mohammad_Resume.pdf",
+    "location": "Quetta, Balochistan, Pakistan",
+    "email": "dadmohammad2005@gmail.com",
+    "phone": "+92 310 8778900",
+    "github_url": "https://github.com/dadmohammad2005-spec",
+    "linkedin_url": "https://linkedin.com",
+    "twitter_url": "https://twitter.com",
+    "is_available_for_hire": true,
+    "hero_badge_text": "Available for International Internships & Junior Roles",
+    "years_of_experience": 3,
+    "projects_completed": 15,
+    "satisfied_clients": 12,
+    "meta_keywords": "Dad Mohammad, Software Engineer, Python, Django, YOLOv8, OpenCV, Amazon Bedrock, Azure AI Foundry, Quetta, Pakistan, Islamia University of Bahawalpur",
+    "meta_description": "Curriculum Vitae and Portfolio of Dad Mohammad - Software Engineer specializing in Python, Django, Computer Vision, and Generative AI Agents.",
+    "updated_at": "2026-10-27T20:34:31.505Z"
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 36,
+  "fields": {
+    "name": "Python",
+    "category": "programming",
+    "tier": "proficient",
+    "proficiency": 90,
+    "icon": "code",
+    "is_featured": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 37,
+  "fields": {
+    "name": "JavaScript (ES6+)",
+    "category": "programming",
+    "tier": "working",
+    "proficiency": 72,
+    "icon": "file-code",
+    "is_featured": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 38,
+  "fields": {
+    "name": "HTML5 & Semantic Markup",
+    "category": "programming",
+    "tier": "proficient",
+    "proficiency": 88,
+    "icon": "layout",
+    "is_featured": true,
+    "order": 3
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 39,
+  "fields": {
+    "name": "CSS3 & Modern Layouts",
+    "category": "programming",
+    "tier": "proficient",
+    "proficiency": 82,
+    "icon": "palette",
+    "is_featured": true,
+    "order": 4
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 40,
+  "fields": {
+    "name": "C++",
+    "category": "programming",
+    "tier": "working",
+    "proficiency": 70,
+    "icon": "terminal",
+    "is_featured": false,
+    "order": 5
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 41,
+  "fields": {
+    "name": "Django & Django REST Framework",
+    "category": "backend",
+    "tier": "proficient",
+    "proficiency": 88,
+    "icon": "server",
+    "is_featured": true,
+    "order": 6
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 42,
+  "fields": {
+    "name": "RESTful API Engineering",
+    "category": "backend",
+    "tier": "proficient",
+    "proficiency": 85,
+    "icon": "share-2",
+    "is_featured": true,
+    "order": 7
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 43,
+  "fields": {
+    "name": "Authentication & RBAC (JWT)",
+    "category": "backend",
+    "tier": "proficient",
+    "proficiency": 82,
+    "icon": "shield",
+    "is_featured": true,
+    "order": 8
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 44,
+  "fields": {
+    "name": "Server-Side Business Logic",
+    "category": "backend",
+    "tier": "proficient",
+    "proficiency": 84,
+    "icon": "cpu",
+    "is_featured": false,
+    "order": 9
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 45,
+  "fields": {
+    "name": "PostgreSQL & SQLite",
+    "category": "database",
+    "tier": "proficient",
+    "proficiency": 84,
+    "icon": "database",
+    "is_featured": true,
+    "order": 10
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 46,
+  "fields": {
+    "name": "Relational Schema Design & ORM",
+    "category": "database",
+    "tier": "proficient",
+    "proficiency": 82,
+    "icon": "table",
+    "is_featured": true,
+    "order": 11
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 47,
+  "fields": {
+    "name": "MySQL & SQL Querying",
+    "category": "database",
+    "tier": "working",
+    "proficiency": 74,
+    "icon": "hard-drive",
+    "is_featured": false,
+    "order": 12
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 48,
+  "fields": {
+    "name": "Git & GitHub Version Control",
+    "category": "tools",
+    "tier": "proficient",
+    "proficiency": 85,
+    "icon": "git-branch",
+    "is_featured": true,
+    "order": 13
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 49,
+  "fields": {
+    "name": "Postman & API Testing",
+    "category": "tools",
+    "tier": "working",
+    "proficiency": 78,
+    "icon": "check-circle",
+    "is_featured": true,
+    "order": 14
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 50,
+  "fields": {
+    "name": "VS Code & Python Tooling",
+    "category": "tools",
+    "tier": "proficient",
+    "proficiency": 88,
+    "icon": "edit",
+    "is_featured": false,
+    "order": 15
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 51,
+  "fields": {
+    "name": "Linux CLI & Bash Basics",
+    "category": "tools",
+    "tier": "working",
+    "proficiency": 72,
+    "icon": "terminal",
+    "is_featured": false,
+    "order": 16
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 52,
+  "fields": {
+    "name": "YOLOv8 & OpenCV Computer Vision",
+    "category": "ai",
+    "tier": "working",
+    "proficiency": 78,
+    "icon": "eye",
+    "is_featured": true,
+    "order": 17
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 53,
+  "fields": {
+    "name": "Amazon Bedrock & GenAI Integration",
+    "category": "ai",
+    "tier": "learning",
+    "proficiency": 70,
+    "icon": "zap",
+    "is_featured": true,
+    "order": 18
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 54,
+  "fields": {
+    "name": "Azure AI Foundry & Multi-Agent Fundamentals",
+    "category": "ai",
+    "tier": "learning",
+    "proficiency": 68,
+    "icon": "bot",
+    "is_featured": true,
+    "order": 19
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 55,
+  "fields": {
+    "name": "Retrieval-Augmented Generation (RAG)",
+    "category": "ai",
+    "tier": "learning",
+    "proficiency": 68,
+    "icon": "search",
+    "is_featured": false,
+    "order": 20
+  }
+},
+{
+  "model": "core.experience",
+  "pk": 4,
+  "fields": {
+    "company": "PentaxSolution (Software Development & Tech Consulting)",
+    "role": "Co-Founder & Lead Systems Developer",
+    "location": "Pakistan",
+    "employment_type": "Venture / Leadership",
+    "start_date": "2025-01-01",
+    "end_date": null,
+    "is_current": true,
+    "description": "? Co-founded a student tech initiative delivering full-stack web applications, relational database architectures, and API integrations for departmental and client workflows.\n? Direct code reviews, CI/CD repository structure on GitHub, and ensure high coding standards adhering to modular architectural patterns.",
+    "technologies": "Python, Django, Django REST Framework, PostgreSQL, Git, CI/CD",
+    "order": 1
+  }
+},
+{
+  "model": "core.experience",
+  "pk": 5,
+  "fields": {
+    "company": "Department of Software Engineering, Islamia University of Bahawalpur",
+    "role": "Technical Volunteer & Campus Ambassador",
+    "location": "Bahawalpur, Punjab, Pakistan",
+    "employment_type": "Academic Leadership",
+    "start_date": "2024-01-01",
+    "end_date": null,
+    "is_current": true,
+    "description": "? Assisted junior semester cohorts through hands-on tutorial sessions covering Python syntax, algorithmic thinking, and Git version control workflows.\n? Actively represented regional students from Balochistan in campus peer-mentorship networks, promoting technical literacy and collaborative software development.",
+    "technologies": "Python, Git, GitHub, Algorithms, Linux Terminal",
+    "order": 2
+  }
+},
+{
+  "model": "core.education",
+  "pk": 3,
+  "fields": {
+    "institution": "The Islamia University of Bahawalpur",
+    "degree": "Bachelor of Science in Software Engineering (6th Semester)",
+    "field_of_study": "Software Engineering",
+    "start_year": 2023,
+    "end_year": 2027,
+    "grade_or_honors": "CGPA: 3.02 / 4.00",
+    "description": "Relevant Coursework: Data Structures & Algorithms, Object-Oriented Analysis & Design, Database Engineering, Operating Systems, Machine Learning Foundations, Software Architecture, RESTful Distributed Systems.",
+    "order": 1
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 1,
+  "fields": {
+    "title": "Amazon Bedrock Customization & Automation",
+    "issuer": "Amazon Web Services (AWS)",
+    "issue_date": "Jul 2026",
+    "credential_id": "0E150AW0K2RM",
+    "description": "Foundation Model Tuning & Agents",
+    "credential_url": "https://coursera.org/verify",
+    "order": 1
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 2,
+  "fields": {
+    "title": "AI Agent Fundamentals with Azure AI Foundry",
+    "issuer": "Microsoft",
+    "issue_date": "Sep 2026",
+    "credential_id": "3DUGEFKNDIY3",
+    "description": "Autonomous Multi-Agent Systems",
+    "credential_url": "https://coursera.org/verify",
+    "order": 2
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 3,
+  "fields": {
+    "title": "AWS Generative AI for Developers",
+    "issuer": "Amazon Web Services (AWS)",
+    "issue_date": "Jul 2026",
+    "credential_id": "4CERFDM4RE4B",
+    "description": "GenAI Model Orchestration & Cloud API",
+    "credential_url": "https://coursera.org/verify",
+    "order": 3
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 4,
+  "fields": {
+    "title": "Intro to Artificial Intelligence on Azure",
+    "issuer": "Microsoft",
+    "issue_date": "Jul 2026",
+    "credential_id": "4LZXZEPT4BXA",
+    "description": "Cloud AI Cognitive Services",
+    "credential_url": "https://coursera.org/verify",
+    "order": 4
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 5,
+  "fields": {
+    "title": "AI & Deep Learning Concepts & Applications",
+    "issuer": "Simplilearn",
+    "issue_date": "Jul 2026",
+    "credential_id": "0DBUH4N657ZZ",
+    "description": "Neural Networks, Computer Vision & NLP",
+    "credential_url": "https://coursera.org/verify",
+    "order": 5
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 6,
+  "fields": {
+    "title": "Linear Algebra for ML & Data Science",
+    "issuer": "DeepLearning.AI",
+    "issue_date": "Jul 2026",
+    "credential_id": "9MCJ89VWE0JG",
+    "description": "Matrix Operations, Eigenvalues & PCA",
+    "credential_url": "https://coursera.org/verify",
+    "order": 6
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 7,
+  "fields": {
+    "title": "Probability & Statistics for ML & Data Science",
+    "issuer": "DeepLearning.AI",
+    "issue_date": "Jul 2026",
+    "credential_id": "AC67ZFW3JXYV",
+    "description": "Hypothesis Testing & Bayes Inference",
+    "credential_url": "https://coursera.org/verify",
+    "order": 7
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 8,
+  "fields": {
+    "title": "Introduction to APIs",
+    "issuer": "Sage Publications",
+    "issue_date": "Oct 2026",
+    "credential_id": "22BE8TVSUF31",
+    "description": "Endpoints, Webhook Paradigms & Microservices",
+    "credential_url": "https://coursera.org/verify",
+    "order": 8
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 9,
+  "fields": {
+    "title": "Introduction to Cloud Computing",
+    "issuer": "IBM Skills Network",
+    "issue_date": "Oct 2026",
+    "credential_id": "85UCJXX11FIZ",
+    "description": "Cloud Native Architecture, IaaS, PaaS, Hybrid Deployments",
+    "credential_url": "https://coursera.org/verify",
+    "order": 9
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 8,
+  "fields": {
+    "name": "Backend",
+    "slug": "backend"
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 9,
+  "fields": {
+    "name": "Full-Stack",
+    "slug": "full-stack"
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 10,
+  "fields": {
+    "name": "AI Projects",
+    "slug": "ai-projects"
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 11,
+  "fields": {
+    "name": "Academic Projects",
+    "slug": "academic-projects"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 7,
+  "fields": {
+    "title": "AI-Driven Road Hazard & Pothole Detection System",
+    "slug": "road-hazard-pothole-detection",
+    "category": 10,
+    "tagline": "Computer vision and Django platform detecting road damage and potholes with millisecond latency and mapping incidents for municipal planning.",
+    "description": "### Project Architecture & Overview\nArchitected an end-to-end computer vision pipeline using YOLOv8 and OpenCV to detect road damage, surface distress, and potholes with millisecond latency.\n\n### Key Engineering Accomplishments:\n? Designed an end-to-end computer vision pipeline using YOLOv8 and OpenCV to detect road damage, surface distress, and potholes with millisecond latency.\n? Engineered a full-stack dashboard in Django that maps incident coordinates, aggregates severity metrics, and feeds spatial data to an API endpoint for municipal planning.\n? Optimized batch inference throughput on CPU architectures, reducing average frame processing latency by 35%.",
+    "featured_image": "projects/road_hazard_ai.jpg",
+    "technologies": "Python, YOLOv8, OpenCV, Django, SQLite, REST Architecture",
+    "github_url": "https://github.com/dadmohammad2005-spec",
+    "live_demo_url": "",
+    "status": "in_progress",
+    "is_featured": true,
+    "order": 5,
+    "created_at": "2026-10-22T10:09:14.900Z",
+    "updated_at": "2026-11-09T10:35:11.650Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 8,
+  "fields": {
+    "title": "Enterprise Document Intelligence & RAG Query System",
+    "slug": "enterprise-document-intelligence-rag",
+    "category": 10,
+    "tagline": "Modular Retrieval-Augmented Generation (RAG) platform with multi-agent orchestration for semantic search and high-volume enterprise document intelligence.",
+    "description": "### Project Architecture & Overview\nDesigned a modular Retrieval-Augmented Generation (RAG) platform to extract semantic context and answer domain-specific inquiries across high-volume academic and enterprise PDFs.\n\n### Key Engineering Accomplishments:\n? Designed a modular Retrieval-Augmented Generation (RAG) platform to extract semantic context and answer domain-specific inquiries across high-volume academic and enterprise PDFs.\n? Integrated foundation models through Amazon Bedrock and orchestrated agent workflows via Azure AI Foundry with guarded validation rules.\n? Implemented asynchronous RESTful endpoints with DRF to enable real-time streaming answers and context citation tokens.",
+    "featured_image": "projects/enterprise_rag_ai.jpg",
+    "technologies": "Python, Amazon Bedrock, Azure AI Foundry, Django REST Framework, Vector Embeddings",
+    "github_url": "https://github.com/dadmohammad2005-spec",
+    "live_demo_url": "",
+    "status": "experimental",
+    "is_featured": true,
+    "order": 6,
+    "created_at": "2026-10-22T10:09:14.916Z",
+    "updated_at": "2026-11-09T10:35:11.666Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 9,
+  "fields": {
+    "title": "Scalable Multi-Tenant Service Portal & API Gateway",
+    "slug": "scalable-multi-tenant-service-portal",
+    "category": 8,
+    "tagline": "Enterprise multi-tenant backend architecture featuring normalized relational tables, strict role-based access control (RBAC), and JWT validation.",
+    "description": "### Project Architecture & Overview\nConstructed relational database models with normalized multi-tiered tables, implementing strict role-based access control (RBAC) and JWT token validation.\n\n### Key Engineering Accomplishments:\n? Constructed relational database models with normalized multi-tiered tables, implementing strict role-based access control (RBAC) and JWT token validation.\n? Authored comprehensive API test suites using Postman and automated test scripts to ensure data consistency and 99.8% uptime reliability across user requests.\n? Engineered clean decoupled services adhering to modular software architecture and RESTful distributed systems standards.",
+    "featured_image": "projects/cloud_api_gateway.jpg",
+    "technologies": "Python, Django, Postman, Relational DB Design, RBAC, JWT",
+    "github_url": "https://github.com/dadmohammad2005-spec",
+    "live_demo_url": "",
+    "status": "completed",
+    "is_featured": true,
+    "order": 7,
+    "created_at": "2026-10-22T10:09:14.922Z",
+    "updated_at": "2026-11-09T10:35:11.666Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 11,
+  "fields": {
+    "title": "Ali Hall Smart Hostel & Mess Management System",
+    "slug": "ali-hall-hostel-mess-management",
+    "category": 9,
+    "tagline": "Production-ready campus hostel & mess platform managing 300 rooms & 600 beds with zero double-booking allocation, RBAC, and Pakistani banking payment workflows.",
+    "description": "Ali Hall Smart Hostel & Mess Management System is an enterprise-grade Django web application custom-tailored for Ali Hall (Boys Hostel) under the Directorate of Student Hostels & Hall Council at The Islamia University of Bahawalpur (IUB).\n\n### Key Architectural Highlights:\n- 300 Rooms & 600 Beds Allocation Engine: Complete physical inventory tracking with automated zero double-booking logic across 3 residential wings:\n  * Quaid Block (Block A, Ground Floor): 100 Rooms, 200 Beds exclusively reserved for students with disabilities and medical needs.\n  * Iqbal Block (Block B, First Floor): 100 Rooms, 200 Beds for regular merit students.\n  * Sir Syed Block (Block C, Second Floor): 100 Rooms, 200 Beds for general allotment.\n- Automated Room & Bed Allocation: Eliminates contention and race conditions when students request room changes or apply for admission.\n- Professional Mess Management System: Daily meal attendance logs, diet calculation, monthly mess bills, and expense auditing.\n- Pakistani Banking & Fee Payment Verification: Supports HBL Konnect, 1-Bill, EasyPaisa, JazzCash, and Baghdad-ul-Jadeed campus bank challan processing.\n- Multi-Role RBAC: Dedicated customized dashboards for SuperAdmin, Hostel Wardens, and Student Residents.\n- Maintenance Ticketing System: Categorized complaint tracking (Electrical, Plumbing, Carpenter, Internet) with priority queues and warden resolution workflows.",
+    "featured_image": "projects/hostel_building.jpg",
+    "technologies": "Python, Django, Tailwind CSS, Bootstrap 5, SQLite, PostgreSQL, JavaScript, HTML5",
+    "github_url": "https://github.com/dadmohammad2005-spec/Hostal_management_System-",
+    "live_demo_url": "",
+    "status": "completed",
+    "is_featured": true,
+    "order": 1,
+    "created_at": "2026-11-09T10:08:28.964Z",
+    "updated_at": "2026-11-09T10:22:07.236Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 12,
+  "fields": {
+    "title": "Car Rental & Fleet Management System",
+    "slug": "car-rental-fleet-management",
+    "category": 9,
+    "tagline": "Dynamic vehicle reservation and fleet management platform built with Django, featuring dual owner/renter roles, date-driven pricing, and booking lifecycle tracking.",
+    "description": "A comprehensive Car Rental System built with Python and Django that allows users to book rental vehicles seamlessly and enables car owners to list, manage, and monitor their vehicle fleets.\n\n### Key Architectural Highlights:\n- Dual-Role User Architecture: Built-in authentication featuring automatic Profile creation via Django post_save signals to distinguish between Vehicle Owners and Renters.\n- Fleet Inventory & Availability: Car owners can add, update, and manage vehicle specs (make, model, year, daily rate, and availability state).\n- Date-Difference Pricing Engine: Automated reservation calculator that validates pickup and return date windows, checks for overlapping bookings, and computes total cost dynamically.\n- Booking Lifecycle Management: Real-time status progression from 'Confirmed' to 'Active', 'Completed', or 'Cancelled' with user-friendly dashboards.\n- Responsive Web UI: Built with Bootstrap and custom CSS for cross-device compatibility on mobile, tablet, and desktop viewports.",
+    "featured_image": "projects/car_rental_luxury.jpg",
+    "technologies": "Python, Django, SQLite, Bootstrap 5, Django Signals, HTML5, CSS3, JavaScript",
+    "github_url": "https://github.com/dadmohammad2005-spec/car-rental-project",
+    "live_demo_url": "",
+    "status": "completed",
+    "is_featured": true,
+    "order": 2,
+    "created_at": "2026-11-09T10:08:28.975Z",
+    "updated_at": "2026-11-09T10:22:07.248Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 13,
+  "fields": {
+    "title": "Snake Pro - Arcade Game Engine",
+    "slug": "snake-pro-arcade-game",
+    "category": 9,
+    "tagline": "High-performance arcade-style retro browser game built with HTML5 Canvas, responsive collision physics, neon cyberpunk aesthetics, and Django integration.",
+    "description": "Snake Pro — Ultimate Edition is an interactive, modern re-imagination of the classic retro arcade snake game built using HTML5 Canvas, modern JavaScript physics, and integrated into a Django web platform.\n\n### Key Architectural Highlights:\n- HTML5 Canvas 2D Game Loop: Smooth 60 FPS animation powered by requestAnimationFrame, rendering fluid snake locomotion and pixel-perfect collision detection.\n- Dynamic Difficulty & Speed Ramping: Progressive speed acceleration as the snake consumes food, challenging players' spatial reflexes and endurance.\n- Cyberpunk UI & Visual Polish: Custom typography with Orbitron, neon glow effects, responsive grid scaling, score multipliers, and audio feedback.\n- Interactive Controls: Multi-input support including WASD, Arrow keys, spacebar pause toggling, and touch-screen accessibility.\n- Django Server Integration: Packaged as a modular Django application with clean view routing and template inheritance.",
+    "featured_image": "projects/snake_arcade_neon.jpg",
+    "technologies": "Python, Django, JavaScript (ES6+), HTML5 Canvas, CSS3, Web Audio API",
+    "github_url": "https://github.com/dadmohammad2005-spec/Snack_game",
+    "live_demo_url": "",
+    "status": "completed",
+    "is_featured": true,
+    "order": 3,
+    "created_at": "2026-11-09T10:08:28.980Z",
+    "updated_at": "2026-11-09T10:22:07.265Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 14,
+  "fields": {
+    "title": "Automated PowerPoint to PDF Converter",
+    "slug": "ppt-to-pdf-converter",
+    "category": 8,
+    "tagline": "Automated document processing tool and Django web service converting PowerPoint presentations (.ppt/.pptx) into high-fidelity PDF documents using Python.",
+    "description": "An automated document transformation tool and web service built with Python and Django to convert Microsoft PowerPoint slideshows (.ppt and .pptx) into standardized, publication-ready PDF files.\n\n### Key Architectural Highlights:\n- Lossless Presentation Conversion: Leverages Python COM automation via pywin32 to interact with PowerPoint's native rendering engine, preserving slide animations, typography, and vector layouts.\n- Batch Document Pipeline: Capable of processing single decks or queued batches of presentations into print-ready 300 DPI PDF files.\n- Django Web Interface: Features an intuitive file upload interface with client-side file extension validation and instant streaming downloads for converted PDFs.\n- Fault-Tolerant File Handling: Cleans up temporary artifacts, manages memory leaks in COM objects, and prevents file system corruption.\n- Developer CLI & Web Integration: Dual mode architecture allowing usage as a standalone CLI utility or as a web service endpoint.",
+    "featured_image": "projects/pdf_converter_tech.jpg",
+    "technologies": "Python, Django, pywin32, COM Automation, File I/O, HTML5, CSS3",
+    "github_url": "https://github.com/dadmohammad2005-spec/ppt-converter-pdf",
+    "live_demo_url": "",
+    "status": "completed",
+    "is_featured": true,
+    "order": 4,
+    "created_at": "2026-11-09T10:08:28.992Z",
+    "updated_at": "2026-11-09T10:22:07.273Z"
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 1,
+  "fields": {
+    "project": 11,
+    "image": "projects/screenshots/hostel_system.svg",
+    "caption": "Ali Hall Room Matrix & Mess Allocation Dashboard",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 2,
+  "fields": {
+    "project": 12,
+    "image": "projects/screenshots/car_rental.svg",
+    "caption": "Fleet Booking Portal & Vehicle Availability Matrix",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 3,
+  "fields": {
+    "project": 13,
+    "image": "projects/screenshots/snake_arcade.svg",
+    "caption": "Neon Cyberpunk Canvas Game Loop & High Score HUD",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 4,
+  "fields": {
+    "project": 14,
+    "image": "projects/screenshots/ppt_converter.svg",
+    "caption": "PowerPoint COM Automation Pipeline to High-Fidelity PDF",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 5,
+  "fields": {
+    "project": 7,
+    "image": "projects/devpulse.svg",
+    "caption": "Real-Time YOLOv8 Pothole Detection & Vision Pipeline",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 6,
+  "fields": {
+    "project": 8,
+    "image": "projects/smartdoc.svg",
+    "caption": "Enterprise RAG Document Vector Retrieval Architecture",
+    "order": 0
+  }
+},
+{
+  "model": "projects.projectscreenshot",
+  "pk": 7,
+  "fields": {
+    "project": 9,
+    "image": "projects/cloudscale.svg",
+    "caption": "Multi-Tenant API Gateway Routing & Performance Analytics",
+    "order": 0
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 1,
+  "fields": {
+    "title": "Architecting Scalable Django Applications for 1M+ Daily Requests",
+    "slug": "architecting-scalable-django-applications-million-requests",
+    "category": "Architecture",
+    "tags": "Django, Python, Performance, PostgreSQL, Redis",
+    "excerpt": "Key architectural strategies for optimizing Django ORM queries, configuring connection pooling, implementing multi-layer Redis caching, and decoupling heavy workloads.",
+    "content": "Scaling a Django application to handle millions of requests every day requires moving beyond basic tutorials and understanding how the framework interacts with the database, operating system, and cache layers.\n\n### 1. Master the ORM and Stop the N+1 Query Problem\nThe number one cause of sluggish Django applications is unoptimized ORM usage. Always use `select_related()` for single-valued relationships (ForeignKey, OneToOne) and `prefetch_related()` for multi-valued relationships (ManyToMany, reverse ForeignKeys).\n\n```python\n# Avoid:\nprojects = Project.objects.all()\nfor p in projects:\n    print(p.category.name)  # Causes 1 query per project!\n\n# Preferred:\nprojects = Project.objects.select_related('category').all()\n```\n\n### 2. Database Connection Pooling (`CONN_MAX_AGE`)\nBy default, Django closes the database connection at the end of each HTTP request. Establishing a new TCP and TLS handshake with PostgreSQL for every request adds significant overhead. Setting `CONN_MAX_AGE = 600` keeps connections alive across requests, slashing latency.\n\n### 3. Asynchronous Task Offloading\nNever perform I/O-heavy operations (sending emails, processing image uploads, calling external APIs) inside the request-response lifecycle. Offload them to background workers via Celery or Django channels.\n\n### Summary\nWith query optimization, connection pooling, and asynchronous queuing, a single Django instance can easily sustain hundreds of requests per second with sub-50ms response times.",
+    "cover_image": "",
+    "read_time": 7,
+    "is_published": true,
+    "published_date": "2026-10-11T15:57:17.976Z",
+    "created_at": "2026-10-14T15:57:17.977Z",
+    "updated_at": "2026-10-14T15:57:17.977Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 2,
+  "fields": {
+    "title": "The Senior Engineer's Guide to Zero-Downtime Database Migrations",
+    "slug": "senior-engineers-guide-zero-downtime-database-migrations",
+    "category": "Database",
+    "tags": "PostgreSQL, Django, Migrations, DevOps, CI/CD",
+    "excerpt": "How to modify database schemas on live production systems without table locks, downtime, or breaking active user sessions.",
+    "content": "Running `python manage.py migrate` in production without understanding table locks can inadvertently lock your main tables and take your entire application down. Here is how to execute schema migrations safely.\n\n### The Three-Phase Migration Pattern (Expand / Contract)\nWhen renaming a column or changing a constraint, never do it in a single step.\n\n1. **Phase 1 (Expand)**: Add the new column as nullable. Deploy the code that writes to both old and new columns, but reads from the old.\n2. **Phase 2 (Backfill)**: Run a background migration to copy historical data from the old column to the new column in small batches.\n3. **Phase 3 (Contract)**: Deploy code that reads and writes strictly from the new column. Once verified, drop the old column.\n\n### Beware of Adding Defaults to Existing Columns\nIn older PostgreSQL versions, adding a column with a default value causes an entire table rewrite with an exclusive lock. Always add nullable columns first, backfill defaults, and then enforce constraints.",
+    "cover_image": "",
+    "read_time": 6,
+    "is_published": true,
+    "published_date": "2026-10-02T15:57:17.976Z",
+    "created_at": "2026-10-14T15:57:17.982Z",
+    "updated_at": "2026-10-14T15:57:17.982Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 3,
+  "fields": {
+    "title": "Why Modern Python 3.12 Type Hints and Protocols Transform Codebases",
+    "slug": "why-modern-python-type-hints-protocols-transform-codebases",
+    "category": "Python",
+    "tags": "Python 3.12, Clean Code, Architecture, Typing, Testing",
+    "excerpt": "How static type checking with Mypy and structural subtyping with Protocols catch edge cases early and produce self-documenting code.",
+    "content": "Python's dynamic typing is wonderful for rapid prototyping, but as codebases grow beyond tens of thousands of lines and dozens of contributors, type ambiguity becomes a major source of bugs.\n\n### Structural Subtyping with `typing.Protocol`\nInstead of rigid class inheritance, Python Protocols give you compile-time duck typing. If an object has the required methods, it satisfies the interface.\n\n```python\nfrom typing import Protocol\n\nclass Notifier(Protocol):\n    def send(self, recipient: str, message: str) -> bool:\n        ...\n```\n\nNow any class implementing `send` seamlessly fulfills `Notifier`, making unit testing and dependency injection effortless.",
+    "cover_image": "",
+    "read_time": 5,
+    "is_published": true,
+    "published_date": "2026-09-19T15:57:17.976Z",
+    "created_at": "2026-10-14T15:57:17.985Z",
+    "updated_at": "2026-10-14T15:57:17.985Z"
+  }
+}
+]

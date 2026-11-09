@@ -1,0 +1,141 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Manage Career & Education Timeline{% endblock %}
+{% block breadcrumb %}Timeline{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Career Milestones & Education Records</h1>
+    <p class="dash-page-subtitle">Curate your employment history, engineering roles, and academic qualifications.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:experience_create' %}" class="btn btn-primary btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Add Experience
+    </a>
+    <a href="{% url 'dashboard:education_create' %}" class="btn btn-outline btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Add Education
+    </a>
+  </div>
+</div>
+
+<!-- Experiences Card -->
+<div class="dash-card">
+  <div class="dash-card-header">
+    <h2 class="dash-card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+      Work Experience
+    </h2>
+  </div>
+  <div class="dash-table-responsive">
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th>Role & Company</th>
+          <th>Location & Type</th>
+          <th>Period</th>
+          <th>Technologies</th>
+          <th>Order</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for exp in experiences %}
+          <tr>
+            <td>
+              <div style="font-weight: 700; color: var(--text-primary);">{{ exp.role }}</div>
+              <div style="font-size: 0.8rem; color: var(--accent-teal);">{{ exp.company }}</div>
+            </td>
+            <td>
+              <div>{{ exp.location }}</div>
+              <span class="dash-badge dash-badge-blue">{{ exp.employment_type }}</span>
+            </td>
+            <td style="font-size: 0.825rem;">
+              {{ exp.start_date|date:"M Y" }} &ndash;
+              {% if exp.is_current or not exp.end_date %}
+                <span class="dash-badge dash-badge-teal">Present</span>
+              {% else %}
+                {{ exp.end_date|date:"M Y" }}
+              {% endif %}
+            </td>
+            <td style="font-size: 0.78rem; color: var(--text-muted); max-width: 200px;">{{ exp.technologies|truncatechars:40 }}</td>
+            <td style="font-weight: 600;">{{ exp.order }}</td>
+            <td style="text-align: right;">
+              <div class="dash-btn-group" style="justify-content: flex-end;">
+                <a href="{% url 'dashboard:experience_edit' exp.pk %}" class="dash-btn-icon" title="Edit Experience">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </a>
+                <a href="{% url 'dashboard:experience_delete' exp.pk %}" class="dash-btn-icon danger" title="Delete Experience">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+              No work experiences recorded.
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Education Records Card -->
+<div class="dash-card">
+  <div class="dash-card-header">
+    <h2 class="dash-card-title">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+      Academic Qualifications
+    </h2>
+  </div>
+  <div class="dash-table-responsive">
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th>Degree & Field</th>
+          <th>Institution</th>
+          <th>Years</th>
+          <th>Honors / Grade</th>
+          <th>Order</th>
+          <th style="text-align: right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for edu in educations %}
+          <tr>
+            <td>
+              <div style="font-weight: 700; color: var(--text-primary);">{{ edu.degree }}</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">{{ edu.field_of_study }}</div>
+            </td>
+            <td><span style="color: var(--accent-teal); font-weight: 600;">{{ edu.institution }}</span></td>
+            <td style="font-size: 0.825rem;">{{ edu.start_year }} &ndash; {{ edu.end_year|default:"Present" }}</td>
+            <td><span class="dash-badge dash-badge-blue">{{ edu.grade_or_honors|default:"Complete" }}</span></td>
+            <td style="font-weight: 600;">{{ edu.order }}</td>
+            <td style="text-align: right;">
+              <div class="dash-btn-group" style="justify-content: flex-end;">
+                <a href="{% url 'dashboard:education_edit' edu.pk %}" class="dash-btn-icon" title="Edit Education">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </a>
+                <a href="{% url 'dashboard:education_delete' edu.pk %}" class="dash-btn-icon danger" title="Delete Education">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+              No academic records recorded.
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block breadcrumb %}<a href="{% url 'dashboard:blog_list' %}">Blog</a> / <span>{{ title }}</span>{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">{{ title }}</h1>
+    <p class="dash-page-subtitle">Draft or publish engineering articles, technical insights, and development guides.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:blog_list' %}" class="btn btn-outline btn-sm">&larr; Back to Articles</a>
+  </div>
+</div>
+
+<div class="dash-card">
+  <div class="dash-card-body">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="dash-alert dash-alert-danger">
+          Please review the errors below before submitting.
+        </div>
+      {% endif %}
+
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Article Metadata
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group dash-form-full">
+            <label class="form-label">Article Headline *</label>
+            {{ form.title }}
+            {% if form.title.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.title.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            {{ form.category }}
+            {% if form.category.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.category.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Estimated Read Time (minutes)</label>
+            {{ form.read_time }}
+            {% if form.read_time.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.read_time.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Tags (comma-separated)</label>
+            {{ form.tags }}
+            <div class="dash-form-help">e.g. Python, Architecture, Docker, APIs</div>
+            {% if form.tags.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.tags.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Publication Date</label>
+            {{ form.published_date }}
+            {% if form.published_date.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.published_date.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1.75rem;">
+            {{ form.is_published }}
+            <label class="form-label" style="margin: 0; cursor: pointer;" for="id_is_published">
+              Publish immediately on live blog
+            </label>
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Cover Image</label>
+            {% if post and post.cover_image %}
+              <div style="margin-bottom: 0.5rem;">
+                <img src="{{ post.cover_image.url }}" style="max-height: 80px; border-radius: 4px;" alt="Cover">
+              </div>
+            {% endif %}
+            {{ form.cover_image }}
+            {% if form.cover_image.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.cover_image.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          Article Content
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group dash-form-full">
+            <label class="form-label">Excerpt / Teaser Hook *</label>
+            {{ form.excerpt }}
+            <div class="dash-form-help">Summary shown on the blog index card.</div>
+            {% if form.excerpt.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.excerpt.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Article Body Content *</label>
+            {{ form.content }}
+            <div class="dash-form-help">Supports standard HTML markup, headings, code snippets, and Markdown.</div>
+            {% if form.content.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.content.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-actions">
+        <a href="{% url 'dashboard:blog_list' %}" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save Article</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Site Settings & Identity{% endblock %}
+{% block breadcrumb %}Settings{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Portfolio Identity & Global Settings</h1>
+    <p class="dash-page-subtitle">Configure your public name, headline bio, avatar photo, resume PDF, social profiles, and SEO tags.</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'core:home' %}" target="_blank" class="btn btn-outline btn-sm">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      Preview Live Site
+    </a>
+  </div>
+</div>
+
+<div class="dash-card">
+  <div class="dash-card-body">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="dash-alert dash-alert-danger">
+          Please correct the highlighted errors below before saving settings.
+        </div>
+      {% endif %}
+
+      <!-- Section: Personal Identity -->
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Personal Identity & Bio
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            {{ form.name }}
+            {% if form.name.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.name.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Professional Headline *</label>
+            {{ form.title }}
+            {% if form.title.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.title.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Hero Short Bio</label>
+            {{ form.short_bio }}
+            <div class="dash-form-help">2-3 punchy lines for the Hero section.</div>
+            {% if form.short_bio.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.short_bio.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Detailed Bio (About Page)</label>
+            {{ form.detailed_bio }}
+            <div class="dash-form-help">Full comprehensive background displayed on the About page.</div>
+            {% if form.detailed_bio.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.detailed_bio.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Profile Photo / Avatar</label>
+            {% if settings_obj and settings_obj.profile_photo %}
+              <div style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                <img src="{{ settings_obj.profile_photo.url }}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-teal);" alt="Avatar">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Current: {{ settings_obj.profile_photo.name }}</span>
+              </div>
+            {% endif %}
+            {{ form.profile_photo }}
+            {% if form.profile_photo.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.profile_photo.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Resume PDF File</label>
+            {% if settings_obj and settings_obj.resume_file %}
+              <div style="margin-bottom: 0.5rem; font-size: 0.8rem;">
+                <a href="{{ settings_obj.resume_file.url }}" target="_blank" style="color: var(--accent-teal);">View current uploaded resume PDF</a>
+              </div>
+            {% endif %}
+            {{ form.resume_file }}
+            {% if form.resume_file.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.resume_file.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Location & Contact -->
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Contact Details & Location
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group">
+            <label class="form-label">Primary Email Address</label>
+            {{ form.email }}
+            {% if form.email.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.email.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone Number (optional)</label>
+            {{ form.phone }}
+            {% if form.phone.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.phone.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Geographic Location</label>
+            {{ form.location }}
+            <div class="dash-form-help">e.g. San Francisco, CA &middot; Open to Remote</div>
+            {% if form.location.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.location.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Social Profiles -->
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          Social Profiles & Networks
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group">
+            <label class="form-label">GitHub Profile URL</label>
+            {{ form.github_url }}
+            {% if form.github_url.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.github_url.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">LinkedIn Profile URL</label>
+            {{ form.linkedin_url }}
+            {% if form.linkedin_url.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.linkedin_url.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Twitter / X Profile URL</label>
+            {{ form.twitter_url }}
+            {% if form.twitter_url.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.twitter_url.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Availability & Statistics -->
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          Availability & Metrics Counters
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group" style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem;">
+            {{ form.is_available_for_hire }}
+            <label class="form-label" style="margin: 0; cursor: pointer;" for="id_is_available_for_hire">
+              Currently Available for Opportunities
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Hero Badge Status Text</label>
+            {{ form.hero_badge_text }}
+            {% if form.hero_badge_text.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.hero_badge_text.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Years of Experience</label>
+            {{ form.years_of_experience }}
+            {% if form.years_of_experience.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.years_of_experience.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Projects Completed Count</label>
+            {{ form.projects_completed }}
+            {% if form.projects_completed.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.projects_completed.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Satisfied Clients / Stakeholders</label>
+            {{ form.satisfied_clients }}
+            {% if form.satisfied_clients.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.satisfied_clients.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: SEO Metadata -->
+      <div class="dash-form-section">
+        <div class="dash-form-section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          SEO Meta Tags
+        </div>
+        <div class="dash-form-grid">
+          <div class="form-group dash-form-full">
+            <label class="form-label">Meta Keywords</label>
+            {{ form.meta_keywords }}
+            <div class="dash-form-help">Comma-separated terms for search engines.</div>
+            {% if form.meta_keywords.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.meta_keywords.errors.0 }}</div>{% endif %}
+          </div>
+
+          <div class="form-group dash-form-full">
+            <label class="form-label">Meta Description</label>
+            {{ form.meta_description }}
+            <div class="dash-form-help">Snippet displayed in Google search results and OpenGraph cards.</div>
+            {% if form.meta_description.errors %}<div class="dash-form-help" style="color:#ef4444;">{{ form.meta_description.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-form-actions">
+        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 2rem;">Save Site Settings</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ft-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1b"/>
+      <stop offset="100%" stop-color="#0f1b2b"/>
+    </linearGradient>
+    <linearGradient id="ft-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#ft-bg)"/>
+  <g transform="translate(80, 50)">
+    <rect width="1040" height="575" rx="16" fill="#0b1324" stroke="rgba(16,185,129,0.2)" stroke-width="1.5"/>
+    <rect width="1040" height="48" rx="16" fill="#0f1c33"/>
+    <rect y="32" width="1040" height="16" fill="#0f1c33"/>
+    <circle cx="26" cy="24" r="6" fill="#ef4444"/>
+    <circle cx="46" cy="24" r="6" fill="#f59e0b"/>
+    <circle cx="66" cy="24" r="6" fill="#10b981"/>
+    <text x="520" y="30" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="13" text-anchor="middle">FinTrack // Multi-Asset Wealth &amp; Portfolio Optimization Engine</text>
+
+    <g transform="translate(40, 75)">
+      <rect width="300" height="100" rx="12" fill="#121f38"/>
+      <text x="20" y="30" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">TOTAL NET WORTH</text>
+      <text x="20" y="68" fill="#ffffff" font-family="sans-serif" font-size="30" font-weight="800">$842,590.20</text>
+      <text x="20" y="88" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="600">+$34,180 (+4.2%) YTD</text>
+
+      <rect x="330" width="300" height="100" rx="12" fill="#121f38"/>
+      <text x="350" y="30" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">SHARPE RATIO (RISK-ADJUSTED)</text>
+      <text x="350" y="68" fill="#00f5d4" font-family="sans-serif" font-size="30" font-weight="800">2.48</text>
+      <text x="350" y="88" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="600">Optimal frontier efficiency</text>
+
+      <rect x="660" width="300" height="100" rx="12" fill="#121f38"/>
+      <text x="680" y="30" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">RETIREMENT CONFIDENCE</text>
+      <text x="680" y="68" fill="#10b981" font-family="sans-serif" font-size="30" font-weight="800">98.4%</text>
+      <text x="680" y="88" fill="#94a3b8" font-family="sans-serif" font-size="12">Monte Carlo (10,000 runs)</text>
+    </g>
+
+    <g transform="translate(40, 200)">
+      <rect width="620" height="290" rx="12" fill="#101c33" stroke="rgba(255,255,255,0.06)"/>
+      <text x="24" y="32" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">Portfolio Growth vs. S&amp;P 500 Benchmark</text>
+
+      <path d="M30 220 C 100 200, 150 210, 220 160 C 290 120, 360 140, 430 90 C 500 50, 550 70, 590 40" fill="none" stroke="#10b981" stroke-width="3.5"/>
+      <path d="M30 220 C 100 200, 150 210, 220 160 C 290 120, 360 140, 430 90 C 500 50, 550 70, 590 40 L 590 260 L 30 260 Z" fill="url(#ft-green)"/>
+      <path d="M30 230 C 120 220, 200 210, 300 180 C 400 150, 500 140, 590 110" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4"/>
+      <text x="480" y="105" fill="#94a3b8" font-family="sans-serif" font-size="11">S&amp;P 500 Benchmark</text>
+      <text x="470" y="35" fill="#10b981" font-family="sans-serif" font-size="12" font-weight="700">FinTrack Optimized (+28.4%)</text>
+    </g>
+
+    <g transform="translate(680, 200)">
+      <rect width="320" height="290" rx="12" fill="#101c33" stroke="rgba(255,255,255,0.06)"/>
+      <text x="24" y="32" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="700">Asset Allocation</text>
+
+      <g transform="translate(24, 60)">
+        <rect width="270" height="45" rx="6" fill="#152542"/>
+        <circle cx="20" cy="22" r="5" fill="#00f5d4"/>
+        <text x="35" y="27" fill="#f8fafc" font-family="sans-serif" font-size="13">Equities &amp; ETFs</text>
+        <text x="215" y="27" fill="#00f5d4" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">65.0%</text>
+
+        <rect y="55" width="270" height="45" rx="6" fill="#152542"/>
+        <circle cx="20" cy="77" r="5" fill="#38bdf8"/>
+        <text x="35" y="82" fill="#f8fafc" font-family="sans-serif" font-size="13">Fixed Income / Bonds</text>
+        <text x="215" y="82" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">20.0%</text>
+
+        <rect y="110" width="270" height="45" rx="6" fill="#152542"/>
+        <circle cx="20" cy="132" r="5" fill="#f59e0b"/>
+        <text x="35" y="137" fill="#f8fafc" font-family="sans-serif" font-size="13">Commodities &amp; Gold</text>
+        <text x="215" y="137" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">10.0%</text>
+
+        <rect y="165" width="270" height="45" rx="6" fill="#152542"/>
+        <circle cx="20" cy="187" r="5" fill="#a855f7"/>
+        <text x="35" y="192" fill="#f8fafc" font-family="sans-serif" font-size="13">Cash &amp; Equivalents</text>
+        <text x="215" y="192" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">5.0%</text>
+      </g>
+    </g>
+
+    <g transform="translate(40, 508)">
+      <rect width="960" height="42" rx="6" fill="#0d172c"/>
+      <text x="20" y="26" fill="#94a3b8" font-family="sans-serif" font-size="12">Stack:</text>
+      <text x="75" y="26" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="12">Django REST Framework &bull; React &bull; PostgreSQL &bull; Plaid API &bull; Pandas &bull; NumPy Monte Carlo</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hostel-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="hostel-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="hostel-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16223e" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0f192d" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#hostel-bg)"/>
+  
+  <!-- Subtle Grid -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="405" x2="1200" y2="405"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="300" y1="0" x2="300" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="900" y1="0" x2="900" y2="675"/>
+  </g>
+
+  <circle cx="950" cy="180" r="220" fill="#00f5d4" opacity="0.07" filter="url(#glow)"/>
+  <circle cx="200" cy="500" r="200" fill="#38bdf8" opacity="0.06" filter="url(#glow)"/>
+
+  <!-- Application Window Frame -->
+  <g transform="translate(80, 45)">
+    <rect width="1040" height="585" rx="16" fill="#0c1424" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/>
+    
+    <!-- Top Browser Bar -->
+    <rect width="1040" height="48" rx="16" fill="#111c33"/>
+    <rect y="32" width="1040" height="16" fill="#111c33"/>
+    <circle cx="26" cy="24" r="6" fill="#ef4444"/>
+    <circle cx="46" cy="24" r="6" fill="#f59e0b"/>
+    <circle cx="66" cy="24" r="6" fill="#10b981"/>
+    
+    <rect x="340" y="10" width="360" height="28" rx="14" fill="#090e1a" stroke="rgba(255,255,255,0.06)"/>
+    <text x="520" y="28" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="middle">alihall.iub.edu.pk // smart-hostel-mess</text>
+
+    <!-- Sidebar Mini -->
+    <rect x="0" y="48" width="200" height="537" fill="#0a101f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    
+    <!-- Brand in Sidebar -->
+    <rect x="20" y="70" width="32" height="32" rx="8" fill="url(#hostel-accent)"/>
+    <text x="36" y="91" fill="#090e1a" font-family="sans-serif" font-weight="900" font-size="16" text-anchor="middle">H</text>
+    <text x="64" y="85" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="13">Ali Hall IUB</text>
+    <text x="64" y="99" fill="#00f5d4" font-family="sans-serif" font-size="10">Warden Portal</text>
+
+    <!-- Sidebar Links -->
+    <g transform="translate(20, 130)">
+      <rect width="160" height="32" rx="6" fill="rgba(0,245,212,0.12)"/>
+      <text x="12" y="21" fill="#00f5d4" font-family="sans-serif" font-weight="600" font-size="12">🏛️ 300 Rooms Inventory</text>
+      
+      <text x="12" y="61" fill="#94a3b8" font-family="sans-serif" font-size="12">🛏️ 600 Beds Allocation</text>
+      <text x="12" y="97" fill="#94a3b8" font-family="sans-serif" font-size="12">🍲 Mess Ledger &amp; Diet</text>
+      <text x="12" y="133" fill="#94a3b8" font-family="sans-serif" font-size="12">📋 Student Applications</text>
+      <text x="12" y="169" fill="#94a3b8" font-family="sans-serif" font-size="12">💳 Challan &amp; HBL Pay</text>
+      <text x="12" y="205" fill="#94a3b8" font-family="sans-serif" font-size="12">🛠️ Maintenance Tickets</text>
+    </g>
+
+    <!-- Main Content Area -->
+    <g transform="translate(230, 70)">
+      <!-- Metric Cards -->
+      <g transform="translate(0, 0)">
+        <!-- Card 1 -->
+        <rect width="240" height="100" rx="12" fill="url(#hostel-card)" stroke="rgba(0,245,212,0.2)"/>
+        <text x="20" y="32" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">TOTAL CAPACITY</text>
+        <text x="20" y="68" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="800">300 Rooms</text>
+        <text x="20" y="88" fill="#00f5d4" font-family="sans-serif" font-size="11" font-weight="600">600 Beds &bull; 2 Beds / Room</text>
+        
+        <!-- Card 2 -->
+        <rect x="260" width="240" height="100" rx="12" fill="url(#hostel-card)" stroke="rgba(56,189,248,0.2)"/>
+        <text x="280" y="32" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">ALLOTMENT STATUS</text>
+        <text x="280" y="68" fill="#38bdf8" font-family="sans-serif" font-size="28" font-weight="800">580 Occupied</text>
+        <text x="280" y="88" fill="#10b981" font-family="sans-serif" font-size="11" font-weight="600">20 Vacant Beds Available</text>
+        
+        <!-- Card 3 -->
+        <rect x="520" width="240" height="100" rx="12" fill="url(#hostel-card)" stroke="rgba(168,85,247,0.2)"/>
+        <text x="540" y="32" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="600">MESS ATTENDANCE</text>
+        <text x="540" y="68" fill="#a855f7" font-family="sans-serif" font-size="28" font-weight="800">96.8% Active</text>
+        <text x="540" y="88" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600">Pakistani Bank Challan Sync</text>
+      </g>
+
+      <!-- Room Allocation Blocks Visualizer -->
+      <g transform="translate(0, 130)">
+        <rect width="760" height="210" rx="14" fill="#0f192d" stroke="rgba(255,255,255,0.08)"/>
+        <text x="24" y="36" fill="#f8fafc" font-family="sans-serif" font-size="15" font-weight="700">Ali Hall Wings Allocation Matrix (Zero Double-Booking)</text>
+        <text x="24" y="56" fill="#94a3b8" font-family="sans-serif" font-size="11">Automated validation preventing room contention across 3 hostel blocks</text>
+
+        <!-- Block A: Quaid Block -->
+        <g transform="translate(24, 75)">
+          <rect width="220" height="110" rx="10" fill="#162544" stroke="rgba(0,245,212,0.3)"/>
+          <text x="16" y="28" fill="#00f5d4" font-family="sans-serif" font-size="13" font-weight="700">Quaid Block (Block A)</text>
+          <text x="16" y="46" fill="#64748b" font-family="sans-serif" font-size="10">Ground Floor &bull; Special Needs</text>
+          <text x="16" y="75" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="800">196 / 200</text>
+          <rect x="16" y="88" width="188" height="6" rx="3" fill="#090e1a"/>
+          <rect x="16" y="88" width="184" height="6" rx="3" fill="#00f5d4"/>
+        </g>
+
+        <!-- Block B: Iqbal Block -->
+        <g transform="translate(268, 75)">
+          <rect width="220" height="110" rx="10" fill="#162544" stroke="rgba(56,189,248,0.3)"/>
+          <text x="16" y="28" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="700">Iqbal Block (Block B)</text>
+          <text x="16" y="46" fill="#64748b" font-family="sans-serif" font-size="10">First Floor &bull; Regular Merit</text>
+          <text x="16" y="75" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="800">192 / 200</text>
+          <rect x="16" y="88" width="188" height="6" rx="3" fill="#090e1a"/>
+          <rect x="16" y="88" width="180" height="6" rx="3" fill="#38bdf8"/>
+        </g>
+
+        <!-- Block C: Sir Syed Block -->
+        <g transform="translate(512, 75)">
+          <rect width="220" height="110" rx="10" fill="#162544" stroke="rgba(168,85,247,0.3)"/>
+          <text x="16" y="28" fill="#a855f7" font-family="sans-serif" font-size="13" font-weight="700">Sir Syed (Block C)</text>
+          <text x="16" y="46" fill="#64748b" font-family="sans-serif" font-size="10">Second Floor &bull; General Merit</text>
+          <text x="16" y="75" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="800">192 / 200</text>
+          <rect x="16" y="88" width="188" height="6" rx="3" fill="#090e1a"/>
+          <rect x="16" y="88" width="180" height="6" rx="3" fill="#a855f7"/>
+        </g>
+      </g>
+
+      <!-- Bottom Status Strip -->
+      <g transform="translate(0, 360)">
+        <rect width="760" height="120" rx="12" fill="#0d1527" stroke="rgba(255,255,255,0.06)"/>
+        <text x="24" y="32" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="700">Verified System Features</text>
+        <g transform="translate(24, 52)">
+          <rect width="220" height="48" rx="8" fill="#142038"/>
+          <text x="14" y="22" fill="#00f5d4" font-family="sans-serif" font-weight="700" font-size="11">🔒 RBAC Security</text>
+          <text x="14" y="38" fill="#94a3b8" font-family="sans-serif" font-size="10">Warden, Admin &amp; Student</text>
+
+          <rect x="240" width="220" height="48" rx="8" fill="#142038"/>
+          <text x="254" y="22" fill="#38bdf8" font-family="sans-serif" font-weight="700" font-size="11">💳 Bank Challan Sync</text>
+          <text x="254" y="38" fill="#94a3b8" font-family="sans-serif" font-size="10">HBL Konnect &amp; 1-Bill</text>
+
+          <rect x="480" width="220" height="48" rx="8" fill="#142038"/>
+          <text x="494" y="22" fill="#10b981" font-family="sans-serif" font-weight="700" font-size="11">🍲 Smart Mess Engine</text>
+          <text x="494" y="38" fill="#94a3b8" font-family="sans-serif" font-size="10">Daily Diet &amp; Fee Auditing</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

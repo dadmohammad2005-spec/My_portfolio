@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>{% block title %}{{ site_settings.name|default:"Dad Mohammad" }} — {{ site_settings.title|default:"Software Engineer" }}{% endblock %}</title>
+  <meta name="title" content="{% block meta_title %}{{ site_settings.name|default:'Dad Mohammad' }} — {{ site_settings.title|default:'Software Engineer' }}{% endblock %}">
+  <meta name="description" content="{% block meta_description %}{{ site_settings.meta_description|default:'Production-ready portfolio showcasing software engineering, Python, Django, HTML5, CSS3, and modern web applications.' }}{% endblock %}">
+  <meta name="keywords" content="{{ site_settings.meta_keywords|default:'Dad Mohammad, Software Engineer, Python, Django, HTML5, CSS3, JavaScript, PostgreSQL, Portfolio' }}">
+  <meta name="author" content="{{ site_settings.name|default:'Dad Mohammad' }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:title" content="{% block og_title %}{{ site_settings.name|default:'Dad Mohammad' }} — Portfolio{% endblock %}">
+  <meta property="og:description" content="{{ site_settings.meta_description }}">
+  {% if site_settings.profile_photo %}
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ site_settings.profile_photo.url }}">
+  {% endif %}
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+  <meta property="twitter:title" content="{{ site_settings.name|default:'Dad Mohammad' }} — Portfolio">
+  <meta property="twitter:description" content="{{ site_settings.meta_description }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- Early Theme Setter to prevent Flash of Unstyled Content (FOUC) & Instant Theme Switcher -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+
+    var _lastToggleTime = 0;
+    window.toggleTheme = function() {
+      var now = Date.now();
+      if (now - _lastToggleTime < 300) {
+        return; // Guard against rapid duplicate clicks
+      }
+      _lastToggleTime = now;
+
+      var root = document.documentElement;
+      var current = root.getAttribute('data-theme') || 'dark';
+      var next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('portfolio-theme', next);
+      } catch (e) {}
+
+      var toggleBtn = document.getElementById('theme-toggle-btn');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('title', next === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        toggleBtn.setAttribute('aria-label', next === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+      }
+
+      if (typeof window.showToast === 'function') {
+        window.showToast('Switched to ' + next + ' mode');
+      }
+    };
+  </script>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <!-- Header & Navigation -->
+  {% include 'partials/navbar.html' %}
+
+  <!-- Main Content Body -->
+  <main id="main-content">
+    {% include 'partials/messages.html' %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  {% include 'partials/footer.html' %}
+
+  <!-- Back to Top Floating Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to Top" title="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Floating Toast Notifications Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Core JavaScript -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

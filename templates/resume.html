@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Curriculum Vitae — {{ site_settings.name|default:"Dad Mohammad" }}{% endblock %}
+
+{% block content %}
+<div class="container container-narrow" style="padding: 4rem 1.5rem;">
+  <!-- Resume Action Header (Hidden in Print) -->
+  <div class="no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+    <div>
+      <span class="section-tag" style="margin-bottom: 0.5rem;">Curriculum Vitae</span>
+      <h1 class="section-title" style="margin-bottom: 0.25rem;">Professional Resume &amp; Curriculum Vitae</h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Targeting International Graduate Studies &amp; Research Programs</p>
+    </div>
+
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      {% if site_settings.resume_file %}
+        <a href="{{ site_settings.resume_file.url }}" download="Dad_Mohammad_Resume.pdf" class="btn btn-primary btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download PDF Resume
+        </a>
+      {% endif %}
+
+      <button onclick="window.print()" class="btn btn-outline btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print / Save PDF
+      </button>
+
+      <a href="mailto:{{ site_settings.email }}" class="btn btn-outline btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        Contact Dad
+      </a>
+    </div>
+  </div>
+
+  <!-- Resume Sheet Canvas -->
+  <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem 2.5rem; box-shadow: var(--card-shadow);" class="resume-sheet">
+    <!-- Header: Identity & Contact -->
+    <header style="border-bottom: 2px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem; text-align: center;">
+      <h1 style="font-size: 2.6rem; font-weight: 800; color: var(--text-primary); letter-spacing: 0.04em; margin-bottom: 0.5rem; text-transform: uppercase;">
+        {{ site_settings.name }}
+      </h1>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.25rem; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+        <span>{{ site_settings.location }}</span>
+        <span>&bull;</span>
+        <a href="tel:{{ site_settings.phone }}" style="color: var(--text-secondary);">{{ site_settings.phone }}</a>
+        <span>&bull;</span>
+        <a href="mailto:{{ site_settings.email }}" style="color: var(--accent-teal); font-weight: 600;">{{ site_settings.email }}</a>
+        <span>&bull;</span>
+        <a href="{{ site_settings.github_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); font-weight: 600;">github.com/dadmohammad2005-spec</a>
+      </div>
+    </header>
+
+    <!-- 1. Academic Background -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 1rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+        Academic Background
+      </h2>
+      
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.35rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">
+            The Islamia University of Bahawalpur
+          </h3>
+          <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">
+            Bahawalpur, Punjab, Pakistan
+          </span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; color: var(--accent-teal); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.75rem;">
+          <span>Bachelor of Science in Software Engineering (6th Semester)</span>
+          <span style="color: var(--text-muted); font-size: 0.88rem;">Expected Graduation: 2027</span>
+        </div>
+        <ul style="padding-left: 1.25rem; margin: 0; color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem;">
+          <li>Cumulative Grade Point Average (CGPA): <strong style="color: var(--accent-teal);">3.02 / 4.00</strong>.</li>
+          <li><strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented Analysis &amp; Design, Database Engineering, Operating Systems, Machine Learning Foundations, Software Architecture, RESTful Distributed Systems.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Technical Expertise -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 1rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+        Technical Expertise
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.95rem;">
+        <div>
+          <strong style="color: var(--text-primary); min-width: 140px; display: inline-block;">Core Languages:</strong>
+          <span style="color: var(--text-secondary);">Python, C++, SQL, JavaScript (ES6+), HTML5, CSS3</span>
+        </div>
+        <div>
+          <strong style="color: var(--text-primary); min-width: 140px; display: inline-block;">AI, ML &amp; Agents:</strong>
+          <span style="color: var(--text-secondary);">YOLOv8, OpenCV, Microsoft Azure AI Foundry, Amazon Bedrock, Prompt Optimization, Agent Architectures</span>
+        </div>
+        <div>
+          <strong style="color: var(--text-primary); min-width: 140px; display: inline-block;">Web Frameworks:</strong>
+          <span style="color: var(--text-secondary);">Django, Django REST Framework (DRF), Asynchronous Request Handling</span>
+        </div>
+        <div>
+          <strong style="color: var(--text-primary); min-width: 140px; display: inline-block;">Cloud &amp; Databases:</strong>
+          <span style="color: var(--text-secondary);">AWS Cloud Foundations, Microsoft Azure, IBM Cloud Concepts, SQLite, PostgreSQL, MySQL</span>
+        </div>
+        <div>
+          <strong style="color: var(--text-primary); min-width: 140px; display: inline-block;">Developer Tools:</strong>
+          <span style="color: var(--text-secondary);">Git, GitHub, Postman, Linux Terminal &amp; Bash Scripting, VS Code, REST API Integration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Key Engineering & AI Projects -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 1.25rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+        Key Engineering &amp; AI Projects
+      </h2>
+      
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        {% for proj in projects %}
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-primary);">
+                {{ proj.title }}
+              </h3>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-teal);">
+                {{ proj.category.name|default:"Software Engineering" }}
+              </span>
+            </div>
+            <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+              <strong>Tech Stack:</strong> {{ proj.technologies }}
+              {% if proj.github_url %}
+                &bull; <a href="{{ proj.github_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan);">GitHub Repository</a>
+              {% endif %}
+            </div>
+            <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; white-space: pre-line;">
+              {{ proj.description }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 4. Verified Professional Certifications -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 0.5rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+        Verified Professional Certifications
+      </h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Specialized credentials issued by premier institutions and industry leaders via Coursera with verified cryptographic records.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+        {% for cert in certifications %}
+          <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.1rem 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+              <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                {{ cert.title }}
+              </h3>
+              <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); white-space: nowrap; margin-left: 0.5rem;">
+                {{ cert.issue_date }}
+              </span>
+            </div>
+            <div style="color: var(--accent-teal); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.35rem;">
+              {{ cert.issuer }}
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">
+              {% if cert.credential_id %}
+                <span style="font-family: var(--font-mono); color: var(--text-muted);">ID: {{ cert.credential_id }}</span>
+              {% endif %}
+              {% if cert.description %}
+                &bull; {{ cert.description }}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 5. Leadership, Entrepreneurship & Campus Initiatives -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 1.25rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+        Leadership, Entrepreneurship &amp; Campus Initiatives
+      </h2>
+
+      <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+        {% for exp in experiences %}
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">
+                {{ exp.role }}
+              </h3>
+              <span style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--text-muted);">
+                {{ exp.start_date|date:"Y" }} &mdash; {% if exp.is_current %}Present{% else %}{{ exp.end_date|date:"Y" }}{% endif %}
+              </span>
+            </div>
+            <div style="color: var(--accent-teal); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem;">
+              {{ exp.company }} &bull; {{ exp.location }}
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; white-space: pre-line; margin: 0;">
+              {{ exp.description }}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 6. Academic Research Interests & Languages -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="about-hero-grid">
+      <section>
+        <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 0.75rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+          Academic Research Interests
+        </h2>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
+          Applied Artificial Intelligence, Multi-Agent LLM Orchestration, Computer Vision for Autonomous Infrastructure Assessment, and Cloud-Native Distributed Software Systems. Aiming to pursue a research-intensive Master of Science (MS/MSc) program focused on real-world AI deployment and scalable machine intelligence.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); margin-bottom: 0.75rem; border-bottom: 1.5px solid var(--border-color); padding-bottom: 0.35rem;">
+          Languages
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
+          <div><strong style="color: var(--text-primary);">English:</strong> Professional / Academic Proficiency</div>
+          <div><strong style="color: var(--text-primary);">Urdu:</strong> Native / Fluent</div>
+          <div><strong style="color: var(--text-primary);">Balochi:</strong> Mother Tongue</div>
+          <div><strong style="color: var(--text-primary);">Brahvi:</strong> Native / Fluent</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %}

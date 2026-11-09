@@ -1,0 +1,57 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Message from {{ message_obj.name }}{% endblock %}
+{% block breadcrumb %}<a href="{% url 'dashboard:messages_list' %}">Messages</a> / <span>{{ message_obj.subject|truncatechars:25 }}</span>{% endblock %}
+
+{% block content %}
+<div class="dash-page-header">
+  <div>
+    <h1 class="dash-page-title">Message Details</h1>
+    <p class="dash-page-subtitle">Received on {{ message_obj.created_at|date:"F d, Y at H:i" }}</p>
+  </div>
+  <div class="dash-page-actions">
+    <a href="{% url 'dashboard:messages_list' %}" class="btn btn-outline btn-sm">&larr; Back to Inbox</a>
+    <a href="mailto:{{ message_obj.email }}?subject=Re: {{ message_obj.subject }}" class="btn btn-primary btn-sm">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      Reply via Email
+    </a>
+  </div>
+</div>
+
+<div class="dash-card" style="max-width: 800px;">
+  <div class="dash-card-body">
+    <div class="dash-msg-header">
+      <div class="dash-msg-sender">
+        <div>
+          <div style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">{{ message_obj.name }}</div>
+          <div style="font-size: 0.9rem; color: var(--accent-teal);">
+            <a href="mailto:{{ message_obj.email }}" style="color: inherit; text-decoration: none;">{{ message_obj.email }}</a>
+          </div>
+        </div>
+        <div style="text-align: right; font-size: 0.8rem; color: var(--text-muted);">
+          <div>IP: {{ message_obj.ip_address|default:"Unknown" }}</div>
+          <div>{{ message_obj.created_at|timesince }} ago</div>
+        </div>
+      </div>
+      <div style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-top: 0.75rem;">
+        Subject: {{ message_obj.subject }}
+      </div>
+    </div>
+
+    <div class="dash-msg-content">{{ message_obj.message }}</div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+      <form method="post" action="{% url 'dashboard:message_toggle_read' message_obj.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline btn-sm">
+          Mark as Unread
+        </button>
+      </form>
+
+      <a href="{% url 'dashboard:message_delete' message_obj.pk %}" class="btn btn-outline btn-sm" style="color: #ef4444; border-color: rgba(239,68,68,0.4);">
+        Delete Message
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

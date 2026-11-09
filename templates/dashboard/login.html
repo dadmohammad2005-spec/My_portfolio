@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Portfolio Portal</title>
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+  <div class="dash-login-wrap">
+    <div class="dash-login-card">
+      <div class="dash-login-logo">
+        <div class="dash-brand-badge" style="width: 48px; height: 48px; font-size: 1.3rem; margin: 0 auto;">
+          <span>D</span>
+        </div>
+        <h1 class="dash-login-title">Portfolio Admin Portal</h1>
+        <p class="dash-login-sub">Sign in to manage projects, blog articles, and inquiries</p>
+      </div>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="dash-alert dash-alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+            <span>{{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" action="{% url 'dashboard:login' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="id_username">Username or Email Address</label>
+          {{ form.username }}
+          {% if form.username.errors %}
+            <div style="color: #ef4444; font-size: 0.8rem; margin-top: 0.35rem;">{{ form.username.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label class="form-label" for="id_password">Password</label>
+          {{ form.password }}
+          {% if form.password.errors %}
+            <div style="color: #ef4444; font-size: 0.8rem; margin-top: 0.35rem;">{{ form.password.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.8rem; color: var(--text-secondary);">
+          <div style="font-weight: 600; color: var(--accent-teal); margin-bottom: 0.25rem;">Default Administrator Credentials:</div>
+          <div>Username: <strong style="color: var(--text-primary);">admin</strong> (or <strong style="color: var(--text-primary);">dadmohammad</strong>)</div>
+          <div>Password: <strong style="color: var(--text-primary);">admin123</strong></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="width: 100%; justify-content: center; padding: 0.85rem; font-weight: 700;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          Authenticate & Enter Dashboard
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); font-size: 0.825rem;">
+        <a href="{% url 'core:home' %}" style="color: var(--text-secondary); text-decoration: none;">&larr; Return to Public Portfolio</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
