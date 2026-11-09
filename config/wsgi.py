@@ -14,6 +14,11 @@ try:
     from apps.projects.models import Project
     if not Project.objects.exists():
         call_command('loaddata', 'fixtures/initial_data.json')
+
+    # Ensure staticfiles are collected for WhiteNoise
+    from django.conf import settings
+    if not os.path.exists(settings.STATIC_ROOT) or not os.listdir(settings.STATIC_ROOT):
+        call_command('collectstatic', interactive=False)
 except Exception as e:
     print(f"[WSGI Startup Bootstrap Notice]: {e}")
 
