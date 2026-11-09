@@ -23,6 +23,8 @@ if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 if '.onrender.com' not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append('.onrender.com')
+if 'my-portfolio-3n3y.onrender.com' not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append('my-portfolio-3n3y.onrender.com')
 
 # CSRF Trusted Origins for HTTPS on Render & custom domains
 CSRF_TRUSTED_ORIGINS = [
@@ -34,6 +36,8 @@ if RENDER_EXTERNAL_HOSTNAME:
         CSRF_TRUSTED_ORIGINS.append(origin)
 if 'https://*.onrender.com' not in CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS.append('https://*.onrender.com')
+if 'https://my-portfolio-3n3y.onrender.com' not in CSRF_TRUSTED_ORIGINS:
+    CSRF_TRUSTED_ORIGINS.append('https://my-portfolio-3n3y.onrender.com')
 
 # Application definition
 INSTALLED_APPS = [
@@ -132,8 +136,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise storage for compressed static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# WhiteNoise storage for compressed static files (resilient in production)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 if DEBUG:
     # Use standard storage in dev to avoid missing manifest issues while live editing
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
