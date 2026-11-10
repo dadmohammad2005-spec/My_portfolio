@@ -210,7 +210,7 @@ button, input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.5rem;
+  height: 3.85rem;
 }
 
 .nav-logo {
@@ -475,7 +475,7 @@ button, input, textarea, select {
    HERO SECTION
    ========================================================================== */
 .hero-section {
-  padding: 1.5rem 0 3rem;
+  padding: 0.5rem 0 2.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -496,7 +496,7 @@ button, input, textarea, select {
   z-index: 1;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
+  align-items: flex-start;
   gap: 2.5rem;
 }
 
@@ -652,9 +652,9 @@ button, input, textarea, select {
 .hero-orbit-stage {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
+  max-width: 520px;
+  height: 440px;
+  margin: -0.5rem auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -666,18 +666,18 @@ button, input, textarea, select {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 550px;
-  height: 550px;
+  width: 480px;
+  height: 420px;
   border-radius: 50%;
   border: 1.5px dashed rgba(0, 245, 212, 0.32);
-  box-shadow: 0 0 45px rgba(0, 245, 212, 0.16), inset 0 0 45px rgba(0, 245, 212, 0.06);
+  box-shadow: 0 0 40px rgba(0, 245, 212, 0.16), inset 0 0 40px rgba(0, 245, 212, 0.06);
   pointer-events: none;
   z-index: 1;
 }
 
 .orbit-boundary-track.inner {
-  width: 440px;
-  height: 440px;
+  width: 380px;
+  height: 330px;
   border: 1px solid rgba(56, 189, 248, 0.22);
 }
 
@@ -883,7 +883,7 @@ button, input, textarea, select {
 /* Orbiting Satellites Ring (Rotating Boundary Logos) */
 .orbit-satellite-container {
   --count: 8;
-  --radius: 275px;
+  --radius: 230px;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -898,10 +898,10 @@ button, input, textarea, select {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 58px;
-  height: 58px;
-  margin-top: -29px;
-  margin-left: -29px;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  margin-left: -26px;
   pointer-events: auto;
   --item-index: var(--index, var(--sibling-index, 1));
   --total-count: var(--count, var(--sibling-count, 8));
@@ -1672,43 +1672,44 @@ button, input, textarea, select {
   }
   .hero-orbit-stage {
     order: -1; /* Puts the circular image and path at the top, directly in front of "Hi, I'm Dad Mohammad"! */
-    margin: 0.5rem auto 1.5rem;
-    max-width: 480px;
+    margin: 0.2rem auto 1rem;
+    max-width: 440px;
+    height: 380px;
   }
   .orbit-boundary-track {
-    width: 450px;
-    height: 450px;
-  }
-  .orbit-boundary-track.inner {
-    width: 360px;
+    width: 400px;
     height: 360px;
   }
+  .orbit-boundary-track.inner {
+    width: 310px;
+    height: 280px;
+  }
   .hero-laptop-center {
-    width: 300px;
-    height: 210px;
+    width: 290px;
+    height: 200px;
   }
   .laptop-chassis {
-    width: 280px;
+    width: 270px;
   }
   .laptop-screen {
-    width: 255px;
-    height: 165px;
+    width: 245px;
+    height: 155px;
   }
   .laptop-base {
-    width: 290px;
+    width: 275px;
   }
   .laptop-ide-body {
-    font-size: 0.64rem;
-    padding: 8px 10px;
+    font-size: 0.62rem;
+    padding: 7px 9px;
   }
   .orbit-satellite-container {
-    --radius: 225px;
+    --radius: 195px;
   }
   .orbit-satellite-item {
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    margin-left: -25px;
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    margin-left: -23px;
   }
   .hero-bio {
     margin-left: auto;
@@ -1727,34 +1728,35 @@ button, input, textarea, select {
 
 @media (max-width: 640px) {
   .hero-orbit-stage {
-    max-width: 360px;
-    margin: 0.5rem auto 1.25rem;
+    max-width: 340px;
+    height: 310px;
+    margin: 0 auto 0.75rem;
   }
   .orbit-boundary-track {
-    width: 340px;
-    height: 340px;
+    width: 310px;
+    height: 290px;
   }
   .orbit-boundary-track.inner {
-    width: 270px;
-    height: 270px;
+    width: 240px;
+    height: 220px;
   }
   .hero-laptop-center {
-    width: 240px;
-    height: 170px;
+    width: 230px;
+    height: 165px;
   }
   .laptop-chassis {
-    width: 230px;
+    width: 220px;
   }
   .laptop-screen {
-    width: 210px;
-    height: 140px;
+    width: 200px;
+    height: 135px;
   }
   .laptop-base {
-    width: 240px;
+    width: 225px;
     height: 10px;
   }
   .laptop-ide-body {
-    font-size: 0.54rem;
+    font-size: 0.52rem;
     padding: 5px 6px;
     line-height: 1.35;
   }
@@ -1762,17 +1764,17 @@ button, input, textarea, select {
     width: 12px;
   }
   .orbit-satellite-container {
-    --radius: 170px;
+    --radius: 150px;
   }
   .orbit-satellite-item {
-    width: 42px;
-    height: 42px;
-    margin-top: -21px;
-    margin-left: -21px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
   }
   .orbit-icon-badge svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 }
 
