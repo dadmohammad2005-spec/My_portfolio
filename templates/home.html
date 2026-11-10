@@ -16,7 +16,7 @@
       <!-- Left Column: Copy & Actions -->
       <div>
         <!-- Availability Indicator -->
-        <div class="hero-badge">
+        <div class="hero-badge" style="margin-bottom: 0.85rem;">
           <span class="pulse-dot"></span>
           <span>{{ site_settings.hero_badge_text|default:"Available for International Internships & Junior Roles" }}</span>
         </div>
@@ -118,19 +118,48 @@
         <div class="orbit-boundary-track"></div>
         <div class="orbit-boundary-track inner"></div>
 
-        <!-- Central Avatar: FIXED (Stationary Image, Never Rotates) -->
-        <div class="hero-avatar-orbit-center">
-          <div class="avatar-spinning-border"></div>
-          <div class="avatar-image-inner">
-            {% if site_settings.profile_photo %}
-              <img src="{{ site_settings.profile_photo.url }}" alt="{{ site_settings.name }}" class="hero-avatar-circle">
-            {% else %}
-              <div class="hero-avatar-circle-placeholder">
-                <span style="font-size: 2.4rem; font-weight: 800; color: var(--accent-teal);">DM</span>
-                <span style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Software Engineering</span>
+        <!-- Central Tech Workstation Laptop: Clean Code Showcase -->
+        <div class="hero-laptop-center" aria-label="Dad Mohammad - Developer Workstation">
+          <div class="laptop-chassis">
+            <!-- Laptop Screen Display -->
+            <div class="laptop-screen">
+              <!-- Top Bezel & Camera -->
+              <div class="laptop-bezel-top">
+                <span class="laptop-camera"></span>
               </div>
-            {% endif %}
+              <!-- Code Editor Window -->
+              <div class="laptop-ide">
+                <!-- Window Header Tabs -->
+                <div class="laptop-ide-header">
+                  <div class="laptop-ide-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <div class="laptop-ide-tab">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <span>main.py</span>
+                  </div>
+                </div>
+                <!-- Code Editor Lines -->
+                <div class="laptop-ide-body">
+                  <div class="code-line"><span class="line-num">1</span><span class="token-kw">class</span> <span class="token-class">DadMohammad</span>:</div>
+                  <div class="code-line"><span class="line-num">2</span>&nbsp;&nbsp;<span class="token-fn">def</span> <span class="token-fn-name">__init__</span>(self):</div>
+                  <div class="code-line"><span class="line-num">3</span>&nbsp;&nbsp;&nbsp;&nbsp;self.role = <span class="token-str">"Software Engineer"</span></div>
+                  <div class="code-line"><span class="line-num">4</span>&nbsp;&nbsp;&nbsp;&nbsp;self.stack = [<span class="token-str">"Python"</span>, <span class="token-str">"Django"</span>]</div>
+                  <div class="code-line"><span class="line-num">5</span>&nbsp;&nbsp;<span class="token-fn">def</span> <span class="token-fn-name">build_solution</span>(self):</div>
+                  <div class="code-line"><span class="line-num">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="token-kw">return</span> <span class="token-class">ScalableSystem</span>()<span class="code-cursor">|</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- Laptop Keyboard Base / Deck -->
+            <div class="laptop-base">
+              <div class="laptop-notch"></div>
+            </div>
+            <!-- Under-laptop ambient glow -->
+            <div class="laptop-glow"></div>
           </div>
+
           <!-- Floating Status Badge -->
           <div class="hero-orbit-badge">
             <span class="pulse-dot"></span>
