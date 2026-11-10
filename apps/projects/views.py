@@ -28,7 +28,7 @@ class ProjectListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
+        context['categories'] = Category.objects.filter(projects__isnull=False).distinct()
         context['current_category'] = self.request.GET.get('category', 'all')
         context['search_query'] = self.request.GET.get('q', '')
         return context

@@ -34,6 +34,78 @@
   }
 },
 {
+  "model": "sessions.session",
+  "pk": "5zxq1ng0d2xxy0g8u1upfe7ulfmxlzjt",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWkKZRjq0r1nINOZwaKmTSisjHdXEha6_e-9_zIjbWsat6rLOIs5m8acfrdI_NC8A7lTvhXLJa_LHO2u2INWey2iz8vh_h0kqulb00QAyJ2jSSMKMoEis0OKAp1i36qnIAME7L0DDeyi95F0cNgIt-b9ARS8OL4:1xKM67:Aw6KNku7ibY7DUCWJkUdAaCMSqyv4Cmfpicpg-WfCrE",
+    "expire_date": "2026-11-06T20:42:43.838Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8kqcf7eraahec2d1njbqi8q0dv4shlws",
+  "fields": {
+    "session_data": ".eJxVjE0LwjAQRP9LzlKSbJMaj0KP4slz2GQ3tNgvEnsS_7st9KAwp5l57y08rq_Or4Wz70lchBan3y5gfPK0D7gspSIsXZgxU3UMpWpH7Id7fmzvCUe-zcTD9aD-VN3G7h7QwYJRkFyycJY2glOWwUoNUiqH1EBT14QphSYZtycwcozaKMNOfL5lXzus:1xKM8l:-9V6scPptxnySOmWuYm-AL8KioRqweczx_-GyHUTAwQ",
+    "expire_date": "2026-11-06T20:45:27.651Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8zlbyjw01ig0ccywfyzeku2keil2in05",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWkKZRjq0r1nINOZwaKmTSisjHdXEha6_e-9_zIjbWsat6rLOIs5m8acfrdI_NC8A7lTvhXLJa_LHO2u2INWey2iz8vh_h0kqulb00QAyJ2jSSMKMoEis0OKAp1i36qnIAME7L0DDeyi95F0cNgIt-b9ARS8OL4:1xKM1k:t2lDuq6QdV2eIBSUGZ9SZw4jFZs_KnXiR-5clvVuhCI",
+    "expire_date": "2026-11-06T20:38:12.184Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cgealmr8x7uf3gszvjhmp7zribiluzri",
+  "fields": {
+    "session_data": ".eJxVjL0OwiAURt-F2ZBShHIdTRyNk3NzuVxCY_8CdjK-u5h00PU73zkv0eP2TP1WOPdDECehxOF380gPnr8A17XIgCX5BXOQOyjyMuEw3vK9vmec-LoEHs-79ZdK1a2djoAtOu4wKm0aC3QkBmiVI3CKgwYwnSW0zmsVtWu8oxhjMAo0QUvi_QGIqzwA:1xKM8t:PRjiqb5S0V2xv7G1vKn_ykdnfTc1FxHAfNYbve0EUnY",
+    "expire_date": "2026-11-06T20:45:35.750Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pvarzvh8ob11ge285deraznnkxurjrp8",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWkKZRjq0r1nINOZwaKmTSisjHdXEha6_e-9_zIjbWsat6rLOIs5m8acfrdI_NC8A7lTvhXLJa_LHO2u2INWey2iz8vh_h0kqulb00QAyJ2jSSMKMoEis0OKAp1i36qnIAME7L0DDeyi95F0cNgIt-b9ARS8OL4:1xKM23:QTJehrWJzsrnCUbqSIwvYj8iorpx2J2G6DVoSA0ISEM",
+    "expire_date": "2026-11-06T20:38:31.446Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t25ag71x2j8dajv8diy8zkp9tgoy1vfa",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWkKZRjq0r1nINOZwaKmTSisjHdXEha6_e-9_zIjbWsat6rLOIs5m8acfrdI_NC8A7lTvhXLJa_LHO2u2INWey2iz8vh_h0kqulb00QAyJ2jSSMKMoEis0OKAp1i36qnIAME7L0DDeyi95F0cNgIt-b9ARS8OL4:1xKM61:WI0XL3DL0zT8972kJiqxpde7ErSPTmWYiedrvu_ffa8",
+    "expire_date": "2026-11-06T20:42:37.147Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "uu1bymprbcukd2pkr7auj967ebdbird4",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWkKZRjq0r1nINOZwaKmTSisjHdXEha6_e-9_zIjbWsat6rLOIs5m8acfrdI_NC8A7lTvhXLJa_LHO2u2INWey2iz8vh_h0kqulb00QAyJ2jSSMKMoEis0OKAp1i36qnIAME7L0DDeyi95F0cNgIt-b9ARS8OL4:1xKM2E:itBCQ4ZWu3mldMluJDQDfWjMIYsOJPn4qoPysHua4zM",
+    "expire_date": "2026-11-06T20:38:42.448Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "uxh6jfjtm1xqjf2f9owsd0cgjff1tibv",
+  "fields": {
+    "session_data": ".eJxVjL0OwiAURt-F2ZBShHIdTRyNk3NzuVxCY_8CdjK-u5h00PU73zkv0eP2TP1WOPdDECehxOF380gPnr8A17XIgCX5BXOQOyjyMuEw3vK9vmec-LoEHs-79ZdK1a2djoAtOu4wKm0aC3QkBmiVI3CKgwYwnSW0zmsVtWu8oxhjMAo0QUvi_QGIqzwA:1xKM8l:QU89upIf71w61mZo2CV72z9gNSkwvGgmVMzzdHcgz04",
+    "expire_date": "2026-11-06T20:45:27.990Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wayws26bs9hiaf3csykre1orap05a359",
+  "fields": {
+    "session_data": ".eJxVjL0OwiAURt-F2ZBShHIdTRyNk3NzuVxCY_8CdjK-u5h00PU73zkv0eP2TP1WOPdDECehxOF380gPnr8A17XIgCX5BXOQOyjyMuEw3vK9vmec-LoEHs-79ZdK1a2djoAtOu4wKm0aC3QkBmiVI3CKgwYwnSW0zmsVtWu8oxhjMAo0QUvi_QGIqzwA:1xKM8l:QU89upIf71w61mZo2CV72z9gNSkwvGgmVMzzdHcgz04",
+    "expire_date": "2026-11-06T20:45:27.325Z"
+  }
+},
+{
   "model": "core.sitesettings",
   "pk": 1,
   "fields": {
@@ -522,7 +594,7 @@
     "slug": "road-hazard-pothole-detection",
     "category": 10,
     "tagline": "Computer vision and Django platform detecting road damage and potholes with millisecond latency and mapping incidents for municipal planning.",
-    "description": "### Project Architecture & Overview\nArchitected an end-to-end computer vision pipeline using YOLOv8 and OpenCV to detect road damage, surface distress, and potholes with millisecond latency.\n\n### Key Engineering Accomplishments:\n? Designed an end-to-end computer vision pipeline using YOLOv8 and OpenCV to detect road damage, surface distress, and potholes with millisecond latency.\n? Engineered a full-stack dashboard in Django that maps incident coordinates, aggregates severity metrics, and feeds spatial data to an API endpoint for municipal planning.\n? Optimized batch inference throughput on CPU architectures, reducing average frame processing latency by 35%.",
+    "description": "Architected an end-to-end computer vision pipeline using YOLOv8 and OpenCV to detect road damage, surface distress, and potholes with millisecond latency.\n\nKey Engineering Accomplishments:\n• Engineered a full-stack dashboard in Django that maps incident coordinates, aggregates severity metrics, and feeds spatial data to an API endpoint for municipal planning.\n• Optimized batch inference throughput on CPU architectures, reducing average frame processing latency by 35%.",
     "featured_image": "projects/road_hazard_ai.jpg",
     "technologies": "Python, YOLOv8, OpenCV, Django, SQLite, REST Architecture",
     "github_url": "https://github.com/dadmohammad2005-spec",
@@ -542,7 +614,7 @@
     "slug": "enterprise-document-intelligence-rag",
     "category": 10,
     "tagline": "Modular Retrieval-Augmented Generation (RAG) platform with multi-agent orchestration for semantic search and high-volume enterprise document intelligence.",
-    "description": "### Project Architecture & Overview\nDesigned a modular Retrieval-Augmented Generation (RAG) platform to extract semantic context and answer domain-specific inquiries across high-volume academic and enterprise PDFs.\n\n### Key Engineering Accomplishments:\n? Designed a modular Retrieval-Augmented Generation (RAG) platform to extract semantic context and answer domain-specific inquiries across high-volume academic and enterprise PDFs.\n? Integrated foundation models through Amazon Bedrock and orchestrated agent workflows via Azure AI Foundry with guarded validation rules.\n? Implemented asynchronous RESTful endpoints with DRF to enable real-time streaming answers and context citation tokens.",
+    "description": "Designed a modular Retrieval-Augmented Generation (RAG) platform to extract semantic context and answer domain-specific inquiries across high-volume academic and enterprise PDFs.\n\nKey Engineering Accomplishments:\n• Integrated foundation models through Amazon Bedrock and orchestrated agent workflows via Azure AI Foundry with guarded validation rules.\n• Implemented asynchronous RESTful endpoints with DRF to enable real-time streaming answers and context citation tokens.",
     "featured_image": "projects/enterprise_rag_ai.jpg",
     "technologies": "Python, Amazon Bedrock, Azure AI Foundry, Django REST Framework, Vector Embeddings",
     "github_url": "https://github.com/dadmohammad2005-spec",
@@ -562,7 +634,7 @@
     "slug": "scalable-multi-tenant-service-portal",
     "category": 8,
     "tagline": "Enterprise multi-tenant backend architecture featuring normalized relational tables, strict role-based access control (RBAC), and JWT validation.",
-    "description": "### Project Architecture & Overview\nConstructed relational database models with normalized multi-tiered tables, implementing strict role-based access control (RBAC) and JWT token validation.\n\n### Key Engineering Accomplishments:\n? Constructed relational database models with normalized multi-tiered tables, implementing strict role-based access control (RBAC) and JWT token validation.\n? Authored comprehensive API test suites using Postman and automated test scripts to ensure data consistency and 99.8% uptime reliability across user requests.\n? Engineered clean decoupled services adhering to modular software architecture and RESTful distributed systems standards.",
+    "description": "Constructed relational database models with normalized multi-tiered tables, implementing strict role-based access control (RBAC) and JWT token validation.\n\nKey Engineering Accomplishments:\n• Authored comprehensive API test suites using Postman and automated test scripts to ensure data consistency and 99.8% uptime reliability across user requests.\n• Engineered clean decoupled services adhering to modular software architecture and RESTful distributed systems standards.",
     "featured_image": "projects/cloud_api_gateway.jpg",
     "technologies": "Python, Django, Postman, Relational DB Design, RBAC, JWT",
     "github_url": "https://github.com/dadmohammad2005-spec",
@@ -582,7 +654,7 @@
     "slug": "ali-hall-hostel-mess-management",
     "category": 9,
     "tagline": "Production-ready campus hostel & mess platform managing 300 rooms & 600 beds with zero double-booking allocation, RBAC, and Pakistani banking payment workflows.",
-    "description": "Ali Hall Smart Hostel & Mess Management System is an enterprise-grade Django web application custom-tailored for Ali Hall (Boys Hostel) under the Directorate of Student Hostels & Hall Council at The Islamia University of Bahawalpur (IUB).\n\n### Key Architectural Highlights:\n- 300 Rooms & 600 Beds Allocation Engine: Complete physical inventory tracking with automated zero double-booking logic across 3 residential wings:\n  * Quaid Block (Block A, Ground Floor): 100 Rooms, 200 Beds exclusively reserved for students with disabilities and medical needs.\n  * Iqbal Block (Block B, First Floor): 100 Rooms, 200 Beds for regular merit students.\n  * Sir Syed Block (Block C, Second Floor): 100 Rooms, 200 Beds for general allotment.\n- Automated Room & Bed Allocation: Eliminates contention and race conditions when students request room changes or apply for admission.\n- Professional Mess Management System: Daily meal attendance logs, diet calculation, monthly mess bills, and expense auditing.\n- Pakistani Banking & Fee Payment Verification: Supports HBL Konnect, 1-Bill, EasyPaisa, JazzCash, and Baghdad-ul-Jadeed campus bank challan processing.\n- Multi-Role RBAC: Dedicated customized dashboards for SuperAdmin, Hostel Wardens, and Student Residents.\n- Maintenance Ticketing System: Categorized complaint tracking (Electrical, Plumbing, Carpenter, Internet) with priority queues and warden resolution workflows.",
+    "description": "Ali Hall Smart Hostel & Mess Management System is an enterprise-grade Django web application custom-tailored for Ali Hall (Boys Hostel) under the Directorate of Student Hostels & Hall Council at The Islamia University of Bahawalpur (IUB).\n\nKey Architectural Highlights:\n• 300 Rooms & 600 Beds Allocation Engine: Complete physical inventory tracking with automated zero double-booking logic across 3 residential wings (Quaid Block, Iqbal Block, and Sir Syed Block).\n• Automated Room & Bed Allocation: Eliminates contention and race conditions when students request room changes or apply for admission.\n• Professional Mess Management System: Daily meal attendance logs, diet calculation, monthly mess bills, and expense auditing.\n• Pakistani Banking & Fee Payment Verification: Supports HBL Konnect, 1-Bill, EasyPaisa, JazzCash, and Baghdad-ul-Jadeed campus bank challan processing.\n• Multi-Role RBAC: Dedicated customized dashboards for SuperAdmin, Hostel Wardens, and Student Residents.\n• Maintenance Ticketing System: Categorized complaint tracking (Electrical, Plumbing, Carpenter, Internet) with priority queues and warden resolution workflows.",
     "featured_image": "projects/hostel_building.jpg",
     "technologies": "Python, Django, Tailwind CSS, Bootstrap 5, SQLite, PostgreSQL, JavaScript, HTML5",
     "github_url": "https://github.com/dadmohammad2005-spec/Hostal_management_System-",
@@ -602,7 +674,7 @@
     "slug": "car-rental-fleet-management",
     "category": 9,
     "tagline": "Dynamic vehicle reservation and fleet management platform built with Django, featuring dual owner/renter roles, date-driven pricing, and booking lifecycle tracking.",
-    "description": "A comprehensive Car Rental System built with Python and Django that allows users to book rental vehicles seamlessly and enables car owners to list, manage, and monitor their vehicle fleets.\n\n### Key Architectural Highlights:\n- Dual-Role User Architecture: Built-in authentication featuring automatic Profile creation via Django post_save signals to distinguish between Vehicle Owners and Renters.\n- Fleet Inventory & Availability: Car owners can add, update, and manage vehicle specs (make, model, year, daily rate, and availability state).\n- Date-Difference Pricing Engine: Automated reservation calculator that validates pickup and return date windows, checks for overlapping bookings, and computes total cost dynamically.\n- Booking Lifecycle Management: Real-time status progression from 'Confirmed' to 'Active', 'Completed', or 'Cancelled' with user-friendly dashboards.\n- Responsive Web UI: Built with Bootstrap and custom CSS for cross-device compatibility on mobile, tablet, and desktop viewports.",
+    "description": "A comprehensive Car Rental System built with Python and Django that allows users to book rental vehicles seamlessly and enables car owners to list, manage, and monitor their vehicle fleets.\n\nKey Architectural Highlights:\n• Dual-Role User Architecture: Built-in authentication featuring automatic Profile creation via Django post_save signals to distinguish between Vehicle Owners and Renters.\n• Fleet Inventory & Availability: Car owners can add, update, and manage vehicle specs (make, model, year, daily rate, and availability state).\n• Date-Difference Pricing Engine: Automated reservation calculator that validates pickup and return date windows, checks for overlapping bookings, and computes total cost dynamically.\n• Booking Lifecycle Management: Real-time status progression from 'Confirmed' to 'Active', 'Completed', or 'Cancelled' with user-friendly dashboards.\n• Responsive Web UI: Built with Bootstrap and custom CSS for cross-device compatibility on mobile, tablet, and desktop viewports.",
     "featured_image": "projects/car_rental_luxury.jpg",
     "technologies": "Python, Django, SQLite, Bootstrap 5, Django Signals, HTML5, CSS3, JavaScript",
     "github_url": "https://github.com/dadmohammad2005-spec/car-rental-project",
@@ -622,7 +694,7 @@
     "slug": "snake-pro-arcade-game",
     "category": 9,
     "tagline": "High-performance arcade-style retro browser game built with HTML5 Canvas, responsive collision physics, neon cyberpunk aesthetics, and Django integration.",
-    "description": "Snake Pro — Ultimate Edition is an interactive, modern re-imagination of the classic retro arcade snake game built using HTML5 Canvas, modern JavaScript physics, and integrated into a Django web platform.\n\n### Key Architectural Highlights:\n- HTML5 Canvas 2D Game Loop: Smooth 60 FPS animation powered by requestAnimationFrame, rendering fluid snake locomotion and pixel-perfect collision detection.\n- Dynamic Difficulty & Speed Ramping: Progressive speed acceleration as the snake consumes food, challenging players' spatial reflexes and endurance.\n- Cyberpunk UI & Visual Polish: Custom typography with Orbitron, neon glow effects, responsive grid scaling, score multipliers, and audio feedback.\n- Interactive Controls: Multi-input support including WASD, Arrow keys, spacebar pause toggling, and touch-screen accessibility.\n- Django Server Integration: Packaged as a modular Django application with clean view routing and template inheritance.",
+    "description": "Snake Pro — Ultimate Edition is an interactive, modern re-imagination of the classic retro arcade snake game built using HTML5 Canvas, modern JavaScript physics, and integrated into a Django web platform.\n\nKey Architectural Highlights:\n• HTML5 Canvas 2D Game Loop: Smooth 60 FPS animation powered by requestAnimationFrame, rendering fluid snake locomotion and pixel-perfect collision detection.\n• Dynamic Difficulty & Speed Ramping: Progressive speed acceleration as the snake consumes food, challenging players' spatial reflexes and endurance.\n• Cyberpunk UI & Visual Polish: Custom typography with Orbitron, neon glow effects, responsive grid scaling, score multipliers, and audio feedback.\n• Interactive Controls: Multi-input support including WASD, Arrow keys, spacebar pause toggling, and touch-screen accessibility.\n• Django Server Integration: Packaged as a modular Django application with clean view routing and template inheritance.",
     "featured_image": "projects/snake_arcade_neon.jpg",
     "technologies": "Python, Django, JavaScript (ES6+), HTML5 Canvas, CSS3, Web Audio API",
     "github_url": "https://github.com/dadmohammad2005-spec/Snack_game",
@@ -642,7 +714,7 @@
     "slug": "ppt-to-pdf-converter",
     "category": 8,
     "tagline": "Automated document processing tool and Django web service converting PowerPoint presentations (.ppt/.pptx) into high-fidelity PDF documents using Python.",
-    "description": "An automated document transformation tool and web service built with Python and Django to convert Microsoft PowerPoint slideshows (.ppt and .pptx) into standardized, publication-ready PDF files.\n\n### Key Architectural Highlights:\n- Lossless Presentation Conversion: Leverages Python COM automation via pywin32 to interact with PowerPoint's native rendering engine, preserving slide animations, typography, and vector layouts.\n- Batch Document Pipeline: Capable of processing single decks or queued batches of presentations into print-ready 300 DPI PDF files.\n- Django Web Interface: Features an intuitive file upload interface with client-side file extension validation and instant streaming downloads for converted PDFs.\n- Fault-Tolerant File Handling: Cleans up temporary artifacts, manages memory leaks in COM objects, and prevents file system corruption.\n- Developer CLI & Web Integration: Dual mode architecture allowing usage as a standalone CLI utility or as a web service endpoint.",
+    "description": "An automated document transformation tool and web service built with Python and Django to convert Microsoft PowerPoint slideshows (.ppt and .pptx) into standardized, publication-ready PDF files.\n\nKey Architectural Highlights:\n• Lossless Presentation Conversion: Leverages Python COM automation via pywin32 to interact with PowerPoint's native rendering engine, preserving slide animations, typography, and vector layouts.\n• Batch Document Pipeline: Capable of processing single decks or queued batches of presentations into print-ready 300 DPI PDF files.\n• Django Web Interface: Features an intuitive file upload interface with client-side file extension validation and instant streaming downloads for converted PDFs.\n• Fault-Tolerant File Handling: Cleans up temporary artifacts, manages memory leaks in COM objects, and prevents file system corruption.\n• Developer CLI & Web Integration: Dual mode architecture allowing usage as a standalone CLI utility or as a web service endpoint.",
     "featured_image": "projects/pdf_converter_tech.jpg",
     "technologies": "Python, Django, pywin32, COM Automation, File I/O, HTML5, CSS3",
     "github_url": "https://github.com/dadmohammad2005-spec/ppt-converter-pdf",
