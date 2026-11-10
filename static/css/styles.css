@@ -495,9 +495,9 @@ button, input, textarea, select {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: 3.5rem;
+  gap: 2.5rem;
 }
 
 .hero-badge {
@@ -652,7 +652,7 @@ button, input, textarea, select {
 .hero-orbit-stage {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 600px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   display: flex;
@@ -666,38 +666,38 @@ button, input, textarea, select {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 470px;
-  height: 470px;
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
-  border: 1.5px dashed rgba(0, 245, 212, 0.28);
-  box-shadow: 0 0 40px rgba(0, 245, 212, 0.12), inset 0 0 40px rgba(0, 245, 212, 0.05);
+  border: 1.5px dashed rgba(0, 245, 212, 0.32);
+  box-shadow: 0 0 45px rgba(0, 245, 212, 0.16), inset 0 0 45px rgba(0, 245, 212, 0.06);
   pointer-events: none;
   z-index: 1;
 }
 
 .orbit-boundary-track.inner {
-  width: 370px;
-  height: 370px;
-  border: 1px solid rgba(56, 189, 248, 0.18);
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(56, 189, 248, 0.22);
 }
 
 /* Central Avatar Wrapper (Fixed, stable, never rotating) - Large & Commanding */
 .hero-avatar-orbit-center {
   position: relative;
-  width: 270px;
-  height: 270px;
+  width: 330px;
+  height: 330px;
   border-radius: 50%;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
 }
 
 /* Glowing Border Frame */
 .avatar-spinning-border {
   position: absolute;
-  inset: -6px;
+  inset: -7px;
   border-radius: 50%;
   background: linear-gradient(
     135deg,
@@ -707,7 +707,7 @@ button, input, textarea, select {
     var(--accent-teal)
   );
   z-index: 1;
-  filter: drop-shadow(0 0 24px rgba(0, 245, 212, 0.55));
+  filter: drop-shadow(0 0 28px rgba(0, 245, 212, 0.6));
 }
 
 /* The Avatar Image Inner (Fixed, stationary, upright) */
@@ -719,7 +719,7 @@ button, input, textarea, select {
   overflow: hidden;
   z-index: 2;
   background: var(--bg-surface);
-  border: 5px solid var(--bg-body);
+  border: 6px solid var(--bg-body);
   box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
@@ -735,11 +735,6 @@ button, input, textarea, select {
 
 .hero-avatar-orbit-center:hover .hero-avatar-circle {
   transform: scale(1.04);
-}
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 50%;
 }
 
 .hero-avatar-circle-placeholder {
@@ -780,7 +775,7 @@ button, input, textarea, select {
 /* Orbiting Satellites Ring (Rotating Boundary Logos) */
 .orbit-satellite-container {
   --count: 8;
-  --radius: 235px;
+  --radius: 275px;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -795,10 +790,10 @@ button, input, textarea, select {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 52px;
-  height: 52px;
-  margin-top: -26px;
-  margin-left: -26px;
+  width: 58px;
+  height: 58px;
+  margin-top: -29px;
+  margin-left: -29px;
   pointer-events: auto;
   --item-index: var(--index, var(--sibling-index, 1));
   --total-count: var(--count, var(--sibling-count, 8));
@@ -1565,6 +1560,33 @@ button, input, textarea, select {
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem;
+  }
+  .hero-orbit-stage {
+    order: -1; /* Puts the circular image and path at the top, directly in front of "Hi, I'm Dad Mohammad"! */
+    margin: 1.5rem auto 2rem;
+    max-width: 480px;
+  }
+  .orbit-boundary-track {
+    width: 450px;
+    height: 450px;
+  }
+  .orbit-boundary-track.inner {
+    width: 360px;
+    height: 360px;
+  }
+  .hero-avatar-orbit-center {
+    width: 270px;
+    height: 270px;
+  }
+  .orbit-satellite-container {
+    --radius: 225px;
+  }
+  .orbit-satellite-item {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
   }
   .hero-bio {
     margin-left: auto;
@@ -1578,6 +1600,38 @@ button, input, textarea, select {
   }
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-orbit-stage {
+    max-width: 360px;
+    margin: 1rem auto 1.5rem;
+  }
+  .orbit-boundary-track {
+    width: 340px;
+    height: 340px;
+  }
+  .orbit-boundary-track.inner {
+    width: 270px;
+    height: 270px;
+  }
+  .hero-avatar-orbit-center {
+    width: 210px;
+    height: 210px;
+  }
+  .orbit-satellite-container {
+    --radius: 170px;
+  }
+  .orbit-satellite-item {
+    width: 42px;
+    height: 42px;
+    margin-top: -21px;
+    margin-left: -21px;
+  }
+  .orbit-icon-badge svg {
+    width: 22px;
+    height: 22px;
   }
 }
 
